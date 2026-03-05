@@ -105,6 +105,110 @@ A curated collection of research papers, blog posts, tools, and documentation fo
 - **URL:** https://arxiv.org/abs/2210.03629
 - **Why Relevant:** Foundational paper introducing ReAct pattern, enabling LLMs to generate both reasoning traces and task-specific actions in an interleaved manner.
 
+#### Production & Engineering Blogs
+
+**LangChain: "How we built Agent Builder's memory system"**
+- **Publication:** February 21, 2026
+- **URL:** https://blog.langchain.dev/how-we-built-agent-builders-memory-system/
+- **Topics:** Production memory system using virtual filesystem backed by Postgres, mapping to COALA paper's procedural/semantic/episodic memory taxonomy.
+
+**LangChain: "How to Use Memory in Agent Builder"**
+- **Author:** Jacob Talbot
+- **Publication:** February 19, 2026
+- **URL:** https://blog.langchain.dev/how-to-use-memory-in-agent-builder/
+- **Topics:** Short-term (per-thread) and long-term (persistent filesystem) memory, skills as specialized context.
+
+**Weaviate: "Context Engineering - LLM Memory and Retrieval for AI Agents"**
+- **Authors:** Femke Plantinga, Prajjwal Yadav, Victoria Slocum
+- **Publication:** December 9, 2025
+- **URL:** https://weaviate.io/blog/context-engineering
+- **Topics:** Six pillars of context engineering, short-term vs. long-term agent memory architecture, failure modes (context poisoning/distraction/confusion/clash).
+
+**Weaviate: "The Limit in the Loop"**
+- **Authors:** Charles Pierse, Yaru Lin
+- **Publication:** February 4, 2026
+- **URL:** https://weaviate.io/blog/limit-in-the-loop
+- **Topics:** Memory as infrastructure -- write control, deduplication, reconciliation, amendment, and purposeful forgetting for production agent memory.
+
+**Zep: "Zep Is The New State of the Art In Agent Memory"**
+- **Authors:** Preston Rasmussen, Daniel Chalef
+- **Publication:** January 22, 2025
+- **URL:** https://blog.getzep.com/state-of-the-art-agent-memory/
+- **Topics:** Temporal knowledge graph architecture, benchmarking against MemGPT on DMR and LongMemEval, up to 100% accuracy gains.
+
+**Zep: "The Retrieval Tradeoff: What 50 Experiments Taught Us About Context Engineering"**
+- **Author:** Daniel Chalef
+- **Publication:** December 9, 2025
+- **URL:** https://blog.getzep.com/the-retrieval-tradeoff-what-50-experiments-taught-us-about-context-engineering/
+- **Topics:** Recall vs. precision vs. efficiency tradeoff for one-shot agent memory retrieval across 50 experiments on LoCoMo benchmark.
+
+**Zep: "Context Templates: Context Engineering Made Simple"**
+- **Author:** Jack Ryan
+- **Publication:** December 17, 2025
+- **URL:** https://blog.getzep.com/context-templates-context-engineering-made-simple/
+- **Topics:** Declarative context templates for controlling knowledge graph retrieval without writing retrieval code.
+
+**Letta: "Sleep-time Compute"**
+- **Publication:** April 21, 2025
+- **URL:** https://letta.com/blog/sleep-time-compute
+- **Topics:** Agents using idle periods to reorganize memory and reason proactively, creating Pareto improvement in performance.
+
+**Letta: "Agent Memory: How to Build Agents that Learn and Remember"**
+- **Publication:** July 7, 2025
+- **URL:** https://letta.com/blog/agent-memory
+- **Topics:** Building agents with persistent memory that learn across interactions, stateless-to-stateful transition.
+
+**Letta: "Memory Blocks: The Key to Agentic Context Management"**
+- **Publication:** May 14, 2025
+- **URL:** https://letta.com/blog/memory-blocks
+- **Topics:** Structured memory blocks as abstraction for context window management.
+
+**Letta: "RAG is not Agent Memory"**
+- **Publication:** February 13, 2025
+- **URL:** https://letta.com/blog/rag-vs-agent-memory
+- **Topics:** Why traditional RAG is insufficient for agent memory -- differences between document retrieval and true agent memory.
+
+**Letta: "Stateful Agents: The Missing Link in LLM Intelligence"**
+- **Publication:** February 6, 2025
+- **URL:** https://letta.com/blog/stateful-agents
+- **Topics:** Persistent memory and learning during deployment as the missing capability for production LLM intelligence.
+
+**Letta: "Anatomy of a Context Window: A Guide to Context Engineering"**
+- **Publication:** July 3, 2025
+- **URL:** https://letta.com/blog/guide-to-context-engineering
+- **Topics:** Designing and managing context windows for maximum agent effectiveness.
+
+**Letta: "Continual Learning in Token Space"**
+- **Publication:** December 11, 2025
+- **URL:** https://letta.com/blog/continual-learning
+- **Topics:** Agents carrying memories across model generations via learning in token space.
+
+**Letta: "Introducing Context Repositories: Git-based Memory for Coding Agents"**
+- **Publication:** February 12, 2026
+- **URL:** https://letta.com/blog/context-repositories
+- **Topics:** Programmatic context management with git-based versioning for agent memory.
+
+**Letta: "Conversations: Shared Agent Memory across Concurrent Experiences"**
+- **Publication:** January 21, 2026
+- **URL:** https://letta.com/blog/conversations
+- **Topics:** Conversations API for agents maintaining shared memory across parallel user experiences.
+
+**Letta: "Letta Leaderboard: Benchmarking LLMs on Agentic Memory"**
+- **Publication:** May 29, 2025
+- **URL:** https://letta.com/blog/letta-leaderboard
+- **Topics:** Benchmark suite evaluating LLM effectiveness at managing agentic memory tasks.
+
+**Letta: "Benchmarking AI Agent Memory: Is a Filesystem All You Need?"**
+- **Publication:** August 12, 2025
+- **URL:** https://letta.com/blog/benchmarking-ai-agent-memory
+- **Topics:** Filesystem-based memory scoring 74.0% on LoCoMo, beating specialized memory tool libraries.
+
+**LlamaIndex: "Files Are All You Need"**
+- **Author:** Jerry Liu
+- **Publication:** January 15, 2026
+- **URL:** https://www.llamaindex.ai/blog/files-are-all-you-need
+- **Topics:** Agents converging on files/filesystems as primary context management interface.
+
 ---
 
 ### 2. Sandboxes & Isolation
@@ -264,6 +368,136 @@ A curated collection of research papers, blog posts, tools, and documentation fo
 - **URL:** https://aws.amazon.com/blogs/opensource/firecracker-open-source-secure-fast-microvm-serverless/
 - **Description:** Open source announcement, technical architecture, Rust language choice, integration with AWS Lambda and Fargate.
 
+#### Production & Engineering Blogs
+
+**E2B: "Firecracker vs QEMU"**
+- **Publication:** March 2025
+- **URL:** https://www.e2b.dev/blog/firecracker-vs-qemu
+- **Topics:** Comparison of microVM technologies underpinning sandbox isolation for AI code execution.
+
+**E2B: "How I taught an AI to use a computer"**
+- **Publication:** January 2025
+- **URL:** https://www.e2b.dev/blog/how-i-taught-an-ai-to-use-a-computer
+- **Topics:** Giving AI agents full sandboxed computer access (browser, filesystem, terminal).
+
+**E2B: "Code Interpreter Sandbox"**
+- **Publication:** November 2023
+- **URL:** https://www.e2b.dev/blog/e2b-sandbox
+- **Topics:** Sandboxed code interpreter architecture for safe AI-generated code execution.
+
+**E2B: "Up to 5x Faster Sandboxes"**
+- **Publication:** February 2024
+- **URL:** https://www.e2b.dev/blog/up-to-5x-faster-sandboxes
+- **Topics:** Optimizing sandbox boot times using Firecracker microVMs for faster agent code execution.
+
+**E2B: "LLM-powered Code Interpreters"**
+- **Publication:** February 2024
+- **URL:** https://www.e2b.dev/blog/llm-powered-code-interpreters
+- **Topics:** Survey of LLM code interpreter architectures and why sandboxed execution is critical.
+
+**E2B: "Limitations of Running AI Agents Locally"**
+- **Publication:** February 2024
+- **URL:** https://www.e2b.dev/blog/limitations-of-running-ai-agents-locally
+- **Topics:** Why local execution is insufficient and cloud sandboxes provide better isolation.
+
+**Fly.io: "Fly Machines: an API for fast-booting VMs"**
+- **Author:** Kurt Mackey
+- **Publication:** May 2022
+- **URL:** https://fly.io/blog/fly-machines/
+- **Topics:** Firecracker-based microVM API with 300ms boot times, scale-to-zero, per-tenant isolation.
+
+**Fly.io: "The Design & Implementation of Sprites"**
+- **Author:** Thomas Ptacek
+- **Publication:** 2026
+- **URL:** https://fly.io/blog/design-and-implementation/
+- **Topics:** Architecture of Fly's Sprites system for running isolated execution environments.
+
+**Fly.io: "Code And Let Live"**
+- **Author:** Kurt Mackey
+- **Publication:** 2026
+- **URL:** https://fly.io/blog/code-and-let-live/
+- **Topics:** Isolated code environments for the agent era, trust and isolation in computing.
+
+**Fly.io: "Phoenix.new -- The Remote AI Runtime"**
+- **Author:** Chris McCord
+- **Publication:** 2025
+- **URL:** https://fly.io/blog/phoenix-new-the-remote-ai-runtime/
+- **Topics:** Remote AI runtime for coding agents on Fly Machines with sandboxed execution.
+
+**Fly.io: "Our Best Customers Are Now Robots"**
+- **Author:** Kurt Mackey
+- **Publication:** 2025
+- **URL:** https://fly.io/blog/fuckin-robots/
+- **Topics:** AI agents as primary users driving demand for programmatically-created isolated environments.
+
+**Fly.io: "The Serverless Server"**
+- **Author:** Will Jordan
+- **Publication:** 2022
+- **URL:** https://fly.io/blog/the-serverless-server/
+- **Topics:** Firecracker-based VM architecture providing stronger isolation than containers.
+
+**Daytona: "Sandbox Firewall"**
+- **Author:** Ivan Burazin
+- **Publication:** August 2025
+- **URL:** https://www.daytona.io/dotfiles/sandbox-firewall
+- **Topics:** Fine-grained network firewall for AI sandboxes with zero-trust code execution.
+
+**Daytona: "Securing AI Code: Building Safe Sandboxes with Daytona SDK"**
+- **Author:** Nikola Balic
+- **Publication:** February 2025
+- **URL:** https://www.daytona.io/dotfiles/securing-ai-code-building-safe-sandboxes-with-daytona-sdk
+- **Topics:** Building isolated sandboxes for AI-generated code with resource and security controls.
+
+**Daytona: "Sandboxing AI Development with Agent-Agnostic Infrastructure"**
+- **Author:** Nikola Balic
+- **Publication:** October 2024
+- **URL:** https://www.daytona.io/dotfiles/sandboxing-ai-development-with-agent-agnostic-infrastructure
+- **Topics:** Agent-agnostic sandbox middleware for running AI coding agents in parallel isolated environments.
+
+**Daytona: "Harnessing AI through Standardization and Isolation"**
+- **Author:** Nikola Balic
+- **Publication:** November 2023
+- **URL:** https://www.daytona.io/dotfiles/harnessing-ai-through-standardization-and-isolation
+- **Topics:** Standardized dev environments as AI sandboxes combining isolation with reproducibility.
+
+**Daytona: "Daytona Raises $24M Series A to Give Every Agent a Computer"**
+- **Author:** Ivan Burazin
+- **Publication:** February 2026
+- **URL:** https://www.daytona.io/dotfiles/daytona-raises-24m-series-a-to-give-every-agent-a-computer
+- **Topics:** Providing isolated "computers" (sandboxes) for millions of AI agents as compute infrastructure.
+
+**Cloudflare: "Mitigating Spectre and Other Security Threats: The Cloudflare Workers Security Model"**
+- **Author:** Kenton Varda
+- **Publication:** July 2020
+- **URL:** https://blog.cloudflare.com/mitigating-spectre-and-other-security-threats-the-cloudflare-workers-security-model
+- **Topics:** Workers' multi-layer isolation: V8 isolates, process sandboxing, capability-based API design, Spectre mitigations.
+
+**Cloudflare: "Introducing Moltworker: a self-hosted personal AI agent"**
+- **Authors:** Celso Martinho, Brian Brunner, Sid Chatterjee, Andreas Jansson
+- **Publication:** January 2026
+- **URL:** https://blog.cloudflare.com/moltworker-self-hosted-ai-agent/
+- **Topics:** Self-hosted AI agent running on Cloudflare's Sandbox SDK with container isolation.
+
+**Cloudflare: "Containers are available in public beta"**
+- **Publication:** June 2025
+- **URL:** https://blog.cloudflare.com/containers-are-available-in-public-beta-for-simple-global-and-programmable/
+- **Topics:** Programmable, isolated container workloads alongside Workers for AI compute.
+
+**Meta Engineering: "Building Private Processing for AI tools on WhatsApp"**
+- **Publication:** April 2025
+- **URL:** https://engineering.fb.com/2025/04/29/security/whatsapp-private-processing-ai-tools/
+- **Topics:** Secure isolated execution environment for processing AI tool calls with privacy guarantees.
+
+**Meta Engineering: "Scaling Privacy Infrastructure for GenAI Product Innovation"**
+- **Publication:** October 2025
+- **URL:** https://engineering.fb.com/2025/10/23/security/scaling-privacy-infrastructure-for-genai-product-innovation/
+- **Topics:** Privacy isolation infrastructure for GenAI products at Meta scale.
+
+**Cursor: "Implementing a secure sandbox for local agents"**
+- **Publication:** February 18, 2026
+- **URL:** https://www.cursor.com/blog/agent-sandboxing
+- **Topics:** Building agent sandboxing on macOS, Linux, and Windows for secure autonomous execution.
+
 ---
 
 ### 3. MCP (Model Context Protocol)
@@ -334,6 +568,85 @@ A curated collection of research papers, blog posts, tools, and documentation fo
 **Anthropic MCP Documentation**
 - **URL:** https://docs.anthropic.com/en/docs/build-with-claude/mcp
 - **Description:** Official Anthropic documentation for integrating MCP with Claude applications.
+
+#### Production & Engineering Blogs
+
+**Anthropic: "Introducing the Model Context Protocol"**
+- **Publication:** November 25, 2024
+- **URL:** https://www.anthropic.com/news/model-context-protocol
+- **Topics:** Original MCP announcement -- open standard for connecting AI assistants to data sources.
+
+**Anthropic: "Code execution with MCP: Building more efficient agents"**
+- **Authors:** Adam Jones, Conor Kelly
+- **Publication:** November 4, 2025
+- **URL:** https://www.anthropic.com/engineering/code-execution-with-mcp
+- **Topics:** Agents writing code against MCP servers as APIs instead of direct tool calls -- 98.7% token reduction.
+
+**Anthropic: "Desktop Extensions: One-click MCP server installation"**
+- **Publication:** June 26, 2025
+- **URL:** https://www.anthropic.com/engineering/desktop-extensions
+- **Topics:** .mcpb packaging format for one-click MCP server installation, solving manual config friction.
+
+**Cloudflare: "Build and deploy Remote MCP servers to Cloudflare"**
+- **Authors:** Brendan Irvine-Broque, Dina Kozlov, Glen Maddern
+- **Publication:** March 25, 2025
+- **URL:** https://blog.cloudflare.com/remote-model-context-protocol-servers-mcp
+- **Topics:** Remote MCP servers with OAuth 2.1 auth, McpAgent class on Durable Objects, mcp-remote adapter.
+
+**Cloudflare: "Securing the AI Revolution: Introducing Cloudflare MCP Server Portals"**
+- **Author:** Kenny Johnson
+- **Publication:** August 26, 2025
+- **URL:** https://blog.cloudflare.com/zero-trust-mcp-server-portals/
+- **Topics:** Enterprise MCP security -- centralized gateway with Zero Trust policy enforcement and audit logging.
+
+**Cloudflare: "Code Mode: give agents an entire API in 1,000 tokens"**
+- **Author:** Matt Carey
+- **Publication:** February 20, 2026
+- **URL:** https://blog.cloudflare.com/code-mode-mcp/
+- **Topics:** MCP server for entire Cloudflare API (2,500+ endpoints) collapsed into 2 tools -- 99.9% token reduction.
+
+**Vercel: "The second wave of MCP: Building for LLMs, not developers"**
+- **Publication:** September 9, 2025
+- **URL:** https://vercel.com/blog/the-second-wave-of-mcp-building-for-llms-not-developers
+- **Topics:** MCP evolving from developer-focused tools to LLM-native integrations.
+
+**Vercel: "Building efficient MCP servers"**
+- **Publication:** June 12, 2025
+- **URL:** https://vercel.com/blog/building-efficient-mcp-servers
+- **Topics:** Engineering guide with implementations from Zapier, Composio, and Solana teams.
+
+**Vercel: "Addressing security and quality issues with MCP tools in AI Agents"**
+- **Publication:** September 17, 2025
+- **URL:** https://vercel.com/blog/generate-static-ai-sdk-tools-from-mcp-servers-with-mcp-to-ai-sdk
+- **Topics:** mcp-to-ai-sdk for generating static MCP tools, addressing dynamic MCP security risks.
+
+**Vercel: "How Vapi built their MCP server on Vercel"**
+- **Publication:** May 21, 2025
+- **URL:** https://vercel.com/blog/vapi-mcp-server-on-vercel
+- **Topics:** Production case study of Vapi deploying MCP server on Vercel with Fluid Compute.
+
+**LangChain: "MCP: Flash in the Pan or Future Standard?"**
+- **Authors:** Harrison Chase, Nuno Campos
+- **Publication:** March 8, 2025
+- **URL:** https://blog.langchain.dev/mcp-fad-or-fixture/
+- **Topics:** Debate on MCP's value -- useful for tools in agents you don't control, limited by tool selection reliability.
+
+**LlamaIndex: "Skills vs MCP tools for agents: when to use what"**
+- **Authors:** Clelia Astra Bertelli, Tuana Celik
+- **Publication:** February 3, 2026
+- **URL:** https://www.llamaindex.ai/blog/skills-vs-mcp-tools-for-agents-when-to-use-what
+- **Topics:** MCP tools (deterministic API calls) vs Skills (natural language instructions) comparison.
+
+**LlamaIndex: "Adding Native MCP to LlamaIndex Docs"**
+- **Publication:** October 31, 2025
+- **URL:** https://www.llamaindex.ai/blog/adding-native-mcp-to-llamaindex-docs
+- **Topics:** Native MCP search implementation for LlamaIndex documentation.
+
+**Simon Willison: "Introducing the Model Context Protocol"**
+- **Author:** Simon Willison
+- **Publication:** November 25, 2024
+- **URL:** https://simonwillison.net/2024/Nov/25/model-context-protocol/
+- **Topics:** Early independent analysis of MCP spec, Claude Desktop integration, and sqlite MCP server.
 
 #### Metadata
 
@@ -414,6 +727,150 @@ A curated collection of research papers, blog posts, tools, and documentation fo
 - **LLM Connections:** https://docs.crewai.com/how-to/LLM-Connections/
 - **Learning Platform:** https://learn.crewai.com - 100,000+ certified developers
 
+#### Production & Engineering Blogs
+
+**Anthropic: "Building effective agents"**
+- **Authors:** Erik Schluntz, Barry Zhang
+- **Publication:** December 19, 2024
+- **URL:** https://www.anthropic.com/engineering/building-effective-agents
+- **Topics:** Definitive guide to agent architecture patterns (prompt chaining, routing, parallelization, orchestrator-workers, evaluator-optimizer).
+
+**Anthropic: "Effective harnesses for long-running agents"**
+- **Publication:** November 26, 2025
+- **URL:** https://www.anthropic.com/engineering/effective-harnesses-for-long-running-agents
+- **Topics:** Production patterns for building reliable harnesses around long-running agents.
+
+**Anthropic: "Effective context engineering for AI agents"**
+- **Publication:** September 29, 2025
+- **URL:** https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents
+- **Topics:** Techniques for managing and engineering context in agentic systems.
+
+**Anthropic: "Claude Code: Best practices for agentic coding"**
+- **Publication:** April 18, 2025
+- **URL:** https://www.anthropic.com/engineering/claude-code-best-practices
+- **Topics:** Production best practices for agentic coding including task decomposition and verification loops.
+
+**Anthropic: "Beyond permission prompts: making Claude Code more secure and autonomous"**
+- **Publication:** October 20, 2025
+- **URL:** https://www.anthropic.com/engineering/claude-code-sandboxing
+- **Topics:** Security architecture for autonomous coding agents, sandboxing for safe long-running execution.
+
+**LangChain: "Agent Engineering: A New Discipline"**
+- **Author:** Harrison Chase
+- **Publication:** December 2025
+- **URL:** https://blog.langchain.dev/agent-engineering-a-new-discipline/
+- **Topics:** Agent engineering as emerging discipline requiring new skills around orchestration, evaluation, and observability.
+
+**LangChain: "On Agent Frameworks and Agent Observability"**
+- **Author:** Harrison Chase
+- **Publication:** February 2026
+- **URL:** https://blog.langchain.dev/on-agent-frameworks-and-agent-observability/
+- **Topics:** Why orchestration and observability remain critical even as LLMs improve.
+
+**LangChain: "You don't know what your agent will do until it's in production"**
+- **Publication:** February 2026
+- **URL:** https://blog.langchain.dev/you-dont-know-what-your-agent-will-do-until-its-in-production/
+- **Topics:** Production monitoring challenges -- non-deterministic behavior, infinite inputs, building evaluation from traces.
+
+**LangChain: "Improving Deep Agents with harness engineering"**
+- **Publication:** February 2026
+- **URL:** https://blog.langchain.dev/improving-deep-agents-with-harness-engineering/
+- **Topics:** How harness engineering moved a coding agent from Top 30 to Top 5 on Terminal Bench.
+
+**LangChain: "The two patterns by which agents connect sandboxes"**
+- **Publication:** February 2026
+- **URL:** https://blog.langchain.dev/the-two-patterns-by-which-agents-connect-sandboxes/
+- **Topics:** Architectural patterns for connecting agents to sandboxed execution environments.
+
+**LangChain: "LangChain and LangGraph Agent Frameworks Reach v1.0 Milestones"**
+- **Publication:** October 2025
+- **URL:** https://blog.langchain.dev/langchain-langgraph-1dot0/
+- **Topics:** LangGraph v1.0 as graph-based orchestration framework for production stateful agent workflows.
+
+**LlamaIndex: "LlamaAgents Builder: Idea To Deployed Agent in Minutes"**
+- **Publication:** January 28, 2026
+- **URL:** https://www.llamaindex.ai/blog/llamaagents-builder-idea-to-deployed-agent-in-minutes
+- **Topics:** Agent builder generating workflows from natural language for document processing.
+
+**LlamaIndex: "Long Horizon Document Agents"**
+- **Publication:** February 12, 2026
+- **URL:** https://www.llamaindex.ai/blog/long-horizon-document-agents
+- **Topics:** Long-running autonomous agents with event triggers and persistent task backlogs.
+
+**Cursor: "The third era of AI software development"**
+- **Publication:** February 26, 2026
+- **URL:** https://www.cursor.com/blog/third-era
+- **Topics:** Autonomous cloud agents taking on larger tasks over longer timescales.
+
+**Cursor: "Cursor agents can now control their own computers"**
+- **Publication:** February 24, 2026
+- **URL:** https://www.cursor.com/blog/agent-computer-use
+- **Topics:** Cloud agents using browser-based computer use to verify code changes autonomously.
+
+**Cursor: "Build agents that run automatically"**
+- **Publication:** March 5, 2026
+- **URL:** https://www.cursor.com/blog/automations
+- **Topics:** Event-driven agent automations with triggers for continuous autonomous operation.
+
+**Cognition: "An Early Preview of SWE-1.6 and Research Update"**
+- **Authors:** Carlo Baronio, Ben Pan, Sam Lee, et al.
+- **Publication:** March 1, 2026
+- **URL:** https://www.cognition.ai/blog/swe-1-6-preview
+- **Topics:** Latest agent model optimized for software engineering with improved planning and execution.
+
+**Cognition: "Rebuilding Devin for Claude Sonnet 4.5: Lessons and Challenges"**
+- **Publication:** September 29, 2025
+- **URL:** https://www.cognition.ai/blog/devin-sonnet-4-5-lessons-and-challenges
+- **Topics:** Engineering lessons from rebuilding the Devin agent architecture for a new foundation model.
+
+**Cognition: "Devin's 2025 Performance Review"**
+- **Publication:** November 14, 2025
+- **URL:** https://www.cognition.ai/blog/devin-annual-performance-review-2025
+- **Topics:** 18-month retrospective on Devin's production patterns, failure modes, and lessons.
+
+**Cognition: "Closing the Agent Loop: Devin Autofixes Review Comments"**
+- **Publication:** February 10, 2026
+- **URL:** https://www.cognition.ai/blog/closing-the-agent-loop-devin-autofixes-review-comments
+- **Topics:** Autonomous feedback loop where Devin automatically fixes review comments on its PRs.
+
+**Replit: "Introducing Agent 3: Our Most Autonomous Agent Yet"**
+- **Publication:** September 10, 2025
+- **URL:** https://blog.replit.com/introducing-agent-3-our-most-autonomous-agent-yet
+- **Topics:** 10x more autonomous agent with browser-based self-testing and auto-fix capabilities.
+
+**LinkedIn: "Contextual agent playbooks and tools"**
+- **Author:** Ajay Prakash
+- **Publication:** January 27, 2026
+- **URL:** https://www.linkedin.com/blog/engineering/ai/contextual-agent-playbooks-and-tools-how-linkedin-gave-ai-coding-agents-organizational-context
+- **Topics:** How LinkedIn provides AI coding agents with organization-specific context at enterprise scale.
+
+**Stripe: "Can AI agents build real Stripe integrations?"**
+- **Authors:** Carol Liang, Kevin Ho
+- **Publication:** March 2, 2026
+- **URL:** https://stripe.com/blog/can-ai-agents-build-real-stripe-integrations
+- **Topics:** Benchmark for AI agents building real Stripe integrations end-to-end.
+
+**Sourcegraph: "A New Era for Sourcegraph: The Intelligence Layer for AI Coding Agents"**
+- **Author:** Graham McBain
+- **Publication:** February 25, 2026
+- **URL:** https://sourcegraph.com/blog/a-new-era-for-sourcegraph-the-intelligence-layer-for-ai-coding-agents-and-developers
+- **Topics:** Code intelligence layer that agents rely on for codebase understanding.
+
+**Microsoft Research: "CORPGEN advances AI agents for real work"**
+- **Publication:** February 26, 2026
+- **URL:** https://www.microsoft.com/en-us/research/blog/corpgen-advances-ai-agents-for-real-work/
+- **Topics:** "Digital employees" with GUI automation, hierarchical planning, and memory isolation.
+
+**Microsoft Research: "Agent Lightning: Adding RL to AI agents without code rewrites"**
+- **Publication:** December 11, 2025
+- **URL:** https://www.microsoft.com/en-us/research/blog/agent-lightning-adding-reinforcement-learning-to-ai-agents-without-code-rewrites/
+- **Topics:** Decoupling agent behavior from training, turning each step into RL data.
+
+**OpenAI: "Practices for Governing Agentic AI Systems"**
+- **Publication:** December 14, 2023
+- **URL:** https://openai.com/index/practices-for-governing-agentic-ai-systems/
+- **Topics:** Defining agentic AI systems and governance practices for safe autonomous operation.
+
 ---
 
 ### 5. Programmatic Tool Calling
@@ -465,6 +922,23 @@ A curated collection of research papers, blog posts, tools, and documentation fo
 - Batch independent tool calls when possible
 - Use async/await patterns for concurrent tool execution
 
+#### Production & Engineering Blogs
+
+**Anthropic: "Writing effective tools for agents -- with agents"**
+- **Publication:** September 11, 2025
+- **URL:** https://www.anthropic.com/engineering/writing-tools-for-agents
+- **Topics:** Best practices for designing agent-computer interfaces (ACI) and tool definitions.
+
+**Anthropic: "Introducing advanced tool use on the Claude Developer Platform"**
+- **Publication:** November 24, 2025
+- **URL:** https://www.anthropic.com/engineering/advanced-tool-use
+- **Topics:** Advanced patterns for tool use in production agent systems.
+
+**Anthropic: "The 'think' tool: Enabling Claude to stop and think"**
+- **Publication:** March 20, 2025
+- **URL:** https://www.anthropic.com/engineering/claude-think-tool
+- **Topics:** Extended thinking tool for complex multi-tool orchestration scenarios.
+
 ---
 
 ### 6. Multi-Agent Systems
@@ -509,6 +983,25 @@ A curated collection of research papers, blog posts, tools, and documentation fo
 - Implement mechanisms to resolve agent conflicts
 - Use consensus algorithms for decision making
 - Handle competing agent requests gracefully
+
+#### Production & Engineering Blogs
+
+**Anthropic: "How we built our multi-agent research system"**
+- **Authors:** Jeremy Hadfield, Barry Zhang, Kenneth Lien, Florian Scholz, Jeremy Fox, Daniel Ford
+- **Publication:** June 13, 2025
+- **URL:** https://www.anthropic.com/engineering/multi-agent-research-system
+- **Topics:** Production multi-agent orchestrator-worker system for Research, including prompt engineering for delegation and reliability challenges.
+
+**Anthropic: "Building a C compiler with a team of parallel Claudes"**
+- **Publication:** February 5, 2026
+- **URL:** https://www.anthropic.com/engineering/building-c-compiler
+- **Topics:** Parallel Claude agents building a C compiler, demonstrating multi-agent task decomposition and coordination.
+
+**Google Research: "Towards a science of scaling agent systems"**
+- **Authors:** Yubin Kim, Xin Liu
+- **Publication:** January 28, 2026
+- **URL:** https://research.google/blog/towards-a-science-of-scaling-agent-systems-when-and-why-agent-systems-work/
+- **Topics:** First quantitative scaling principles for multi-agent systems from 180 configurations -- multi-agent helps +81% on parallelizable tasks but degrades -70% on sequential ones.
 
 ---
 
@@ -573,6 +1066,29 @@ A curated collection of research papers, blog posts, tools, and documentation fo
 - Use tree-of-thoughts for exploring multiple paths
 - Implement backtracking and revision strategies
 
+#### Production & Engineering Blogs
+
+**Replit: "Decision-Time Guidance: Keeping Replit Agent Reliable"**
+- **Publication:** January 20, 2026
+- **URL:** https://blog.replit.com/decision-time-guidance
+- **Topics:** Guiding agents during execution using environment-based feedback, improving reliability on long trajectories.
+
+**Cognition: "Introducing SWE-grep and SWE-grep-mini: RL for Multi-Turn, Fast Context Retrieval"**
+- **Authors:** Ben Pan, Carlo Baronio, et al.
+- **Publication:** October 16, 2025
+- **URL:** https://www.cognition.ai/blog/swe-grep
+- **Topics:** RL-trained agentic models for parallel multi-turn context retrieval, matching frontier models at 10x less time.
+
+**Google Research: "Teaching LLMs to reason like Bayesians"**
+- **Publication:** March 4, 2026
+- **URL:** https://research.google/blog/teaching-llms-to-reason-like-bayesians/
+- **Topics:** Training LLMs to perform Bayesian reasoning for improved agent decision-making.
+
+**Microsoft Research: "Multimodal RL with agentic verifier for AI agents"**
+- **Publication:** January 20, 2026
+- **URL:** https://www.microsoft.com/en-us/research/blog/multimodal-reinforcement-learning-with-agentic-verifier-for-ai-agents/
+- **Topics:** Argos framework evaluating whether agent reasoning aligns with observations over time.
+
 ---
 
 ## Web & Browser
@@ -586,6 +1102,94 @@ _See the [Tools & Repositories](#tools--repositories-1) table for all WebMCP Git
 ### 9. Browser Automation Stacks
 
 _See the [Tools & Repositories](#tools--repositories-1) table for all browser automation tools and repositories._
+
+#### Production & Engineering Blogs
+
+**Browserbase: "Building the future of web automation"**
+- **Author:** Paul Klein
+- **Publication:** June 18, 2025
+- **URL:** https://www.browserbase.com/blog/series-b-and-beyond
+- **Topics:** Browser infrastructure as an AI primitive, Director.ai and Stagehand Python launch.
+
+**Browserbase: "We built caching into Stagehand. Here's how it works"**
+- **Author:** Sameel Arif
+- **Publication:** February 24, 2026
+- **URL:** https://www.browserbase.com/blog/stagehand-caching
+- **Topics:** Caching resolved selectors to skip LLM calls on repeated browser actions, ~80% speedup.
+
+**Browserbase: "Your AI browser is one malicious div away from going rogue"**
+- **Author:** Jane Manchun Wong
+- **Publication:** February 13, 2026
+- **URL:** https://www.browserbase.com/blog/ai-browser-prompt-injection-containment-security
+- **Topics:** Prompt injection attacks on AI browser agents and containment via isolated VM sessions.
+
+**Browserbase: "How we built Browserbase Functions"**
+- **Authors:** Adam McQuilkin, Viv Nepenthe
+- **Publication:** February 10, 2026
+- **URL:** https://www.browserbase.com/blog/building-browserbase-functions
+- **Topics:** Co-locating browser automation code with the browser via serverless functions to eliminate latency.
+
+**Browserbase: "The best browser automation framework, in every language"**
+- **Author:** Nick Sweeting
+- **Publication:** January 13, 2026
+- **URL:** https://www.browserbase.com/blog/browser-automation-all-languages-with-stagehand
+- **Topics:** Stagehand v3 multi-language SDK (Python, Go, Rust, Java, Ruby) with parallel multi-browser support.
+
+**Browserbase: "How Amplitude Transformed Sales Demos with AI-Powered Browser Automation"**
+- **Author:** Erika Bricky
+- **Publication:** February 23, 2026
+- **URL:** https://www.browserbase.com/blog/how-amplitude-transformed-sales-demos-with-browser-automation
+- **Topics:** Case study of Amplitude using Browserbase for AI-driven browser automation in sales demos.
+
+**Steel: "Introducing Steel CLI v0.2.0: Browser Automation Built for Agents"**
+- **Publication:** 2026
+- **URL:** https://steel.dev/blog/steel-cli-and-agent-skill
+- **Topics:** CLI and agent skill for running browser workflows returning markdown, screenshots, or PDFs.
+
+**Steel: "Reducing False Positives for Production Agents"**
+- **Publication:** 2025
+- **URL:** https://steel.dev/blog/production-agents
+- **Topics:** Distinguishing legitimate AI agent traffic from malicious bots in production.
+
+**Steel: "How Websites Decide You're Human"**
+- **Publication:** 2025
+- **URL:** https://steel.dev/blog/anti-bot-defense
+- **Topics:** Anti-bot detection layers (network, device, behavioral, challenge) that AI browser agents must navigate.
+
+**Steel: "Profiles: Your Agent's Persistent Identity"**
+- **Publication:** 2025
+- **URL:** https://steel.dev/blog/profiles
+- **Topics:** Persistent browser profiles (auth, cookies, cache) across sessions for authenticated agent access.
+
+**Steel: "Agent Logs: Action Traces for Agent Actions"**
+- **Publication:** 2025
+- **URL:** https://steel.dev/blog/agent-logs
+- **Topics:** Observability for tracing and debugging AI agent actions inside cloud browser sessions.
+
+**TinyFish: "OpenAI Operator scores 43% on hard web tasks. We scored 81%."**
+- **Publication:** February 12, 2026
+- **URL:** https://www.tinyfish.io/blog/mind2web
+- **Topics:** Head-to-head benchmark of TinyFish Mino vs. OpenAI Operator on Mind2Web hard web tasks.
+
+**TinyFish: "Codified Learning: The Backbone of Reliable, Scalable Enterprise Web Agents"**
+- **Publication:** September 9, 2025
+- **URL:** https://www.tinyfish.io/blog/codified-learning-the-backbone-of-reliable-scalable-enterprise-web-agents
+- **Topics:** Converting successful agent runs into deterministic, reusable scripts for enterprise web agents.
+
+**TinyFish: "Proving I'm Human (When I'm Not)"**
+- **Publication:** November 8, 2025
+- **URL:** https://www.tinyfish.io/blog/proving-i-m-human-when-i-m-not
+- **Topics:** How Mino enterprise web agent navigates thousands of anti-bot tests.
+
+**Microsoft Research: "Magentic-UI, an experimental human-centered web agent"**
+- **Publication:** May 19, 2025
+- **URL:** https://www.microsoft.com/en-us/research/blog/magentic-ui-an-experimental-human-centered-web-agent/
+- **Topics:** Human-centered web agent planning and executing browser actions with user oversight.
+
+**Microsoft Research: "Magma: A foundation model for multimodal AI agents"**
+- **Publication:** February 25, 2025
+- **URL:** https://www.microsoft.com/en-us/research/blog/magma-a-foundation-model-for-multimodal-ai-agents-across-digital-and-physical-worlds/
+- **Topics:** Foundation model for agents operating in both digital (browser/GUI) and physical environments.
 
 ---
 
@@ -634,6 +1238,23 @@ _See the [Tools & Repositories](#tools--repositories-1) table for all browser au
 - Use checkpointing for fault tolerance
 - Implement state synchronization across agents
 
+#### Production & Engineering Blogs
+
+**LangChain: "How we built Agent Builder's memory system"**
+- **Publication:** February 21, 2026
+- **URL:** https://blog.langchain.dev/how-we-built-agent-builders-memory-system/
+- **Topics:** Virtual filesystem backed by Postgres for agent state, mapping to COALA paper's memory taxonomy.
+
+**Letta: "Conversations: Shared Agent Memory across Concurrent Experiences"**
+- **Publication:** January 21, 2026
+- **URL:** https://letta.com/blog/conversations
+- **Topics:** Conversations API for managing shared state across parallel agent experiences.
+
+**Letta: "Introducing Context Repositories: Git-based Memory for Coding Agents"**
+- **Publication:** February 12, 2026
+- **URL:** https://letta.com/blog/context-repositories
+- **Topics:** Git-based versioning for agent state management.
+
 ---
 
 ### 11. Observability & Debugging
@@ -671,6 +1292,70 @@ _See the [Tools & Repositories](#tools--repositories-1) table for all browser au
 - Use sampling for high-volume systems
 - Implement intelligent sampling strategies
 - Use span filtering for relevant traces
+
+#### Production & Engineering Blogs
+
+**Braintrust: "The Three Pillars of AI Observability"**
+- **Author:** Ankur Goyal
+- **Publication:** November 18, 2025
+- **URL:** https://www.braintrust.dev/blog/three-pillars-ai-observability
+- **Topics:** Redefining observability for AI as traces, evals, and annotation.
+
+**Braintrust: "Building Observable AI Agents with Temporal"**
+- **Publication:** January 20, 2026
+- **URL:** https://www.braintrust.dev/blog/temporal-braintrust-integration
+- **Topics:** Combining Temporal's durable workflow engine with Braintrust tracing for fault-tolerant agents.
+
+**LangChain: "Agent Observability Powers Agent Evaluation"**
+- **Publication:** February 2026
+- **URL:** https://blog.langchain.dev/agent-observability-powers-agent-evaluation/
+- **Topics:** Connecting observability traces to systematic evaluation workflows.
+
+**Langfuse: "Trace Complex LLM Applications with the Langfuse Decorator"**
+- **Authors:** Marc Klingen, Hassie Pakzad
+- **Publication:** April 24, 2024
+- **URL:** https://langfuse.com/blog/2024-04-python-decorator
+- **Topics:** `@observe()` decorator for tracing agent workflows -- design decisions, async safety, interoperability.
+
+**Honeycomb: "How Honeycomb Supercharges OpenTelemetry for AI"**
+- **Author:** Fahim Zaman
+- **Publication:** February 6, 2026
+- **URL:** https://www.honeycomb.io/blog/how-honeycomb-supercharges-opentelemetry-for-ai
+- **Topics:** Software instrumentation changes for AI-generated code and agent features.
+
+**Honeycomb: "AI in Production Is Growing Faster Than We Can Trust It"**
+- **Author:** Fahim Zaman
+- **Publication:** January 23, 2026
+- **URL:** https://www.honeycomb.io/blog/ai-in-production-is-growing-faster-than-we-can-trust-it
+- **Topics:** Dedicated AI observability for production trust-building.
+
+**Honeycomb: "Observability in a World of AI-Generated Code"**
+- **Author:** Charity Majors
+- **Publication:** February 11, 2026
+- **URL:** https://www.honeycomb.io/blog/honeycomb-10-year-manifesto-part-1
+- **Topics:** How observability must evolve for AI-generated code from first principles.
+
+**Honeycomb: "Measuring Claude Code ROI and Adoption in Honeycomb"**
+- **Author:** Mae Capozzi
+- **Publication:** January 22, 2026
+- **URL:** https://www.honeycomb.io/blog/measuring-claude-code-roi-adoption-honeycomb
+- **Topics:** Using OpenTelemetry to send Claude Code telemetry to Honeycomb for ROI measurement.
+
+**Humanloop: "What is LLM Observability and Monitoring?"**
+- **Author:** Conor Kelly
+- **Publication:** March 31, 2025
+- **URL:** https://humanloop.com/blog/llm-monitoring
+- **Topics:** Five pillars of LLM observability (model performance, data quality, bias, system perf, UX).
+
+**Arize: "How America First Credit Union Built a GenAI Decision Explainer"**
+- **Publication:** February 2026
+- **URL:** https://arize.com/blog/how-america-first-credit-union-built-a-genai-decision-explainer-with-tracing-that-scales/
+- **Topics:** Production case study of GenAI with end-to-end tracing at a financial institution.
+
+**LlamaIndex: "Observability in Agentic Document Workflows"**
+- **Publication:** November 19, 2025
+- **URL:** https://www.llamaindex.ai/blog/observability-in-agentic-document-workflows
+- **Topics:** OpenTelemetry tracing for multi-step agent document pipelines.
 
 ---
 
@@ -726,6 +1411,89 @@ _See the [Tools & Repositories](#tools--repositories-1) table for all browser au
 - Use expert annotation for quality assessment
 - Implement evaluation pipelines with human review
 
+#### Production & Engineering Blogs
+
+**Applied LLMs: "What We've Learned From A Year of Building with LLMs"**
+- **Authors:** Eugene Yan, Bryan Bischof, Charles Frye, Hamel Husain, Jason Liu, Shreya Shankar
+- **Publication:** June 8, 2024
+- **URL:** https://applied-llms.org/
+- **Topics:** Seminal practitioner guide covering eval strategies, LLM-as-Judge pitfalls, HITL design, guardrails, and hallucination mitigation.
+
+**Hamel Husain: "Your AI Product Needs Evals"**
+- **Author:** Hamel Husain
+- **Publication:** March 29, 2024
+- **URL:** https://hamel.dev/blog/posts/evals/index.html
+- **Topics:** Why evals are critical, with a practical multi-level framework for AI product teams.
+
+**Hamel Husain: "Using LLM-as-a-Judge For Evaluation: A Complete Guide"**
+- **Author:** Hamel Husain
+- **Publication:** October 29, 2024
+- **URL:** https://hamel.dev/blog/posts/llm-judge/index.html
+- **Topics:** End-to-end LLM-as-Judge evaluation, agreement with humans improved from 68% to 94%.
+
+**Hamel Husain: "LLM Evals: Everything You Need to Know"**
+- **Author:** Hamel Husain
+- **Publication:** January 15, 2026
+- **URL:** https://hamel.dev/blog/posts/evals-faq/index.html
+- **Topics:** Comprehensive FAQ covering eval questions and anti-patterns from consulting 500+ companies.
+
+**Hamel Husain: "A Field Guide to Rapidly Improving AI Products"**
+- **Author:** Hamel Husain
+- **Publication:** March 24, 2025
+- **URL:** https://hamel.dev/blog/posts/field-guide/index.html
+- **Topics:** Using evals and data analysis to rapidly iterate on AI product quality in production.
+
+**Hamel Husain: "Evals Skills for Coding Agents"**
+- **Author:** Hamel Husain
+- **Publication:** March 2, 2026
+- **URL:** https://hamel.dev/blog/posts/evals-skills/index.html
+- **Topics:** Evaluation methodology for coding agents covering benchmarks, harness engineering, and scoring.
+
+**Braintrust: "Evaluating Agents"**
+- **Author:** Ornella Altunyan
+- **Publication:** January 22, 2025
+- **URL:** https://www.braintrust.dev/blog/evaluating-agents
+- **Topics:** Concrete scorer implementations (code-based, LLM-as-judge, autoevals) for every agentic pattern.
+
+**Braintrust: "Five Hard-Learned Lessons About AI Evals"**
+- **Publication:** July 17, 2025
+- **URL:** https://www.braintrust.dev/blog/five-lessons-evals
+- **Topics:** Production lessons including why A/B testing fails for AI and building eval feedback loops.
+
+**LangChain: "Evaluating Skills"**
+- **Author:** Robert Xu
+- **Publication:** March 2026
+- **URL:** https://blog.langchain.dev/evaluating-skills/
+- **Topics:** Evaluating skills for coding agents including benchmark design and harness engineering.
+
+**LangChain: "monday Service + LangSmith: Building a Code-First Evaluation Strategy"**
+- **Publication:** March 2026
+- **URL:** https://blog.langchain.dev/customers-monday/
+- **Topics:** monday.com building eval-driven development for production service agents using LangSmith.
+
+**Deepchecks: "Know Your Agent (KYA): From Zero to a Full Strengths & Weaknesses Report"**
+- **Author:** Philip Tannor
+- **Publication:** February 24, 2026
+- **URL:** https://deepchecks.com/know-your-agent-strengths-weaknesses-report/
+- **Topics:** Automated agent evaluation generating comprehensive strengths/weaknesses reports.
+
+**Deepchecks: "LLM-as-a-Judge Calibration: When Automated Evaluation Goes Wrong"**
+- **Author:** Yaron Friedman
+- **Publication:** March 5, 2026
+- **URL:** https://deepchecks.com/llm-judge-calibration-automated-issues/
+- **Topics:** Failure modes when LLM-as-Judge evaluators produce miscalibrated scores.
+
+**Humanloop: "LLM as a Judge"**
+- **Author:** Conor Kelly
+- **Publication:** May 4, 2025
+- **URL:** https://humanloop.com/blog/llm-as-a-judge
+- **Topics:** LLM-as-Judge methodology, benefits, challenges, and best practices.
+
+**Arize: "How TheFork Leverages Online Evals To Boost Conversions"**
+- **Publication:** December 2025
+- **URL:** https://arize.com/blog/how-thefork-leverages-online-evals-to-boost-conversions-with-arize-ax-on-aws/
+- **Topics:** Production case study using online evaluation to improve business conversion metrics.
+
 ---
 
 ### 13. Error Handling & Recovery
@@ -761,6 +1529,36 @@ _See the [Tools & Repositories](#tools--repositories-1) table for all browser au
 - Prevent duplicate operations
 - Use idempotency keys for critical operations
 - Implement deduplication logic
+
+#### Production & Engineering Blogs
+
+**Braintrust: "Resilient Observability by Design"**
+- **Publication:** April 3, 2025
+- **URL:** https://www.braintrust.dev/blog/resilient-design
+- **Topics:** Building fault-tolerant observability infrastructure that handles failures without losing trace data.
+
+**Braintrust: "Debugging Ralph Wiggum with Braintrust Logs"**
+- **Publication:** January 13, 2026
+- **URL:** https://www.braintrust.dev/blog/ralph-wiggum-debugging
+- **Topics:** Practical debugging walkthrough using production logs to diagnose LLM agent errors.
+
+**Hamel Husain: "Debugging AI With Adversarial Validation"**
+- **Author:** Hamel Husain
+- **Publication:** April 12, 2024
+- **URL:** https://hamel.dev/blog/posts/drift/index.html
+- **Topics:** Adversarial validation to detect distribution drift and debug AI system failures.
+
+**Deepchecks: "LLM Hallucination Detection and Mitigation: Best Techniques"**
+- **Author:** Yaron Friedman
+- **Publication:** February 25, 2026
+- **URL:** https://deepchecks.com/llm-hallucination-detection-and-mitigation-best-techniques/
+- **Topics:** Detecting and mitigating hallucinations in production LLM systems.
+
+**Deepchecks: "Retrieval Quality vs. Answer Quality: Why RAG Evaluation Often Fails"**
+- **Author:** Amos Rimon
+- **Publication:** February 26, 2026
+- **URL:** https://deepchecks.com/retrieval-vs-answer-quality-rag-evaluation/
+- **Topics:** Distinguishing retrieval errors from generation errors with diagnostic strategies.
 
 ---
 
@@ -807,6 +1605,34 @@ _See the [Tools & Repositories](#tools--repositories-1) table for all browser au
 - Implement intuitive approval interfaces
 - Use progress indicators and status updates
 
+#### Production & Engineering Blogs
+
+**Braintrust: "Evals Are a Team Sport: How We Built Loop"**
+- **Publication:** November 25, 2025
+- **URL:** https://www.braintrust.dev/blog/collaborative-evals-loop
+- **Topics:** Collaborative human review workflows where product teams and domain experts evaluate AI outputs.
+
+**Braintrust: "Turn Production Data into Better AI with Loop"**
+- **Publication:** November 24, 2025
+- **URL:** https://www.braintrust.dev/blog/loop
+- **Topics:** Turning production traces into curated datasets via human annotation for continuous feedback.
+
+**Anthropic: "Measuring AI Agent Autonomy in Practice"**
+- **Publication:** February 18, 2026
+- **URL:** https://www.anthropic.com/research/measuring-agent-autonomy
+- **Topics:** Measuring and calibrating AI agent autonomy levels for designing appropriate human oversight.
+
+**Anthropic: "Disempowerment Patterns in Real-World AI Usage"**
+- **Publication:** January 28, 2026
+- **URL:** https://www.anthropic.com/research/disempowerment-patterns
+- **Topics:** How AI usage can disempower human users and patterns requiring HITL safeguards.
+
+**Humanloop: "AI Is Blurring the Line Between PMs and Engineers"**
+- **Author:** Raza Habib
+- **Publication:** February 25, 2025
+- **URL:** https://humanloop.com/blog/ai-is-blurring-the-lines-between-pms-and-engineers
+- **Topics:** HITL as first-class product concern, PMs and domain experts driving AI product creation.
+
 ---
 
 ### 15. Safety & Alignment
@@ -846,6 +1672,59 @@ _See the [Tools & Repositories](#tools--repositories-1) table for all browser au
 - Testing against adversarial attacks
 - Implement red teaming exercises
 - Use adversarial examples for robustness testing
+
+#### Production & Engineering Blogs
+
+**Anthropic: "Constitutional Classifiers: Defending Against Universal Jailbreaks"**
+- **Publication:** February 3, 2025
+- **URL:** https://www.anthropic.com/research/constitutional-classifiers
+- **Topics:** Classifiers filtering majority of jailbreaks, withstood 3,000+ hours of red teaming.
+
+**Anthropic: "Alignment Faking in Large Language Models"**
+- **Publication:** December 18, 2024
+- **URL:** https://www.anthropic.com/research/alignment-faking
+- **Topics:** First empirical demonstration of alignment faking without explicit training.
+
+**Anthropic: "The Persona Selection Model"**
+- **Publication:** February 23, 2026
+- **URL:** https://www.anthropic.com/research/persona-selection-model
+- **Topics:** How models select behavioral personas, ensuring safe and consistent agent behavior.
+
+**OpenAI: "Updated Preparedness Framework"**
+- **Publication:** April 15, 2025
+- **URL:** https://openai.com/index/updating-our-preparedness-framework/
+- **Topics:** Framework for evaluating catastrophic risks from frontier models.
+
+**OpenAI: "An Update on Disrupting Deceptive Uses of AI"**
+- **Publication:** October 9, 2024
+- **URL:** https://openai.com/global-affairs/an-update-on-disrupting-deceptive-uses-of-ai/
+- **Topics:** Threat intelligence disrupting covert influence operations and deceptive AI usage.
+
+**Guardrails AI: "Guardrails AI and NVIDIA NeMo Guardrails"**
+- **Publication:** September 25, 2025
+- **URL:** https://www.guardrailsai.com/blog/nemoguardrails-integration
+- **Topics:** Layered safety covering PII, toxicity, and output quality in production.
+
+**Guardrails AI: "Introducing Snowglobe"**
+- **Publication:** August 14, 2025
+- **URL:** https://www.guardrailsai.com/blog/intro
+- **Topics:** Simulation environment testing how LLM applications respond to real-world user behavior.
+
+**Guardrails AI: "Scaling AI Safety Testing for Educational Applications"**
+- **Publication:** August 13, 2025
+- **URL:** https://www.guardrailsai.com/blog/scaling-ai-safety-testing
+- **Topics:** Safeguarding chatbot interactions across diverse student personas.
+
+**Guardrails AI: "Introducing the AI Guardrails Index"**
+- **Publication:** February 12, 2025
+- **URL:** https://www.guardrailsai.com/blog/introducing-the-ai-guardrails-index
+- **Topics:** Comprehensive index cataloging available AI guardrails across safety, quality, and compliance.
+
+**Deepchecks: "Prompt Injection vs. Jailbreaks: Key Differences"**
+- **Author:** Amos Rimon
+- **Publication:** January 8, 2026
+- **URL:** https://deepchecks.com/prompt-injection-vs-jailbreaks-key-differences/
+- **Topics:** Detection and mitigation strategies for prompt injection attacks vs. jailbreaks.
 
 ---
 
@@ -915,6 +1794,17 @@ _See the [Tools & Repositories](#tools--repositories-1) table for all browser au
 - **Publication:** October 2025
 - **URL:** https://www.anthropic.com/engineering/equipping-agents-for-the-real-world-with-agent-skills
 - **Why Relevant:** Technical deep dive on agent skills architecture.
+
+**Vercel: "Agent skills explained: An FAQ"**
+- **Publication:** January 26, 2026
+- **URL:** https://vercel.com/blog/agent-skills-explained-an-faq
+- **Why Relevant:** Compares Skills to MCP, explaining trade-offs in security, reliability, and prompt-tuned control.
+
+**LlamaIndex: "Skills vs MCP tools for agents: when to use what"**
+- **Authors:** Clelia Astra Bertelli, Tuana Celik
+- **Publication:** February 3, 2026
+- **URL:** https://www.llamaindex.ai/blog/skills-vs-mcp-tools-for-agents-when-to-use-what
+- **Why Relevant:** Practical comparison of MCP tools vs Skills based on experience building LlamaAgents Builder.
 
 ---
 
@@ -1106,25 +1996,25 @@ All tools, SDKs, libraries, and repositories referenced throughout this document
 
 ### Summary Statistics
 
-| Category | Key Papers | Repositories | Avg Stars | Resources |
-|-----------|-------------|---------------|------------|-----------|
-| Memory Systems | 9 | 5 | 80k+ | 14 |
-| Sandboxes & Isolation | 7 | 8 | 4k+ | 30+ |
-| MCP Protocol | 0 | 15+ | 10k+ | 25+ |
-| Agent Architectures | 5 | 10+ | 2k+ | 20+ |
-| Programmatic Tool Calling | 1 | 4 | N/A | 10+ |
-| Multi-Agent Systems | 1 | 6+ | 4k+ | 15+ |
-| Planning & Reasoning | 6 | 0 | N/A | 6 |
-| WebMCP Protocol | 0 | 6 | 8 | 6 |
-| Browser Automation | 0 | 8 | 500 | 8 |
-| State Management | 2 | 0 | N/A | 5 |
-| Observability & Debugging | 0 | 4 | 8k+ | 15+ |
-| Evaluation & Benchmarking | 4 | 4 | 12k+ | 20+ |
-| Error Handling | 0 | 0 | N/A | 6 |
-| Human-in-the-Loop | 0 | 0 | N/A | 8 |
-| Safety & Alignment | 1 | 3 | N/A | 8 |
-| Skills & Capabilities | 2 | 30+ | 6k+ | 50+ |
-| **Total** | **38** | **100+** | **~5k** | **250+** |
+| Category | Key Papers | Eng. Blogs | Repositories | Resources |
+|-----------|-------------|------------|---------------|-----------|
+| Memory Systems | 9 | 19 | 5 | 33+ |
+| Sandboxes & Isolation | 7 | 22 | 8 | 55+ |
+| MCP Protocol | 0 | 14 | 15+ | 40+ |
+| Agent Architectures | 5 | 27 | 10+ | 50+ |
+| Programmatic Tool Calling | 1 | 3 | 4 | 15+ |
+| Multi-Agent Systems | 1 | 3 | 6+ | 20+ |
+| Planning & Reasoning | 6 | 4 | 0 | 15+ |
+| WebMCP Protocol | 0 | 0 | 6 | 6 |
+| Browser Automation | 0 | 16 | 8 | 25+ |
+| State Management | 2 | 3 | 0 | 10+ |
+| Observability & Debugging | 0 | 11 | 4 | 25+ |
+| Evaluation & Benchmarking | 4 | 14 | 4 | 35+ |
+| Error Handling | 0 | 5 | 0 | 12+ |
+| Human-in-the-Loop | 0 | 5 | 0 | 15+ |
+| Safety & Alignment | 1 | 10 | 3 | 20+ |
+| Skills & Capabilities | 2 | 2 | 30+ | 55+ |
+| **Total** | **38** | **158** | **100+** | **430+** |
 
 ---
 
