@@ -34,6 +34,11 @@ A curated collection of research papers, blog posts, tools, and documentation fo
 ### [Capabilities](#capabilities)
 16. [Skills & Capabilities](#16-skills--capabilities)
 
+### [Appendix](#appendix)
+- [Tools & Repositories](#tools--repositories-1)
+- [Summary Statistics](#summary-statistics)
+- [Recommended Reading Order](#recommended-reading-order)
+
 ---
 
 ## Core Infrastructure
@@ -99,30 +104,6 @@ A curated collection of research papers, blog posts, tools, and documentation fo
 - **Publication:** October 6, 2022 (Revised March 10, 2023)
 - **URL:** https://arxiv.org/abs/2210.03629
 - **Why Relevant:** Foundational paper introducing ReAct pattern, enabling LLMs to generate both reasoning traces and task-specific actions in an interleaved manner.
-
-#### Tools & Repositories
-
-**MCP Memory Server**
-- **URL:** https://github.com/modelcontextprotocol/servers/tree/main/src/memory
-- **Stars:** 80.2k (from parent repo)
-- **Description:** Knowledge graph-based persistent memory system for AI agents using entities, relations, and observations.
-- **Why Relevant:** Official MCP server providing structured memory with knowledge graph capabilities.
-
-**Elasticsearch Memory**
-- **URL:** https://github.com/modelcontextprotocol/servers/tree/main/src/elastic-search-memory
-- **Why Relevant:** Persistent memory with hierarchical categorization, semantic search, and intelligent auto-detection.
-
-**Neo4j Agent Memory**
-- **URL:** https://github.com/modelcontextprotocol/servers/tree/main/src/neo4j-agent-memory
-- **Why Relevant:** Memory management for AI agents using Neo4j knowledge graphs.
-
-**LangGraph Memory**
-- **URL:** https://docs.langchain.com/oss/python/langgraph/memory
-- **Why Relevant:** Memory management for stateful agents with checkpointing and persistence.
-
-**Mem0**
-- **URL:** https://arxiv.org/abs/2507.03724
-- **Why Relevant:** Memory operating system for large models enabling efficient memory retrieval and storage.
 
 ---
 
@@ -283,48 +264,6 @@ A curated collection of research papers, blog posts, tools, and documentation fo
 - **URL:** https://aws.amazon.com/blogs/opensource/firecracker-open-source-secure-fast-microvm-serverless/
 - **Description:** Open source announcement, technical architecture, Rust language choice, integration with AWS Lambda and Fargate.
 
-#### Tools & Repositories
-
-**E2B**
-- **URL:** https://github.com/e2b-dev/E2B
-- **Stars:** N/A (Series A $21M)
-- **Description:** Open-source secure environment with real-world tools for enterprise-grade agents.
-- **Why Relevant:** Provides sandboxes for code execution with real-time collaboration features.
-- **Integrations:** OpenAI, Anthropic, Mistral AI, Meta, IBM WatsonX AI, LangChain, LlamaIndex.
-- **Documentation:** https://e2b.dev/docs
-- **Cookbook:** https://github.com/e2b-dev/e2b-cookbook
-
-**gVisor**
-- **URL:** https://github.com/google/gvisor
-- **Description:** Application kernel for containers that provides a secure isolation boundary.
-- **Platforms:** Ptrace (traditional ptrace-based), Systrap (high-performance), KVM-based (hardware virtualization).
-- **Why Relevant:** Provides userspace kernel implementation for containers with reduced attack surface.
-- **Documentation:** https://gvisor.dev/docs
-- **Security:** https://gvisor.dev/security
-
-**Firecracker**
-- **URL:** https://github.com/firecracker-microvm/firecracker
-- **Description:** Lightweight virtualization technology for serverless computing.
-- **Why Relevant:** Provides microVMs with 125ms startup time and 5 MiB memory overhead.
-- **Performance:** 125ms startup, 5 MiB memory overhead.
-- **Documentation:** https://firecracker-microvm.github.io
-
-**Docker-in-Docker**
-- **URL:** https://github.com/docker-in-docker
-- **Why Relevant:** Docker-in-Docker for secure containerization.
-
-**Kata Containers**
-- **URL:** https://github.com/kata-containers/documentation/wiki/Initial-release-of-Kata-Containers-with-Firecracker-support
-- **Why Relevant:** Kata Containers with Firecracker support for secure containers.
-
-**Flintlock**
-- **URL:** https://github.com/liquidmetal-dev/flintlock
-- **Why Relevant:** Firecracker-based container runtime.
-
-**Firecracker-containerd**
-- **URL:** https://github.com/firecracker-microvm/firecracker-containerd
-- **Why Relevant:** containerd integration for Firecracker.
-
 ---
 
 ### 3. MCP (Model Context Protocol)
@@ -395,103 +334,6 @@ A curated collection of research papers, blog posts, tools, and documentation fo
 **Anthropic MCP Documentation**
 - **URL:** https://docs.anthropic.com/en/docs/build-with-claude/mcp
 - **Description:** Official Anthropic documentation for integrating MCP with Claude applications.
-
-#### SDKs & Libraries
-
-**MCP TypeScript SDK**
-- **URL:** https://github.com/modelcontextprotocol/typescript-sdk
-- **Stars:** 11.8k, Forks: 1.6k
-- **Language:** TypeScript 97.3%
-- **API Documentation:** https://ts.sdk.modelcontextprotocol.io/ (v1 stable), https://ts.sdk.modelcontextprotocol.io/v2/ (v2 pre-alpha, Q1 2026)
-- **Why Relevant:** Official TypeScript implementation for building MCP servers and clients.
-
-**MCP Python SDK**
-- **URL:** https://github.com/modelcontextprotocol/python-sdk
-- **Stars:** 22k, Forks: 3.1k
-- **Documentation:** https://modelcontextprotocol.github.io/python-sdk/
-- **v2 Docs:** https://github.com/modelcontextprotocol/python-sdk/blob/main/README.v2.md (pre-alpha, Q1 2026)
-- **Why Relevant:** Official Python implementation for building MCP servers and clients.
-
-**MCP Go SDK**
-- **URL:** https://github.com/modelcontextprotocol/go-sdk
-- **Stars:** 4k, Forks: 367
-- **Description:** Official Go implementation maintained in collaboration with Google.
-
-**MCP C# SDK**
-- **URL:** https://github.com/modelcontextprotocol/csharp-sdk
-- **Stars:** 4k, Forks: 649
-- **Description:** Official C# implementation maintained in collaboration with Microsoft.
-
-**MCP Java SDK**
-- **URL:** https://github.com/modelcontextprotocol/java-sdk
-- **Description:** Official Java implementation.
-
-**MCP Kotlin SDK**
-- **URL:** https://github.com/modelcontextprotocol/kotlin-sdk
-- **Description:** Official Kotlin implementation.
-
-**MCP PHP SDK**
-- **URL:** https://github.com/modelcontextprotocol/php-sdk
-- **Description:** Official PHP implementation.
-
-**MCP Ruby SDK**
-- **URL:** https://github.com/modelcontextprotocol/ruby-sdk
-- **Description:** Official Ruby implementation.
-
-**MCP Rust SDK**
-- **URL:** https://github.com/modelcontextprotocol/rust-sdk
-- **Stars:** 3.1k, Forks: 471
-- **Description:** Official Rust implementation for building MCP servers and clients.
-
-**MCP Swift SDK**
-- **URL:** https://github.com/modelcontextprotocol/swift-sdk
-- **Description:** Official Swift implementation.
-
-#### NPM Packages
-
-**@modelcontextprotocol/server**
-- **Description:** Build MCP servers.
-- **Required:** zod (v4) as peer dependency.
-
-**@modelcontextprotocol/client**
-- **Description:** Build MCP clients.
-- **Required:** zod (v4) as peer dependency.
-
-**@modelcontextprotocol/node**
-- **Description:** Node.js Streamable HTTP transport wrapper.
-
-**@modelcontextprotocol/express**
-- **Description:** Express helpers with Host header validation.
-
-**@modelcontextprotocol/hono**
-- **Description:** Hono helpers with JSON body parsing and validation.
-
-#### Official Servers
-
-**MCP Servers (Reference Implementations)**
-- **URL:** https://github.com/modelcontextprotocol/servers
-- **Stars:** 80.2k, Forks: 9.8k
-- **Description:** Reference implementations and community servers for MCP.
-- **Why Relevant:** Includes Everything (test server), Fetch (web content), Filesystem (secure file ops), Git (repo manipulation), Memory (knowledge graph), Sequential Thinking, and Time (timezone conversion).
-- **Third-party servers:** Lists 200+ community-maintained servers.
-
-**MCP Inspector**
-- **URL:** https://github.com/modelcontextprotocol/inspector
-- **Stars:** 8.9k, Forks: 1.2k
-- **Description:** Visual testing tool for MCP servers.
-- **Why Relevant:** Enables developers to test and debug MCP servers interactively.
-
-**Key Third-Party MCP Servers:**
-- **GitHub MCP:** https://github.com/modelcontextprotocol/servers/tree/main/src/github - Official GitHub integration
-- **Notion MCP:** https://github.com/modelcontextprotocol/servers/tree/main/src/notion - Notion integration for note-taking
-- **Slack MCP:** https://github.com/Zencoder/zencoder-mcp-server - Slack messaging and channel management
-- **Filesystem MCP:** https://github.com/modelcontextprotocol/servers/tree/main/src/filesystem - Secure file operations
-- **Memory MCP:** https://github.com/modelcontextprotocol/servers/tree/main/src/memory - Knowledge graph-based persistent memory
-- **Brave Search MCP:** https://github.com/modelcontextprotocol/servers/tree/main/src/brave-search - Web search integration
-- **Puppeteer MCP:** https://github.com/modelcontextprotocol/servers/tree/main/src/puppeteer - Browser automation via Puppeteer
-- **PostgreSQL MCP:** https://github.com/modelcontextprotocol/servers/tree/main/src/postgres - PostgreSQL database integration
-- **SQLite MCP:** https://github.com/modelcontextprotocol/servers/tree/main/src/sqlite - SQLite database integration
-- **Sequential Thinking MCP:** https://github.com/modelcontextprotocol/servers/tree/main/src/sequential-thinking - Chain-of-thought reasoning
 
 #### Metadata
 
@@ -572,58 +414,6 @@ A curated collection of research papers, blog posts, tools, and documentation fo
 - **LLM Connections:** https://docs.crewai.com/how-to/LLM-Connections/
 - **Learning Platform:** https://learn.crewai.com - 100,000+ certified developers
 
-#### Tools & Repositories
-
-**LangGraph**
-- **URL:** https://github.com/langchain-ai/langgraph
-- **Description:** Build resilient language agents as graphs.
-- **Why Relevant:** Graph-based framework for building stateful agents with control flow and memory.
-- **Integrations:** LangSmith, OpenTelemetry, multiple LLM providers.
-
-**CrewAI**
-- **URL:** https://github.com/joaomdmcdonald/crewAI
-- **Description:** Framework for orchestrating role-based autonomous AI agents with tools.
-- **Why Relevant:** Role-playing autonomous agent framework with crew-based collaboration.
-- **Community:** 100,000+ certified developers.
-- **Platform:** https://app.crewai.com (Crew Control Plane)
-
-**AutoGPT**
-- **URL:** https://github.com/Significant-Gravitas/Auto-GPT
-- **Description:** Autonomous agent for complex tasks.
-- **Why Relevant:** One of the first autonomous agent frameworks that gained widespread adoption.
-- **Ecosystem:**
-  - Forge: https://github.com/Significant-Gravitas/AutoGPT/tree/master/classic/forge - Toolkit to build your own agent
-  - Benchmark (agbenchmark): https://pypi.org/project/agbenchmark/ - Measure agent performance
-  - Frontend: https://github.com/Significant-Gravitas/AutoGPT/tree/master/classic/frontend - User-friendly interface
-
-**BabyAGI**
-- **URL:** https://github.com/yoheinakajima/babyagi
-- **Description:** Task management and autonomous agent.
-- **Why Relevant:** Simplified autonomous agent framework demonstrating task decomposition and execution.
-- **Framework:** https://babyagi.org/
-- **Archive:** https://github.com/yoheinakajima/babyagi_archive
-
-**GPT-Engineer**
-- **URL:** https://github.com/AntonOsika/gpt-engineer
-- **Description:** Software development autonomous agent.
-- **Why Relevant:** Focuses on software development tasks with code generation and refactoring.
-
-**OpenClaw Multi-Agent Team Framework**
-- **URL:** https://github.com/Richchen-maker/openclaw-multi-agent-team
-- **Stars:** 31
-- **Description:** 🐊 OpenClaw Multi-Agent Team Framework — Build your own AI team in minutes. Flywheel architecture with Blackboard coordination.
-- **Why Relevant:** Production-ready, multi-agent OpenClaw setup with hub-and-spoke architecture. One orchestrator agent delegates to specialized sub-agents. Includes Event Bus Runtime with cross-team collaboration capabilities.
-
-**Agent Protocol**
-- **URL:** https://agentprotocol.ai/
-- **Description:** Standard by AI Engineer Foundation for agent communication.
-- **Why Relevant:** Standardized protocol for agent communication and interoperability.
-
-**LangChain Deep Agents**
-- **URL:** https://github.com/langchain-ai/deepagents
-- **Description:** Build agents with planning and subagents.
-- **Why Relevant:** LangChain's advanced agent framework with planning capabilities.
-
 ---
 
 ### 5. Programmatic Tool Calling
@@ -652,28 +442,6 @@ A curated collection of research papers, blog posts, tools, and documentation fo
 - **URL:** https://modelcontextprotocol.io/
 - **Description:** Open-source standard for connecting AI applications to external systems.
 - **Why Relevant:** Standardized protocol for tool orchestration across different AI applications.
-
-#### Tools & Repositories
-
-**LangChain Tool Use**
-- **URL:** https://github.com/langchain-ai/langchain
-- **Description:** Comprehensive tool use patterns and examples.
-- **Why Relevant:** Provides extensive tool integration patterns and tool definition formats.
-
-**CrewAI Tool Integration**
-- **URL:** https://github.com/joaomdmcdonald/crewAI
-- **Description:** Framework for orchestrating role-based autonomous AI agents with tools.
-- **Why Relevant:** Seamless tool integration with role-based agents.
-
-**AutoGen**
-- **URL:** https://github.com/Significant-Gravitas/Auto-GPT
-- **Description:** Autonomous agent framework with tool integration.
-- **Why Relevant:** Advanced autonomous agents with extensive tool support.
-
-**Toolformer**
-- **URL:** https://github.com/Shinn93/toolformer
-- **Description:** LLM can learn to use tools via fine-tuning.
-- **Why Relevant:** Reference implementation of the Toolformer paper.
 
 #### Best Practices & Patterns
 
@@ -708,13 +476,6 @@ A curated collection of research papers, blog posts, tools, and documentation fo
 - **Description:** Comprehensive blog on agent architecture.
 - **Why Relevant:** Foundational overview of autonomous agent systems and design patterns.
 
-#### Documentation
-
-**AgentScope**
-- **URL:** https://github.com/agentscope-ai/agentscope
-- **Description:** Framework for building agentic applications.
-- **Why Relevant:** Multi-agent simulation framework with evaluation capabilities.
-
 #### Online Courses
 
 **Multi AI Agent Systems with CrewAI**
@@ -726,33 +487,6 @@ A curated collection of research papers, blog posts, tools, and documentation fo
 - **URL:** https://www.deeplearning.ai/short-courses/practical-multi-ai-agents-and-advanced-use-cases-with-crewai/
 - **Platform:** DeepLearning.AI
 - **Description:** Deep dive into advanced multi-agent implementations.
-
-#### Tools & Repositories
-
-**LangGraph**
-- **URL:** https://github.com/langchain-ai/langgraph
-- **Description:** Build resilient language agents as graphs.
-- **Why Relevant:** Supports multi-agent workflows with graph-based coordination.
-
-**CrewAI**
-- **URL:** https://github.com/joaomdmcdonald/crewAI
-- **Description:** Role-playing autonomous agent framework.
-- **Why Relevant:** Designed specifically for multi-agent collaboration with role-based agents.
-
-**AutoGPT**
-- **URL:** https://github.com/Significant-Gravitas/Auto-GPT
-- **Description:** Autonomous agent for complex tasks.
-- **Why Relevant:** Demonstrates complex multi-agent task decomposition.
-
-**BabyAGI**
-- **URL:** https://github.com/yoheinakajima/babyagi
-- **Description:** Task management and autonomous agent.
-- **Why Relevant:** Simplified multi-agent task management.
-
-**LangGraph.js**
-- **URL:** https://github.com/langchain-ai/langgraphjs
-- **Description:** JS version of LangGraph.
-- **Why Relevant:** JavaScript/TypeScript implementation for multi-agent systems.
 
 #### Best Practices & Patterns
 
@@ -822,7 +556,7 @@ A curated collection of research papers, blog posts, tools, and documentation fo
 - **URL:** https://arxiv.org/abs/2210.14215
 - **Why Relevant:** Learn algorithms from trajectories, enabling LLMs to execute complex algorithms.
 
-#### Tools & Best Practices
+#### Best Practices
 
 **Prompt Engineering**
 - Structure prompts for better reasoning
@@ -845,94 +579,13 @@ A curated collection of research papers, blog posts, tools, and documentation fo
 
 ### 8. WebMCP Protocol
 
-#### GitHub Repositories
-
-**WebMCP Music Composer**
-- **URL:** https://github.com/Leanmcp-Community/music-composer-webmcp
-- **Stars:** 40
-- **Why Relevant:** Functional demonstration of the WebMCP Protocol, illustrating how AI agents can interact with local web applications through standardized tool exposure.
-
-**WebMCP Playground (webmcp-sh)**
-- **URL:** https://github.com/WebMCP-org/webmcp-sh
-- **Stars:** 10
-- **Why Relevant:** Modern web-based Model Context Protocol (MCP) playground for testing and developing MCP servers and clients.
-
-**WebMCP Wix Integration**
-- **URL:** https://github.com/Startuvit/webmcp
-- **Why Relevant:** Wix App that adds WebMCP protocol support for AI agents to interact with Wix Stores e-commerce.
-
-**WebMCP WordPress Plugin**
-- **URL:** https://github.com/fellyph/webmcp-plugin
-- **Why Relevant:** WordPress plugin exposing site content and management via the Model Context Protocol (MCP).
-
-**WebMCP CDP Tooling Suite**
-- **URL:** https://github.com/tech-sumit/webmcp-cdp
-- **Stars:** 1
-- **Why Relevant:** Node.js library for discovering and executing WebMCP tools in Chrome via the Chrome DevTools Protocol.
-
-**WebMCP Demo Applications**
-- **URLs:**
-  - https://github.com/SrinivasanTarget/WebMCP-demo
-  - https://github.com/richajoy/webmcp-demo
-  - https://github.com/alecron/webmcp-demo
-  - https://github.com/beekmarks/webmcp-poc
-- **Why Relevant:** Multiple demonstration apps showcasing WebMCP - Web Model Context Protocol for AI agent-website interactions.
+_See the [Tools & Repositories](#tools--repositories-1) table for all WebMCP GitHub repositories._
 
 ---
 
 ### 9. Browser Automation Stacks
 
-#### GitHub Repositories
-
-**PinchTab**
-- **URL:** https://github.com/pinchtab/pinchtab
-- **Stars:** 4.9k, Forks: 335
-- **Description:** 🚀 Browser control for AI agents - 12MB Go binary • HTTP API • Token-efficient
-- **Why Relevant:** High-performance browser automation bridge and multi-instance orchestrator with advanced stealth injection and real-time dashboard. Provides 5-13x cheaper token usage than screenshots. Includes MCP (SMCP) integration plugin exposing 15 tools.
-- **Languages:** Go (66.9%), TypeScript (14.6%), HTML (5.1%), Shell (4.0%)
-- **Key Features:**
-  - CLI or Curl control
-  - Token-efficient (800 tokens/page with text extraction)
-  - Headless or Headed modes
-  - Multi-instance parallel Chrome processes
-  - Self-contained 12MB binary
-  - Accessibility-first element refs
-  - ARM64-optimized for Raspberry Pi
-
-**PinchTab MCP Wrapper**
-- **URL:** https://github.com/BDuba/pinchtab-mcp-wrapper
-- **Stars:** 2
-- **Why Relevant:** Token-efficient browser automation MCP server for AI agents. Web scraping, monitoring & testing with 12x cost savings vs traditional browser automation.
-
-**PinchTab MCP Server (Ai-firelab)**
-- **URL:** https://github.com/Ai-firelab/mcp-pinchtab
-- **Stars:** 1
-- **Why Relevant:** MCP server for PinchTab — browser automation for AI agents.
-
-**PinchTab MCP Server (Domci)**
-- **URL:** https://github.com/domci/pinchtab-mcp
-- **Stars:** 1
-- **Why Relevant:** MCP stdio server for PinchTab — browser automation for AI agents (OpenCode, Cursor, Claude Desktop).
-
-**PinchTab Skill**
-- **URL:** https://github.com/polly3223/pinchtab-skill
-- **Stars:** 0
-- **Why Relevant:** Browser automation for AI agents via PinchTab — HTTP API for Chrome with cookie-based auth, scraping patterns, and Claude Code skill.
-
-**icewm/pinchtab**
-- **URL:** https://github.com/icewm/pinchtab
-- **Stars:** 3
-- **Why Relevant:** A lightweight HTTP browser bridge for AI automation and visible debugging.
-
-**Playwright Skill**
-- **URL:** https://github.com/lackeyjb/playwright-skill
-- **Why Relevant:** Browser automation using Playwright - part of claude-scientific-skills collection.
-
-**TinyFish Browser Automation**
-- **URL:** https://github.com/gitoutofhere7/BLS-Premium
-- **Stars:** 0
-- **Description:** 🗺️ BLS Regional Price Intelligence: Real-time grocery & gas price tracking across 10 US states using TinyFish browser automation with AI agent integration
-- **Why Relevant:** Demonstrates TinyFish browser automation in a production context for real-time price tracking and data extraction.
+_See the [Tools & Repositories](#tools--repositories-1) table for all browser automation tools and repositories._
 
 ---
 
@@ -985,31 +638,6 @@ A curated collection of research papers, blog posts, tools, and documentation fo
 
 ### 11. Observability & Debugging
 
-#### GitHub Repositories
-
-**Phoenix**
-- **URL:** https://github.com/Arize-ai/phoenix
-- **Stars:** 8,754, Forks: 738
-- **License:** Elastic License 2.0 (ELv2)
-- **Created:** November 9, 2022
-- **Description:** Open-source AI Observability & Evaluation platform.
-- **Why Relevant:** Comprehensive observability and evaluation platform for AI agents with OpenTelemetry-based tracing.
-
-**LangSmith**
-- **URL:** https://smith.langchain.com/
-- **Description:** Debug LLM applications.
-- **Why Relevant:** LangChain's observability and evaluation platform with agent tracing and debugging.
-
-**Weights & Biases**
-- **URL:** https://wandb.ai/
-- **Description:** Experiment tracking for ML models.
-- **Why Relevant:** Comprehensive MLOps platform for tracking agent experiments.
-
-**AgentOps**
-- **URL:** https://www.agentops.ai/
-- **Description:** Observability for AI agents.
-- **Why Relevant:** Specialized observability platform for AI agent operations.
-
 #### Documentation
 
 **Phoenix Documentation**
@@ -1026,10 +654,6 @@ A curated collection of research papers, blog posts, tools, and documentation fo
   - DSPy: https://arize.com/docs/phoenix/tracing/integrations-tracing/dspy
   - LangGraph: https://arize.com/docs/phoenix/tracing/integrations-tracing/langgraph
   - Mastra: https://arize.com/docs/phoenix/integrations/typescript/mastra
-
-**OpenTelemetry**
-- **URL:** https://github.com/open-telemetry/open-telemetry
-- **Why Relevant:** Open-source observability framework for tracing agent executions.
 
 #### Best Practices & Patterns
 
@@ -1052,38 +676,6 @@ A curated collection of research papers, blog posts, tools, and documentation fo
 
 ### 12. Evaluation & Benchmarking
 
-#### GitHub Repositories
-
-**OpenAI Evals**
-- **URL:** https://github.com/openai/evals
-- **Stars:** 17,949, Forks: 2,902
-- **License:** Other (MIT-like)
-- **Created:** January 23, 2023
-- **Description:** Framework for evaluating LLMs and LLM systems.
-- **Why Relevant:** Official OpenAI evaluation framework with support for model-graded evaluations and custom evals.
-
-**Phoenix (Arize)**
-- **URL:** https://github.com/Arize-ai/phoenix
-- **Stars:** 8,754, Forks: 738
-- **Description:** Open-source AI Observability & Evaluation platform.
-- **Why Relevant:** Comprehensive evaluation platform with OpenTelemetry-based tracing and evaluation metrics.
-
-**RAGAS**
-- **URL:** https://github.com/vibrantlabsai/ragas (formerly explodinggradients/ragas)
-- **Stars:** 12,821, Forks: 1,274
-- **License:** Apache-2.0
-- **Created:** May 8, 2023
-- **Description:** Evaluation framework for Retrieval-Augmented Generation systems.
-- **Why Relevant:** Comprehensive evaluation metrics for RAG and agent systems with 50+ metrics.
-
-**AgentEvals**
-- **URL:** https://github.com/langchain-ai/agentevals
-- **Stars:** 489, Forks: 32
-- **License:** MIT
-- **Created:** February 18, 2025
-- **Description:** Framework for evaluating autonomous agents.
-- **Why Relevant:** LangChain's agent evaluation framework with pytest and vitest integration.
-
 #### Documentation
 
 **OpenAI Evals Documentation**
@@ -1098,10 +690,6 @@ A curated collection of research papers, blog posts, tools, and documentation fo
 - **Available Metrics:** https://docs.ragas.io/en/latest/concepts/metrics/available_metrics/
 - **Test Data Generation:** https://docs.ragas.io/en/latest/concepts/test_data_generation/
 - **Integrations:** LangChain, LangGraph, LlamaIndex, LangSmith, Arize, Haystack, Griptape
-
-**External Evaluation Tools**
-- **Deepeval:** https://github.com/confident-ai/deepeval - External Evaluator
-- **Cleanlab:** https://cleanlab.ai/ - Data Quality & Evaluation
 
 #### Academic Benchmarks
 
@@ -1230,18 +818,6 @@ A curated collection of research papers, blog posts, tools, and documentation fo
 - **Publication:** July 2023
 - **Why Relevant:** Foundational paper on constitutional AI principles for ensuring AI harmlessness and alignment.
 
-#### GitHub Repositories
-
-**NVIDIA NeMo Guardrails**
-- **URL:** https://github.com/NVIDIA/NeMo-Guardrails
-- **Description:** Safety guardrails framework for AI applications.
-- **Why Relevant:** Comprehensive guardrails framework with configurable safety policies.
-
-**AI Safety Kits**
-- **URL:** https://github.com/aisafetykit/aisafetykit
-- **Description:** Libraries for AI safety evaluation.
-- **Why Relevant:** Tools for evaluating and testing AI safety.
-
 #### Documentation
 
 **Anthropic AI Safety**
@@ -1340,146 +916,195 @@ A curated collection of research papers, blog posts, tools, and documentation fo
 - **URL:** https://www.anthropic.com/engineering/equipping-agents-for-the-real-world-with-agent-skills
 - **Why Relevant:** Technical deep dive on agent skills architecture.
 
-#### GitHub Repositories - Awesome Lists
+---
 
-**hesreallyhim/awesome-claude-code**
-- **URL:** https://github.com/hesreallyhim/awesome-claude-code
-- **Stars:** 26.4k
-- **Description:** A curated list of awesome skills, hooks, slash-commands, agent orchestrators, applications, and plugins for Claude Code by Anthropic.
-- **Why Relevant:** Most comprehensive resource for Claude Code skills and extensions with 4000+ tools.
+## Appendix
 
-**sickn33/antigravity-awesome-skills**
-- **URL:** https://github.com/sickn33/antigravity-awesome-skills
-- **Stars:** 20.4k
-- **Description:** The Ultimate Collection of 1000+ Agentic Skills for Claude Code/Antigravity/Cursor. Battle-tested, high-performance skills for AI agents.
-- **Why Relevant:** Comprehensive collection of agentic skills covering MCP, AI agents, React patterns, security auditing.
+### Tools & Repositories
 
-**VoltAgent/awesome-agent-skills**
-- **URL:** https://github.com/VoltAgent/awesome-agent-skills
-- **Stars:** 9.3k
-- **Description:** Claude Code Skills and 500+ agent skills from official dev teams and community, compatible with Codex, Antigravity, Gemini CLI, Cursor.
-- **Why Relevant:** Curated list of skills and agent markdown files for enhancing AI agent experiences across multiple platforms.
+All tools, SDKs, libraries, and repositories referenced throughout this document are consolidated below.
 
-**heilcheng/awesome-agent-skills**
-- **URL:** https://github.com/heilcheng/awesome-agent-skills
-- **Stars:** 2.7k
-- **Description:** A curated list of skills, tools, tutorials, and capabilities for AI coding agents (Claude, Codex, Antigravity, Copilot, VS Code).
-- **Why Relevant:** Focuses on productivity, automation, MCP, and VS Code integration skills.
+#### Memory Systems
 
-**OpenSkills**
-- **URL:** https://github.com/numman-ali/openskills
-- **Stars:** 8.8k
-- **Description:** Universal skills loader for AI coding agents - npm i -g openskills
-- **Why Relevant:** Universal loader enabling skills to work across different AI agent platforms.
+| Name | URL | Description |
+|------|-----|-------------|
+| MCP Memory Server | [GitHub](https://github.com/modelcontextprotocol/servers/tree/main/src/memory) | Knowledge graph-based persistent memory system for AI agents |
+| Elasticsearch Memory | [GitHub](https://github.com/modelcontextprotocol/servers/tree/main/src/elastic-search-memory) | Persistent memory with hierarchical categorization and semantic search |
+| Neo4j Agent Memory | [GitHub](https://github.com/modelcontextprotocol/servers/tree/main/src/neo4j-agent-memory) | Memory management using Neo4j knowledge graphs |
+| LangGraph Memory | [Docs](https://docs.langchain.com/oss/python/langgraph/memory) | Memory management for stateful agents with checkpointing |
+| Mem0 | [arXiv](https://arxiv.org/abs/2507.03724) | Memory operating system for large models |
 
-**Marketing Skills**
-- **URL:** https://github.com/coreyhaines31/marketingskills
-- **Stars:** 11.2k
-- **Description:** Marketing skills for Claude Code and AI agents. CRO, copywriting, SEO, analytics, and growth engineering.
-- **Why Relevant:** Domain-specific skills for marketing, SEO, copywriting, and growth engineering.
+#### Sandboxes & Isolation
 
-**AI Research Skills**
-- **URL:** https://github.com/Orchestra-Research/AI-Research-SKILLs
-- **Stars:** 4.4k
-- **Description:** Comprehensive open-source library of AI research and engineering skills for any AI model.
-- **Why Relevant:** Specialized skills for AI research workflows and engineering tasks.
+| Name | URL | Description |
+|------|-----|-------------|
+| E2B | [GitHub](https://github.com/e2b-dev/E2B) | Open-source secure sandboxes for code execution with real-time collaboration |
+| gVisor | [GitHub](https://github.com/google/gvisor) | Application kernel for containers providing secure isolation boundary |
+| Firecracker | [GitHub](https://github.com/firecracker-microvm/firecracker) | Lightweight microVMs with 125ms startup and 5 MiB memory overhead |
+| Docker-in-Docker | [GitHub](https://github.com/docker-in-docker) | Docker-in-Docker for secure containerization |
+| Kata Containers | [GitHub](https://github.com/kata-containers/documentation/wiki/Initial-release-of-Kata-Containers-with-Firecracker-support) | Kata Containers with Firecracker support |
+| Flintlock | [GitHub](https://github.com/liquidmetal-dev/flintlock) | Firecracker-based container runtime |
+| Firecracker-containerd | [GitHub](https://github.com/firecracker-microvm/firecracker-containerd) | containerd integration for Firecracker |
 
-**Agent Scan (Snyk)**
-- **URL:** https://github.com/snyk/agent-scan
-- **Stars:** 1.7k
-- **Description:** Security scanner for AI agents, MCP servers and agent skills.
-- **Why Relevant:** Important security tool for evaluating agent skills and MCP servers for vulnerabilities.
+#### MCP SDKs & Libraries
 
-**tech-leads-club/agent-skills**
-- **URL:** https://github.com/tech-leads-club/agent-skills
-- **Stars:** 1.6k
-- **Description:** The secure, validated skill registry for professional AI coding agents.
-- **Why Relevant:** Focuses on security validation of skills before deployment.
+| Name | URL | Description |
+|------|-----|-------------|
+| MCP TypeScript SDK | [GitHub](https://github.com/modelcontextprotocol/typescript-sdk) | Official TypeScript implementation (11.8k stars) |
+| MCP Python SDK | [GitHub](https://github.com/modelcontextprotocol/python-sdk) | Official Python implementation (22k stars) |
+| MCP Go SDK | [GitHub](https://github.com/modelcontextprotocol/go-sdk) | Official Go implementation (4k stars) |
+| MCP C# SDK | [GitHub](https://github.com/modelcontextprotocol/csharp-sdk) | Official C# implementation (4k stars) |
+| MCP Java SDK | [GitHub](https://github.com/modelcontextprotocol/java-sdk) | Official Java implementation |
+| MCP Kotlin SDK | [GitHub](https://github.com/modelcontextprotocol/kotlin-sdk) | Official Kotlin implementation |
+| MCP PHP SDK | [GitHub](https://github.com/modelcontextprotocol/php-sdk) | Official PHP implementation |
+| MCP Ruby SDK | [GitHub](https://github.com/modelcontextprotocol/ruby-sdk) | Official Ruby implementation |
+| MCP Rust SDK | [GitHub](https://github.com/modelcontextprotocol/rust-sdk) | Official Rust implementation (3.1k stars) |
+| MCP Swift SDK | [GitHub](https://github.com/modelcontextprotocol/swift-sdk) | Official Swift implementation |
 
-**libukai/awesome-agent-skills**
-- **URL:** https://github.com/libukai/awesome-agent-skills
-- **Stars:** 2.5k
-- **Description:** Agent Skills 终极指南:Quick Start, Recommended Skills, Latest News, and Practical Cases.
-- **Why Relevant:** Comprehensive guide in multiple languages covering OpenCode, Gemini, Codex, and workflows.
+#### MCP NPM Packages
 
-#### GitHub Repositories - Core Skills
+| Package | Description |
+|---------|-------------|
+| `@modelcontextprotocol/server` | Build MCP servers (requires zod v4) |
+| `@modelcontextprotocol/client` | Build MCP clients (requires zod v4) |
+| `@modelcontextprotocol/node` | Node.js Streamable HTTP transport wrapper |
+| `@modelcontextprotocol/express` | Express helpers with Host header validation |
+| `@modelcontextprotocol/hono` | Hono helpers with JSON body parsing and validation |
 
-**obra/superpowers**
-- **URL:** https://github.com/obra/superpowers
-- **Stars:** N/A (Community favorite)
-- **Description:** Core skills library for Claude Code with 20+ skills.
-- **Why Relevant:** Core skills repository with essential Claude Code skills.
+#### MCP Servers
 
-**obra/superpowers-lab**
-- **URL:** https://github.com/obra/superpowers-lab
-- **Description:** Experimental skills repository.
-- **Why Relevant:** Experimental and cutting-edge skills for Claude Code.
+| Name | URL | Description |
+|------|-----|-------------|
+| MCP Servers (Reference) | [GitHub](https://github.com/modelcontextprotocol/servers) | Reference implementations (80.2k stars) |
+| MCP Inspector | [GitHub](https://github.com/modelcontextprotocol/inspector) | Visual testing tool for MCP servers (8.9k stars) |
+| GitHub MCP | [GitHub](https://github.com/modelcontextprotocol/servers/tree/main/src/github) | Official GitHub integration |
+| Notion MCP | [GitHub](https://github.com/modelcontextprotocol/servers/tree/main/src/notion) | Notion integration |
+| Slack MCP | [GitHub](https://github.com/Zencoder/zencoder-mcp-server) | Slack messaging and channel management |
+| Filesystem MCP | [GitHub](https://github.com/modelcontextprotocol/servers/tree/main/src/filesystem) | Secure file operations |
+| Memory MCP | [GitHub](https://github.com/modelcontextprotocol/servers/tree/main/src/memory) | Knowledge graph-based persistent memory |
+| Brave Search MCP | [GitHub](https://github.com/modelcontextprotocol/servers/tree/main/src/brave-search) | Web search integration |
+| Puppeteer MCP | [GitHub](https://github.com/modelcontextprotocol/servers/tree/main/src/puppeteer) | Browser automation via Puppeteer |
+| PostgreSQL MCP | [GitHub](https://github.com/modelcontextprotocol/servers/tree/main/src/postgres) | PostgreSQL database integration |
+| SQLite MCP | [GitHub](https://github.com/modelcontextprotocol/servers/tree/main/src/sqlite) | SQLite database integration |
+| Sequential Thinking MCP | [GitHub](https://github.com/modelcontextprotocol/servers/tree/main/src/sequential-thinking) | Chain-of-thought reasoning |
 
-**anthropics/skills**
-- **URL:** https://github.com/anthropics/skills
-- **Description:** Official public repository for Skills.
-- **Why Relevant:** Official Anthropic skills repository with reference implementations.
+#### Agent Frameworks & Orchestration
 
-**mcp-builder skill**
-- **URL:** https://github.com/anthropics/skills/tree/main/skills/mcp-builder
-- **Description:** Guide for creating high-quality MCP servers.
-- **Why Relevant:** Official skill for building MCP servers.
+| Name | URL | Description |
+|------|-----|-------------|
+| LangGraph | [GitHub](https://github.com/langchain-ai/langgraph) | Graph-based framework for stateful agents with control flow and memory |
+| LangGraph.js | [GitHub](https://github.com/langchain-ai/langgraphjs) | JavaScript/TypeScript implementation of LangGraph |
+| CrewAI | [GitHub](https://github.com/joaomdmcdonald/crewAI) | Role-playing autonomous agent framework with crew-based collaboration |
+| AutoGPT | [GitHub](https://github.com/Significant-Gravitas/Auto-GPT) | Autonomous agent for complex tasks |
+| BabyAGI | [GitHub](https://github.com/yoheinakajima/babyagi) | Task management and autonomous agent framework |
+| GPT-Engineer | [GitHub](https://github.com/AntonOsika/gpt-engineer) | Software development autonomous agent |
+| OpenClaw Multi-Agent Team | [GitHub](https://github.com/Richchen-maker/openclaw-multi-agent-team) | Multi-agent team framework with Blackboard coordination (31 stars) |
+| Agent Protocol | [Website](https://agentprotocol.ai/) | Standard for agent communication and interoperability |
+| LangChain Deep Agents | [GitHub](https://github.com/langchain-ai/deepagents) | LangChain's advanced agent framework with planning capabilities |
+| AgentScope | [GitHub](https://github.com/agentscope-ai/agentscope) | Multi-agent simulation framework with evaluation capabilities |
+| LangChain | [GitHub](https://github.com/langchain-ai/langchain) | Comprehensive tool use patterns and integrations |
+| Toolformer | [GitHub](https://github.com/Shinn93/toolformer) | Reference implementation of the Toolformer paper |
 
-#### GitHub Repositories - Specialized Skills
+#### Observability & Evaluation
 
-**K-Dense-AI/claude-scientific-skills**
-- **URL:** https://github.com/K-Dense-AI/claude-scientific-skills
-- **Description:** Skills for research, science, engineering, analysis, finance, and writing.
-- **Why Relevant:** Scientific and research-oriented skills.
+| Name | URL | Description |
+|------|-----|-------------|
+| Phoenix | [GitHub](https://github.com/Arize-ai/phoenix) | Open-source AI Observability & Evaluation platform (8.7k stars) |
+| LangSmith | [Website](https://smith.langchain.com/) | LangChain's observability and evaluation platform |
+| Weights & Biases | [Website](https://wandb.ai/) | Experiment tracking for ML models |
+| AgentOps | [Website](https://www.agentops.ai/) | Observability for AI agents |
+| OpenTelemetry | [GitHub](https://github.com/open-telemetry/open-telemetry) | Open-source observability framework |
+| OpenAI Evals | [GitHub](https://github.com/openai/evals) | Framework for evaluating LLMs (17.9k stars) |
+| RAGAS | [GitHub](https://github.com/vibrantlabsai/ragas) | Evaluation framework for RAG systems (12.8k stars) |
+| AgentEvals | [GitHub](https://github.com/langchain-ai/agentevals) | Agent evaluation framework with pytest/vitest integration (489 stars) |
+| Deepeval | [GitHub](https://github.com/confident-ai/deepeval) | External evaluator |
+| Cleanlab | [Website](https://cleanlab.ai/) | Data quality and evaluation |
 
-**ffuf-web-fuzzing**
-- **URL:** https://github.com/jthack/ffuf_claude_skill
-- **Description:** Expert guidance for ffuf web fuzzing during penetration testing.
-- **Why Relevant:** Security testing skills.
+#### Safety & Guardrails
 
-**trailofbits/skills**
-- **URL:** https://github.com/trailofbits/skills
-- **Description:** Security skills for static analysis, CodeQL/Semgrep, code auditing.
-- **Why Relevant:** Professional security auditing skills.
+| Name | URL | Description |
+|------|-----|-------------|
+| NVIDIA NeMo Guardrails | [GitHub](https://github.com/NVIDIA/NeMo-Guardrails) | Safety guardrails framework for AI applications |
+| AI Safety Kits | [GitHub](https://github.com/aisafetykit/aisafetykit) | Libraries for AI safety evaluation |
 
-**web-asset-generator**
-- **URL:** https://github.com/alonw0/web-asset-generator
-- **Description:** Generates favicons, app icons, social media images.
-- **Why Relevant:** Web development productivity skills.
+#### WebMCP Protocol
+
+| Name | URL | Description |
+|------|-----|-------------|
+| WebMCP Music Composer | [GitHub](https://github.com/Leanmcp-Community/music-composer-webmcp) | Functional demonstration of WebMCP Protocol (40 stars) |
+| WebMCP Playground | [GitHub](https://github.com/WebMCP-org/webmcp-sh) | Web-based MCP playground for testing (10 stars) |
+| WebMCP Wix Integration | [GitHub](https://github.com/Startuvit/webmcp) | Wix App with WebMCP protocol support |
+| WebMCP WordPress Plugin | [GitHub](https://github.com/fellyph/webmcp-plugin) | WordPress plugin exposing site content via MCP |
+| WebMCP CDP Tooling Suite | [GitHub](https://github.com/tech-sumit/webmcp-cdp) | Node.js library for WebMCP tools in Chrome via CDP |
+| WebMCP Demo Apps | [GitHub](https://github.com/SrinivasanTarget/WebMCP-demo) | Multiple demonstration apps showcasing WebMCP |
+
+#### Browser Automation
+
+| Name | URL | Description |
+|------|-----|-------------|
+| PinchTab | [GitHub](https://github.com/pinchtab/pinchtab) | Browser control for AI agents - 12MB Go binary, HTTP API (4.9k stars) |
+| PinchTab MCP Wrapper | [GitHub](https://github.com/BDuba/pinchtab-mcp-wrapper) | Token-efficient browser automation MCP server |
+| PinchTab MCP (Ai-firelab) | [GitHub](https://github.com/Ai-firelab/mcp-pinchtab) | MCP server for PinchTab |
+| PinchTab MCP (Domci) | [GitHub](https://github.com/domci/pinchtab-mcp) | MCP stdio server for PinchTab |
+| PinchTab Skill | [GitHub](https://github.com/polly3223/pinchtab-skill) | Browser automation via PinchTab HTTP API |
+| icewm/pinchtab | [GitHub](https://github.com/icewm/pinchtab) | Lightweight HTTP browser bridge for AI automation |
+| Playwright Skill | [GitHub](https://github.com/lackeyjb/playwright-skill) | Browser automation using Playwright |
+| TinyFish BLS-Premium | [GitHub](https://github.com/gitoutofhere7/BLS-Premium) | TinyFish browser automation for price tracking |
+
+#### Skills & Capabilities - Awesome Lists
+
+| Name | Stars | URL | Description |
+|------|-------|-----|-------------|
+| hesreallyhim/awesome-claude-code | 26.4k | [GitHub](https://github.com/hesreallyhim/awesome-claude-code) | Skills, hooks, slash-commands, agent orchestrators for Claude Code |
+| sickn33/antigravity-awesome-skills | 20.4k | [GitHub](https://github.com/sickn33/antigravity-awesome-skills) | 1000+ agentic skills for Claude Code/Antigravity/Cursor |
+| Marketing Skills | 11.2k | [GitHub](https://github.com/coreyhaines31/marketingskills) | Marketing skills: CRO, copywriting, SEO, analytics |
+| VoltAgent/awesome-agent-skills | 9.3k | [GitHub](https://github.com/VoltAgent/awesome-agent-skills) | 500+ agent skills from official dev teams and community |
+| OpenSkills | 8.8k | [GitHub](https://github.com/numman-ali/openskills) | Universal skills loader for AI coding agents |
+| AI Research Skills | 4.4k | [GitHub](https://github.com/Orchestra-Research/AI-Research-SKILLs) | AI research and engineering skills |
+| heilcheng/awesome-agent-skills | 2.7k | [GitHub](https://github.com/heilcheng/awesome-agent-skills) | Skills, tools, tutorials for AI coding agents |
+| libukai/awesome-agent-skills | 2.5k | [GitHub](https://github.com/libukai/awesome-agent-skills) | Agent Skills guide: Quick Start, Skills, News, Cases |
+| Agent Scan (Snyk) | 1.7k | [GitHub](https://github.com/snyk/agent-scan) | Security scanner for AI agents, MCP servers, and skills |
+| tech-leads-club/agent-skills | 1.6k | [GitHub](https://github.com/tech-leads-club/agent-skills) | Secure, validated skill registry for AI coding agents |
+
+#### Skills & Capabilities - Core & Specialized
+
+| Name | URL | Description |
+|------|-----|-------------|
+| anthropics/skills | [GitHub](https://github.com/anthropics/skills) | Official Anthropic skills repository |
+| mcp-builder skill | [GitHub](https://github.com/anthropics/skills/tree/main/skills/mcp-builder) | Official skill for building MCP servers |
+| obra/superpowers | [GitHub](https://github.com/obra/superpowers) | Core skills library for Claude Code (20+ skills) |
+| obra/superpowers-lab | [GitHub](https://github.com/obra/superpowers-lab) | Experimental skills repository |
+| K-Dense-AI/claude-scientific-skills | [GitHub](https://github.com/K-Dense-AI/claude-scientific-skills) | Skills for research, science, engineering, finance |
+| ffuf-web-fuzzing | [GitHub](https://github.com/jthack/ffuf_claude_skill) | Expert guidance for ffuf web fuzzing |
+| trailofbits/skills | [GitHub](https://github.com/trailofbits/skills) | Security skills: static analysis, CodeQL/Semgrep, code auditing |
+| web-asset-generator | [GitHub](https://github.com/alonw0/web-asset-generator) | Generates favicons, app icons, social media images |
 
 #### Claude Code Tools
 
-**Orchestrators:**
-- Auto-Claude: https://github.com/AndyMik90/Auto-Claude
-- Claude Code Flow: https://github.com/ruvnet/claude-code-flow
-- Claude Squad: https://github.com/smtg-ai/claude-squad
-- sudocode: https://github.com/sudocode-ai/sudocode
-
-**Usage Monitors:**
-- CC Usage: https://github.com/ryoppippi/ccusage
-- ccflare: https://github.com/snipeship/ccflare
-- better-ccflare: https://github.com/tombii/better-ccflare/
-- Claude Code Usage Monitor: https://github.com/Maciek-roboblog/Claude-Code-Usage-Monitor
-
-**Status Lines:**
-- CCometixLine: https://github.com/Haleclipse/CCometixLine
-- ccstatusline: https://github.com/sirmalloc/ccstatusline
-- claude-powerline: https://github.com/Owloops/claude-powerline
-
-**Hooks:**
-- Dippy: https://github.com/ldayton/Dippy
-- parry: https://github.com/vaporif/parry
-- Claude Code Hook Comms (HCOM): https://github.com/aannoo/claude-hook-comms
-
-**IDE Integrations:**
-- claude-code.nvim: https://github.com/greggh/claude-code.nvim
-- claude-code.el: https://github.com/stevemolitor/claude-code.el
-- claude-code-ide.el: https://github.com/manzaltu/claude-code-ide.el
-- Claudix - Claude Code for VSCode: https://github.com/Haleclipse/Claudix
+| Category | Name | URL |
+|----------|------|-----|
+| Orchestrator | Auto-Claude | [GitHub](https://github.com/AndyMik90/Auto-Claude) |
+| Orchestrator | Claude Code Flow | [GitHub](https://github.com/ruvnet/claude-code-flow) |
+| Orchestrator | Claude Squad | [GitHub](https://github.com/smtg-ai/claude-squad) |
+| Orchestrator | sudocode | [GitHub](https://github.com/sudocode-ai/sudocode) |
+| Usage Monitor | CC Usage | [GitHub](https://github.com/ryoppippi/ccusage) |
+| Usage Monitor | ccflare | [GitHub](https://github.com/snipeship/ccflare) |
+| Usage Monitor | better-ccflare | [GitHub](https://github.com/tombii/better-ccflare/) |
+| Usage Monitor | Claude Code Usage Monitor | [GitHub](https://github.com/Maciek-roboblog/Claude-Code-Usage-Monitor) |
+| Status Line | CCometixLine | [GitHub](https://github.com/Haleclipse/CCometixLine) |
+| Status Line | ccstatusline | [GitHub](https://github.com/sirmalloc/ccstatusline) |
+| Status Line | claude-powerline | [GitHub](https://github.com/Owloops/claude-powerline) |
+| Hook | Dippy | [GitHub](https://github.com/ldayton/Dippy) |
+| Hook | parry | [GitHub](https://github.com/vaporif/parry) |
+| Hook | Claude Hook Comms (HCOM) | [GitHub](https://github.com/aannoo/claude-hook-comms) |
+| IDE Integration | claude-code.nvim | [GitHub](https://github.com/greggh/claude-code.nvim) |
+| IDE Integration | claude-code.el | [GitHub](https://github.com/stevemolitor/claude-code.el) |
+| IDE Integration | claude-code-ide.el | [GitHub](https://github.com/manzaltu/claude-code-ide.el) |
+| IDE Integration | Claudix (VSCode) | [GitHub](https://github.com/Haleclipse/Claudix) |
 
 ---
 
-## Summary Statistics
+### Summary Statistics
 
 | Category | Key Papers | Repositories | Avg Stars | Resources |
 |-----------|-------------|---------------|------------|-----------|
@@ -1503,26 +1128,26 @@ A curated collection of research papers, blog posts, tools, and documentation fo
 
 ---
 
-## Recommended Reading Order
+### Recommended Reading Order
 
 For practitioners starting with agentic system design:
 
-### Phase 1: Fundamentals (Week 1-2)
+#### Phase 1: Fundamentals (Week 1-2)
 1. **Foundational Concepts:** Start with ReAct paper (2022) and Chain of Thought (2023)
 2. **Memory Systems:** Read EverMemOS (2026), MIRIX (2025), and HiMeS (2026)
 3. **Tool Integration:** Explore MCP documentation and Toolformer (2023)
 
-### Phase 2: Architecture & Planning (Week 3-4)
+#### Phase 2: Architecture & Planning (Week 3-4)
 4. **Architecture Patterns:** Study LangGraph and CrewAI documentation
 5. **Planning & Reasoning:** Read Tree of Thoughts (2023) and LLM+P (2023)
 6. **Multi-Agent Systems:** Explore Generative Agents (2023) and AutoGPT
 
-### Phase 3: Operations & Safety (Week 5-6)
+#### Phase 3: Operations & Safety (Week 5-6)
 7. **Observability:** Set up Phoenix or LangSmith for agent tracing
 8. **Evaluation:** Implement OpenAI Evals and RAGAS for benchmarking
 9. **Safety:** Review Constitutional AI (2023) and implement guardrails
 
-### Phase 4: Advanced Topics (Week 7-8)
+#### Phase 4: Advanced Topics (Week 7-8)
 10. **Skills Development:** Browse awesome-agent-skills collections
 11. **Browser Automation:** Experiment with PinchTab and Playwright
 12. **Sandboxing:** Deploy E2B or Firecracker for secure execution
