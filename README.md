@@ -47,6 +47,12 @@ A curated collection of research papers, blog posts, tools, and documentation fo
 
 #### Research Papers (2026)
 
+**HiMeS: Hippocampus-inspired Memory System for Personalized AI Assistants**
+- **Authors:** Hailong Li, Feifei Li, Wenhui Que, Xingyu Fan
+- **Publication:** January 6, 2026
+- **URL:** https://arxiv.org/abs/2601.06152
+- **Why Relevant:** Proposes an AI assistant architecture that fuses short-term and long-term memory, inspired by biological hippocampus-neocortex memory mechanisms.
+
 **EverMemOS: A Self-Organizing Memory Operating System for Structured Long-Horizon Reasoning**
 - **Authors:** Chuanrui Hu, Xingze Gao, Zuyi Zhou, Dannong Xu, Yi Bai, Xintong Li, Hui Zhang, Tong Li, Chong Zhang, Lidong Bing, Yafeng Deng
 - **Publication:** January 8, 2026
@@ -66,12 +72,6 @@ A curated collection of research papers, blog posts, tools, and documentation fo
 - **Why Relevant:** Introduces a tree-structured memory module for conversational AI that improves over flat-RAG baselines by 176.7% while using only 9.1% of the tokens required by in-context memory.
 
 #### Research Papers (2025)
-
-**HiMeS: Hippocampus-inspired Memory System for Personalized AI Assistants**
-- **Authors:** Hailong Li, Feifei Li, Wenhui Que, Xingyu Fan
-- **Publication:** January 6, 2026
-- **URL:** https://arxiv.org/abs/2601.06152
-- **Why Relevant:** Proposes an AI assistant architecture that fuses short-term and long-term memory, inspired by biological hippocampus-neocortex memory mechanisms.
 
 **LUMA-RAG: Lifelong Multimodal Agents with Provably Stable Streaming Alignment**
 - **Authors:** Rohan Wandre, Yash Gajewar, Namrata Patel, Vivek Dhalkari
@@ -222,36 +222,6 @@ A curated collection of research papers, blog posts, tools, and documentation fo
 - **URL:** https://weaviate.io/blog/weaviate-agent-skills
 - **Topics:** Introduces agent skills library for building production-ready agent workflows with Weaviate, directly relevant to agentic AI memory and context engineering.
 
-**Letta: "Agent Memory: How to Build Agents that Learn and Remember"**
-- **Publication:** July 07, 2025
-- **URL:** https://www.letta.com/blog/agent-memory
-- **Topics:** Comprehensive guide on building agents with persistent memory, covering stateless vs stateful paradigms and memory architectures for learning agents.
-
-**Letta: "Anatomy of a Context Window: A Guide to Context Engineering"**
-- **Publication:** July 03, 2025
-- **URL:** https://www.letta.com/blog/guide-to-context-engineering
-- **Topics:** Deep-dive into designing and managing agent context windows, covering context engineering techniques for AI agents.
-
-**Letta: "Memory Blocks: The Key to Agentic Context Management"**
-- **Publication:** May 14, 2025
-- **URL:** https://www.letta.com/blog/memory-blocks
-- **Topics:** Engineering deep-dive on memory block abstractions for structuring agent context windows into discrete, functional memory units.
-
-**Letta: "RAG is not Agent Memory"**
-- **Publication:** February 13, 2025
-- **URL:** https://www.letta.com/blog/rag-vs-agent-memory
-- **Topics:** Explains why traditional RAG is insufficient for agent memory and how persistent agent memory differs from retrieval-augmented generation.
-
-**Letta: "Stateful Agents: The Missing Link in LLM Intelligence"**
-- **Publication:** February 06, 2025
-- **URL:** https://www.letta.com/blog/stateful-agents
-- **Topics:** Introduces stateful agents that maintain persistent memory and learn during deployment, covering the architecture for memory-enabled AI systems.
-
-**Letta: "Conversations: Shared Agent Memory across Concurrent Experiences"**
-- **Publication:** January 21, 2026
-- **URL:** https://www.letta.com/blog/conversations
-- **Topics:** Product deep-dive on the Conversations API enabling agents to maintain shared memory across parallel concurrent user interactions.
-
 **Letta: "Letta Code: A Memory-First Coding Agent"**
 - **Publication:** December 16, 2025
 - **URL:** https://www.letta.com/blog/letta-code
@@ -277,85 +247,181 @@ A curated collection of research papers, blog posts, tools, and documentation fo
 - **URL:** https://www.letta.com/blog/ai-agents-stack
 - **Topics:** Overview of the AI agents stack landscape including memory and state management layers for building production agents.
 
-**LlamaIndex: "Build Better Context Graphs: Custom Instructions, Search Filters, and Webhooks"**
+**Zep: "Build Better Context Graphs: Custom Instructions, Search Filters, and Webhooks"**
 - **Publication:** March 2026
 - **URL:** https://blog.getzep.com/build-better-context-graphs-custom-instructions-search-filters-and-webhooks/
 - **Topics:** Engineering guide on custom extraction instructions, property-level search filters, and webhooks for building and querying context graphs for agent memory.
 
-**LlamaIndex: "How Zep Works: A Visual Guide to Knowledge Graphs for AI Agents"**
+**Zep: "How Zep Works: A Visual Guide to Knowledge Graphs for AI Agents"**
 - **Publication:** December 2025
 - **URL:** https://blog.getzep.com/a-visual-guide-to-knowledge-graphs-for-ai-agents/
 - **Topics:** Visual deep-dive into how temporal knowledge graphs provide persistent context and memory for AI agents, comparing to chat memory and static RAG.
 
-**LlamaIndex: "Building Voice Agents with Memory: Zep x LiveKit"**
+**Zep: "Building Voice Agents with Memory: Zep x LiveKit"**
 - **Publication:** September 2025
 - **URL:** https://blog.getzep.com/zep-livekit/
 - **Topics:** Production implementation guide for adding long-term persistent memory to voice agents using Zep and LiveKit integration.
 
-**LlamaIndex: "Agents That Always Remember What Matters"**
+**Zep: "Agents That Always Remember What Matters"**
 - **Publication:** November 2025
 - **URL:** https://blog.getzep.com/agents-that-always-remember-what-matters/
 - **Topics:** Steerable user summaries for agent memory using temporal knowledge graphs, with implementation guidance for persistent context.
 
-**LlamaIndex: "How We Scaled Zep 30x in 2 Weeks (and Made It Faster)"**
+**Zep: "How We Scaled Zep 30x in 2 Weeks (and Made It Faster)"**
 - **Publication:** November 2025
 - **URL:** https://blog.getzep.com/scaling-agent-memory-zep-30x/
 - **Topics:** Engineering deep-dive on scaling agent memory infrastructure from thousands to millions of requests, addressing context retrieval latency.
 
-**LlamaIndex: "Zep v3: Context Engineering Takes Center Stage"**
+**Zep: "Zep v3: Context Engineering Takes Center Stage"**
 - **Publication:** August 2025
 - **URL:** https://blog.getzep.com/zep-v3-context-engineering-takes-center-stage/
 - **Topics:** Major platform release focused on context engineering for agent memory, including knowledge graph capabilities for assembling right context.
 
-**LlamaIndex: "Graphiti Adds FalkorDB Support as Project Approaches 14,000 Stars"**
+**Zep: "Graphiti Adds FalkorDB Support as Project Approaches 14,000 Stars"**
 - **Publication:** July 2025
 - **URL:** https://blog.getzep.com/graphiti-knowledge-graphs-falkordb-support/
 - **Topics:** Knowledge graph memory system adds FalkorDB backend support, expanding options for persistent agent memory with temporal knowledge graphs.
 
-**LlamaIndex: "What is Context Engineering, Anyway?"**
+**Zep: "What is Context Engineering, Anyway?"**
 - **Publication:** June 2025
 - **URL:** https://blog.getzep.com/what-is-context-engineering/
 - **Topics:** Practitioner guide explaining context engineering as the systematic assembly of right information for agent context management.
 
-**LlamaIndex: "The Private Agent Memory Fallacy"**
+**Zep: "The Private Agent Memory Fallacy"**
 - **Publication:** June 2025
 - **URL:** https://blog.getzep.com/the-ai-memory-wallet-fallacy/
 - **Topics:** Analysis of portable agent memory concepts, exploring data strategy and persistent memory architecture for AI agents.
 
-**LlamaIndex: "Stop Using RAG for Agent Memory"**
+**Zep: "Stop Using RAG for Agent Memory"**
 - **Publication:** June 2025
 - **URL:** https://blog.getzep.com/stop-using-rag-for-agent-memory/
 - **Topics:** Practitioner talk on why RAG is insufficient for agent memory and alternatives using knowledge graphs for persistent memory.
 
-**LlamaIndex: "Introducing Entity Types: Smarter, Structured Memory for Agents"**
+**Zep: "Introducing Entity Types: Smarter, Structured Memory for Agents"**
 - **Publication:** May 2025
 - **URL:** https://blog.getzep.com/entity-types-structured-agent-memory/
 - **Topics:** Production feature for structuring domain-specific entity types in agent memory knowledge graphs for precise recall.
 
-**LlamaIndex: "Lies, Damn Lies, & Statistics: Is Mem0 Really SOTA in Agent Memory?"**
+**Zep: "Lies, Damn Lies, & Statistics: Is Mem0 Really SOTA in Agent Memory?"**
 - **Publication:** May 2025
 - **URL:** https://blog.getzep.com/lies-damn-lies-statistics-is-mem0-really-sota-in-agent-memory/
 - **Topics:** Benchmark analysis comparing agent memory systems (Zep vs Mem0) on LoCoMo, relevant to evaluating persistent memory approaches.
 
-**LlamaIndex: "GPT-4.1 and o4-mini: Is OpenAI Overselling Long-Context?"**
+**Zep: "GPT-4.1 and o4-mini: Is OpenAI Overselling Long-Context?"**
 - **Publication:** April 2025
 - **URL:** https://blog.getzep.com/gpt-4-1-and-o4-mini-is-openai-overselling-long-context/
 - **Topics:** LongMemEval benchmark evaluation showing why raw context window size is insufficient for agent memory, arguing for structured memory.
 
-**LlamaIndex: "The One-Token Trick"**
+**Zep: "The One-Token Trick"**
 - **Publication:** April 2025
 - **URL:** https://blog.getzep.com/the-one-token-trick/
 - **Topics:** Engineering technique using single-token LLM requests to improve RAG memory search quality at minimal cost and latency.
 
-**LlamaIndex: "Cursor IDE: Adding Memory With Graphiti MCP"**
+**Zep: "Cursor IDE: Adding Memory With Graphiti MCP"**
 - **Publication:** March 2025
 - **URL:** https://blog.getzep.com/cursor-adding-memory-with-graphiti-mcp/
 - **Topics:** Practitioner guide for adding persistent memory to Cursor IDE using Graphiti MCP knowledge graph for cross-session recall.
 
-**LlamaIndex: "Building a Memory Agent with the OpenAI Agents SDK and Zep"**
+**Zep: "Building a Memory Agent with the OpenAI Agents SDK and Zep"**
 - **Publication:** March 2025
 - **URL:** https://blog.getzep.com/building-a-memory-agent-with-the-openai-agents-sdk-and-zep/
 - **Topics:** Implementation walkthrough for building an agent with persistent memory using OpenAI Agents SDK integrated with Zep.
+
+**Letta: "Introducing Mods: Enabling Agents to Self-Improve through Harness-Level Adaptation"**
+- **Publication:** June 24, 2026
+- **URL:** https://www.letta.com/blog/introducing-mods/
+- **Topics:** Agents adapting the Letta Code harness they run in -- extending context assembly, tools, and compaction so the runtime itself becomes something an agent can learn over time.
+
+**Zep: "Where to place agent memory in the prompt to cut token costs up to 2x"**
+- **Author:** Jack Ryan
+- **Publication:** June 24, 2026
+- **URL:** https://blog.getzep.com/where-you-put-memory-in-the-prompt-can-cut-your-token-bill-up-to-2x/
+- **Topics:** Placing refreshed agent memory in the system prompt breaks prompt caching; moving it to a trailing message after the cache breakpoint cuts token cost up to 2x.
+
+**Zep: "Markdown is not agent memory"**
+- **Author:** Jack Ryan
+- **Publication:** June 23, 2026
+- **URL:** https://blog.getzep.com/markdown-is-not-agent-memory/
+- **Topics:** Where the markdown-file memory pattern (Claude Code, Letta MemFS, Manus) breaks at scale, under changing facts, and across concurrent agents -- argues for validity intervals and provenance.
+
+**Zep: "Sycophancy is a design choice"**
+- **Author:** Daniel Chalef
+- **Publication:** June 11, 2026
+- **URL:** https://blog.getzep.com/sycophancy-is-a-design-choice/
+- **Topics:** Teardown of Writer's "Recalling Too Well" paper, tracing memory-driven sycophancy to extraction and prompt design choices; defends provenance-rich, bi-temporally invalidated memory.
+
+**Zep: "Smart Context Assembly: Fewer Tokens, Better Quality"**
+- **Author:** Jack Ryan
+- **Publication:** June 4, 2026
+- **URL:** https://blog.getzep.com/smart-context-assembly-fewer-tokens-higher-quality/
+- **Topics:** Auto Search ranking across all six context types into a character-budgeted Context Block, halving tokens at small accuracy cost on LoCoMo.
+
+**Zep: "Observations: Patterns and Insights from the Context Graph"**
+- **Author:** Jack Ryan
+- **Publication:** May 21, 2026
+- **URL:** https://blog.getzep.com/observations-durable-patterns-from-the-context-graph/
+- **Topics:** Auto-discovered context type capturing cross-episode patterns (decisions, preferences, state transitions) that close the aggregation gap on LongMemEval.
+
+**Zep: "Zep's 5 Context Types: How to Use and Combine Each One"**
+- **Author:** Jack Ryan
+- **Publication:** May 5, 2026
+- **URL:** https://blog.getzep.com/zep-context-types/
+- **Topics:** Guide to Zep's five context types (facts, entities, episodes, thread summaries, user summary) and how to combine them via context templates or custom graph search.
+
+**Zep: "Context You Can Trace, Filter, and Trust"**
+- **Author:** Jack Ryan
+- **Publication:** April 15, 2026
+- **URL:** https://blog.getzep.com/context-you-can-trace-filter-and-trust/
+- **Topics:** Zep's provenance architecture: episode-to-fact links and metadata projection that let you trace any fact to its source and filter retrieval by origin at query time.
+
+**Zep: "Stop Letting Your Agent Decide What It Needs to Know"**
+- **Author:** Jack Ryan
+- **Publication:** March 25, 2026
+- **URL:** https://blog.getzep.com/stop-letting-your-agent-decide-what-it-needs-to-know/
+- **Topics:** The unknown-unknowns problem defeats agent-controlled retrieval; deterministic context assembly from identity, domain, and graph relations beats speculative tool calls.
+
+**Zep: "3 Decisions That Shape Every Agent's Context Architecture"**
+- **Author:** Jack Ryan
+- **Publication:** March 18, 2026
+- **URL:** https://blog.getzep.com/three-decisions-that-shape-every-agents-context-architecture/
+- **Topics:** Frames persistent agent context around three decisions (scope, data sources, retrieval strategy) and maps them to four composable production patterns.
+
+**Zep: "Evaluation and Control: Evaluation Framework, zepctl CLI, and Dashboard Overhaul"**
+- **Author:** Jack Ryan
+- **Publication:** March 10, 2026
+- **URL:** https://blog.getzep.com/evaluation-and-control-evaluation-framework-zepctl-cli-and-dashboard-overhaul/
+- **Topics:** Evaluation framework for testing Zep's context retrieval against your own data (completeness and answer accuracy), plus a zepctl CLI for administering context graphs.
+
+**Letta: "Letta's Next Phase"**
+- **Publication:** March 16, 2026
+- **URL:** https://www.letta.com/blog/our-next-phase/
+- **Topics:** Letta's shift to git-backed context repositories (MemFS), skills, subagents, and sleep-time compute as the primitives for model-agnostic stateful agents that learn.
+
+#### Research Papers (2026)
+
+**Memora: A Harmonic Memory Representation Balancing Abstraction and Specificity**
+- **Authors:** Xuchao Zhang, Molly Xia, Mayukh Das, Anson Bastos, Rujia Wang, Chetan Bansal, Saravan Rajmohan
+- **Publication:** June 29, 2026
+- **URL:** https://www.microsoft.com/en-us/research/blog/memora-a-harmonic-memory-representation-balancing-abstraction-and-specificity/
+- **Why Relevant:** Agentic memory framework decoupling stored content from retrieval via primary abstractions and cue anchors with a policy-guided RL-trainable retriever; SOTA on LoCoMo and LongMemEval using up to 98% fewer context tokens.
+
+**Self-Evolving World Models for LLM Agent Planning**
+- **Authors:** Xuan Zhang, Wenxuan Zhang, See-Kiong Ng, Yang Deng
+- **Publication:** June 29, 2026
+- **URL:** https://arxiv.org/abs/2606.30639
+- **Why Relevant:** WorldEvolver -- self-evolving world-model framework giving long-horizon LLM agents foresight via episodic memory, semantic-memory rule extraction, and selective foresight filtering.
+
+**Are We Ready For An Agent-Native Memory System?**
+- **Authors:** Wei Zhou, Xuanhe Zhou, Shaokun Han, Hongming Xu, Guoliang Li, Zhiyu Li, Feiyu Xiong, Fan Wu
+- **Publication:** June 23, 2026
+- **URL:** https://arxiv.org/abs/2606.24775
+- **Why Relevant:** System-level study of LLM agent memory benchmarking architectural trade-offs, operational costs, and lifecycle governance rather than treating memory as a monolithic black box.
+
+**ReasoningBank: Enabling agents to learn from experience**
+- **Authors:** Jun Yan, Chen-Yu Lee, Siru Ouyang, I-Hung Hsu, Yanfei Chen, et al.
+- **Publication:** April 21, 2026
+- **URL:** https://research.google/blog/reasoningbank-enabling-agents-to-learn-from-experience/
+- **Why Relevant:** Agent memory framework distilling generalizable reasoning strategies from successful and failed trajectories, plus memory-aware test-time scaling (MaTTS); improves success rates and reduces steps on WebArena and SWE-Bench-Verified.
 
 ---
 
@@ -728,6 +794,53 @@ A curated collection of research papers, blog posts, tools, and documentation fo
 - **URL:** https://www.daytona.io/dotfiles/pty-support-in-daytona
 - **Topics:** Engineering deep-dive on PTY support in Daytona sandboxes, enabling interactive terminal sessions for AI agents.
 
+**Vercel: "Give your agent its own computer"**
+- **Author:** Amy Ru
+- **Publication:** June 5, 2026
+- **URL:** https://blog.langchain.dev/give-your-ai-agent-its-own-computer
+- **Topics:** LangSmith Sandboxes as hardware-virtualized microVMs giving each agent an isolated computer with snapshots, forks, blueprints, service URLs, and auth proxy.
+
+**Vercel: "How to Choose the Right Sandbox for Your Agent"**
+- **Author:** Rahul Verma
+- **Publication:** June 12, 2026
+- **URL:** https://blog.langchain.dev/how-to-choose-the-right-sandbox-for-your-agent
+- **Topics:** Evaluating agent sandboxes against the "leethal trifecta" of prompt injection -- filesystem isolation, network limits, kernel isolation, and the auth proxy.
+
+**Vercel: "How Auth Proxy secures network access for LangSmith agent sandboxes"**
+- **Author:** Mukil Loganathan
+- **Publication:** May 21, 2026
+- **URL:** https://blog.langchain.dev/how-auth-proxy-secures-network-access-for-langsmith-agent-sandboxes
+- **Topics:** Auth proxy sidecar that injects credentials into outbound sandbox traffic so secrets never enter the agent runtime.
+
+**Vercel: "Optimizing Vercel Sandbox snapshots"**
+- **Authors:** Tom Lienard, Rob Herley, Luke Phillips-Sheard, Gudmundur Bjarni Olafsson
+- **Publication:** April 2, 2026
+- **URL:** https://vercel.com/blog/optimizing-vercel-sandbox-snapshots
+- **Topics:** Cutting Vercel Sandbox snapshot restore p75 from 40s to sub-second via parallel S3 range downloads, multi-goroutine streaming decompression, and an LRU local NVMe disk cache for agent filesystem persistence.
+
+**Vercel: "How Notion Workers run untrusted code at scale with Vercel Sandbox"**
+- **Authors:** Karson Seeley, Harpreet Arora
+- **Publication:** March 12, 2026
+- **URL:** https://vercel.com/blog/notion-workers-vercel-sandbox
+- **Topics:** Notion Workers using Vercel Sandbox (Firecracker microVMs) for hard isolation of agent-generated/third-party code, with network-level credential injection to prevent prompt-injection exfiltration.
+
+**Cloudflare: "Temporary Cloudflare Accounts for AI agents"**
+- **Authors:** Sid Chatterjee, Celso Martinho, Brendan Irvine-Broque
+- **Publication:** June 19, 2026
+- **URL:** https://blog.cloudflare.com/temporary-accounts/
+- **Topics:** Agents running `wrangler deploy --temporary` to deploy a live Worker in seconds without signup, enabling background agents' write-deploy-verify loops with a 60-minute claim window.
+
+**Cognition: "What We Learned Building Cloud Agents"**
+- **Publication:** April 23, 2026
+- **URL:** https://www.cognition.ai/blog/what-we-learned-building-cloud-agents
+- **Topics:** Why containerized agents fall short on security (shared kernel), async persistence (no snapshot/restore), and scale -- and the VM-level isolation, hypervisor snapshotting, and identity-chaining infrastructure Cognition built for Devin.
+
+**Cursor: "Development environments for your cloud agents"**
+- **Authors:** Samantha Whitmore, David Wetterau, Nick Bradford
+- **Publication:** May 13, 2026
+- **URL:** https://www.cursor.com/blog/cloud-agent-development-environments
+- **Topics:** Multi-repo agent environments, Dockerfile-as-code with build secrets and layer caching, agent-led environment setup/validation, and per-environment egress allowlists, secret scoping, version history, and audit logging.
+
 ---
 
 ### 3. MCP (Model Context Protocol)
@@ -930,6 +1043,44 @@ A curated collection of research papers, blog posts, tools, and documentation fo
 - **Publication:** December 16, 2025
 - **URL:** https://vercel.com/blog/cline-on-ai-gateway
 - **Topics:** Cline coding agent scales on Vercel AI Gateway, relevant to AI SDK and agentic system infrastructure in production.
+
+**Vercel: "AI SDK 7"**
+- **Authors:** Gregor Martynus, Lars Grammel, Felix Arntz, Aayush Kapoor, Josh Singh
+- **Publication:** June 25, 2026
+- **URL:** https://vercel.com/blog/ai-sdk-7
+- **Topics:** Major SDK release for production agents: MCP Apps with sandboxed iframe UIs, tool approvals (HMAC-signed), WorkflowAgent durability, SandboxSession abstraction, HarnessAgent for running Claude Code/Codex/Pi harnesses, and realtime voice/video.
+
+**Cloudflare: "Bringing more agent harnesses and frameworks to Cloudflare, starting with Flue"**
+- **Author:** Thomas Gauvin
+- **Publication:** June 17, 2026
+- **URL:** https://blog.cloudflare.com/agents-platform-flue-sdk/
+- **Topics:** Opens the Cloudflare Agents SDK as a runtime any harness/framework can build on -- three-layer stack (framework/harness/runtime) with Fibers durable execution, Code Mode sandboxed code execution, @cloudflare/shell virtual filesystem, and ecosystem bindings.
+
+**Cloudflare: "Introducing the Cloudflare One stack: agent-powered deployment"**
+- **Authors:** AJ Gerstenhaber, Abe Carryl
+- **Publication:** June 17, 2026
+- **URL:** https://blog.cloudflare.com/cloudflare-one-stack/
+- **Topics:** Agent skills (cloudflare-one, cloudflare-one-migration) giving any agent the context and tool definitions to plan, deploy, migrate, and manage a Zero Trust environment, paired with the Cloudflare code mode MCP server for a typed API interface.
+
+**LlamaIndex: "LlamaParse MCP: Agentic OCR tools for your AI agents"**
+- **Author:** Clelia Astra Bertelli
+- **Publication:** April 29, 2026
+- **URL:** https://www.llamaindex.ai/blog/llamaparse-mcp-the-tooling-layer-for-your-document-agents
+- **Topics:** Refactors the LlamaParse MCP server around agentic Parse, Classify, and Split tools with OAuth, URL-based uploads, observability, and rate limiting for document agents.
+
+#### Research Papers (2026)
+
+**HyperTool: Beyond Step-Wise Tool Calls for Tool-Augmented Agents**
+- **Authors:** Yaxin Du, Yifan Zhou, Yujie Ge, Jiajun Wang, Xianghe Pang, Shuo Tang, Tuney Zheng, Bryan Dai, Jian Yang, Siheng Chen
+- **Publication:** June 11, 2026
+- **URL:** https://arxiv.org/abs/2606.13663
+- **Why Relevant:** Unified executable MCP-style tool interface letting agents express multi-step tool workflows (loops, value transfers) as a single model-visible unit, resolving the execution-granularity mismatch in step-wise tool calling.
+
+**ProvenanceGuard: Source-Aware Factuality Verification for MCP-Based LLM Agents**
+- **Authors:** Ander Alvarez, Santhiya Rajan, Samuel Mugel, Roman Orus
+- **Publication:** June 16, 2026
+- **URL:** https://arxiv.org/abs/2606.18037
+- **Why Relevant:** Source-aware verifier for MCP-grounded agents that detects cross-source conflation (claims supported somewhere but attributed to the wrong tool source) using captured MCP traces with stable tool/source IDs.
 
 ---
 
@@ -1173,30 +1324,15 @@ A curated collection of research papers, blog posts, tools, and documentation fo
 - **URL:** https://www.llamaindex.ai/blog/llamaindex-is-more-than-a-rag-framework
 - **Topics:** Deep-dive on LlamaIndex's evolution from RAG framework to agentic document processing architecture
 
-**Cursor: "Build agents that run automatically"**
-- **Publication:** March 05, 2026
-- **URL:** https://cursor.com/blog/automations
-- **Topics:** Cursor's implementation of automated agent triggers and orchestration for coding agents in production.
-
 **Cursor: "Cursor is now available in JetBrains IDEs"**
 - **Publication:** March 04, 2026
 - **URL:** https://cursor.com/blog/jetbrains-acp
 - **Topics:** Agent Client Protocol (ACP) for integrating coding agents across IDEs, relevant to agent architecture and orchestration patterns.
 
-**Cursor: "The third era of AI software development"**
-- **Publication:** February 26, 2026
-- **URL:** https://cursor.com/blog/third-era
-- **Topics:** Vision and architecture of autonomous cloud coding agents handling larger tasks over longer timescales in production.
-
 **Cursor: "Closing the code review loop with Bugbot Autofix"**
 - **Publication:** February 26, 2026
 - **URL:** https://cursor.com/blog/bugbot-autofix
 - **Topics:** Production autonomous agent system that spawns cloud agents to find and fix PR issues automatically.
-
-**Cursor: "Cursor agents can now control their own computers"**
-- **Publication:** February 24, 2026
-- **URL:** https://cursor.com/blog/agent-computer-use
-- **Topics:** Cloud coding agents with computer-use capabilities to verify and demo their own changes autonomously.
 
 **Cursor: "Implementing a secure sandbox for local agents"**
 - **Publication:** February 18, 2026
@@ -1214,6 +1350,144 @@ A curated collection of research papers, blog posts, tools, and documentation fo
 - **Publication:** February 06, 2026
 - **URL:** https://sourcegraph.com/blog/building-databot-our-always-on-data-assistant
 - **Topics:** Engineering deep-dive on building an always-on autonomous data assistant agent in production.
+
+**Anthropic: "Scaling Managed Agents: Decoupling the brain from the hands"**
+- **Authors:** Lance Martin, Gabe Cemaj, Michael Cohen
+- **Publication:** April 8, 2026
+- **URL:** https://www.anthropic.com/engineering/managed-agents
+- **Topics:** Architecture of Anthropic's hosted Managed Agents service -- virtualizing session, harness, and sandbox into stable interfaces that outlast any implementation, decoupling the "brain" (Claude + harness) from the "hands" (sandboxes/tools).
+
+**Anthropic: "Harness design for long-running application development"**
+- **Author:** Prithvi Rajasekaran
+- **Publication:** March 24, 2026
+- **URL:** https://www.anthropic.com/engineering/harness-design-long-running-apps
+- **Topics:** GAN-inspired three-agent (planner/generator/evaluator) harness for long-running autonomous full-stack coding -- context resets vs compaction, self-evaluation, sprint contracts, Playwright-MCP-driven QA, and simplification as models improve.
+
+**LangChain: "The Anatomy of an Agent Harness"**
+- **Author:** Vivek Trivedy
+- **Publication:** March 10, 2026
+- **URL:** https://blog.langchain.dev/the-anatomy-of-an-agent-harness
+- **Topics:** Defines "agent = model + harness" and derives core harness components (filesystems, sandboxes, memory, context management, planning) from desired agent behaviors -- the conceptual foundation for Deep Agents.
+
+**LangChain: "The Agent Development Lifecycle (ADLC)"**
+- **Author:** Harrison Chase
+- **Publication:** May 9, 2026
+- **URL:** https://blog.langchain.dev/the-agent-development-lifecycle
+- **Topics:** Conceptual framework for the agent development lifecycle (Build, Test, Deploy, Monitor, Iterate, Govern) and the shared infrastructure each phase requires.
+
+**LangChain: "The Art of Loop Engineering"**
+- **Author:** Sydney Runkle
+- **Publication:** June 16, 2026
+- **URL:** https://blog.langchain.dev/the-art-of-loop-engineering
+- **Topics:** Frames agent design as stacking four loops (agent, verification, event-driven, hill-climbing) and maps each to LangChain/LangSmith primitives.
+
+**LangChain: "How to Build a Custom Agent Harness"**
+- **Author:** Sydney Runkle
+- **Publication:** June 3, 2026
+- **URL:** https://blog.langchain.dev/how-to-build-a-custom-agent-harness
+- **Topics:** Guide to building a custom harness with create_agent and middleware, mapping harness capabilities (context, memory, tools, retries, policies) to middleware.
+
+**LangChain: "The runtime behind production deep agents"**
+- **Authors:** Sydney Runkle, Vivek Trivedy
+- **Publication:** April 20, 2026
+- **URL:** https://blog.langchain.dev/runtime-behind-production-deep-agents
+- **Topics:** Deep technical guide to the production runtime under Deep Agents: durable execution, short/long-term memory, multi-tenancy, human-in-the-loop, streaming, guardrails, observability, sandboxes, MCP/A2A integrations, and cron.
+
+**LangChain: "Introducing Dynamic Subagents in Deep Agents"**
+- **Authors:** Sydney Runkle, Colin Francis, Hunter Lovell
+- **Publication:** June 29, 2026
+- **URL:** https://blog.langchain.dev/introducing-dynamic-subagents-in-deep-agents
+- **Topics:** Dynamic subagents where the agent writes orchestration code (loops, fan-out, tournaments) executed in a code interpreter to dispatch subagents deterministically at scale.
+
+**LangChain: "Give Your Agents an Interpreter"**
+- **Author:** Hunter Lovell
+- **Publication:** May 20, 2026
+- **URL:** https://blog.langchain.dev/give-your-agents-an-interpreter
+- **Topics:** Interpreters in Deep Agents -- an embedded TypeScript runtime giving agents programmatic tool calling, a third context surface, and recursive orchestration with up to 35% token savings.
+
+**LangChain: "Deep Agents Deploy: an open alternative to Claude Managed Agents"**
+- **Author:** Sydney Runkle
+- **Publication:** April 9, 2026
+- **URL:** https://blog.langchain.dev/deep-agents-deploy-an-open-alternative-to-claude-managed-agents
+- **Topics:** deepagents deploy -- packaging durable execution, memory, sandboxes, and observability into a deployable open agent runtime.
+
+**Cursor: "What we've learned building cloud agents"**
+- **Author:** Josh Ma
+- **Publication:** June 2, 2026
+- **URL:** https://www.cursor.com/blog/cloud-agent-lessons
+- **Topics:** Architectural lessons from running cloud agents on dedicated VMs -- durable execution on Temporal, decoupling agent/machine/conversation state, hibernate-and-resume, computer-use subagents, and moving deterministic logic out of the harness into agent-controlled tools.
+
+**Cognition: "Multi-Agents: What's Actually Working"**
+- **Author:** Walden Yan
+- **Publication:** April 22, 2026
+- **URL:** https://www.cognition.ai/blog/multi-agents-working
+- **Topics:** Follow-up to "Don't Build Multi-Agents" identifying patterns that work -- clean-context generator-verifier review loops, a "smart friend" tool for asymmetric model escalation, and manager Devins decomposing work into single-writer child agents; emphasizes context engineering over prompt engineering.
+
+**Cognition: "Devin can now Manage Devins"**
+- **Publication:** March 19, 2026
+- **URL:** https://www.cognition.ai/blog/devin-can-now-manage-devins
+- **Topics:** A manager Devin breaks large tasks into scoped pieces and delegates each to a child Devin running in its own isolated VM (own shell, browser, test runner), monitors progress, resolves conflicts, reads child trajectories, and compiles results in parallel.
+
+**Cognition: "Devin can now Schedule Devins"**
+- **Publication:** March 20, 2026
+- **URL:** https://www.cognition.ai/blog/devin-can-now-schedule-devins
+- **Topics:** Devin schedules its own recurring sessions, maintains state across runs via self-authored notes, and composes with Managed Devins to run recurring parallel QA, migrations, and audits autonomously.
+
+**Vercel: "Introducing eve"**
+- **Authors:** Shar Dara, Kevin Corbett, Casey Gowrie, Andrew Barba, Allen Zhou, Dima Voytenko, JJ Kasper, John Phamous, Timo Lins, Rui Conti
+- **Publication:** June 17, 2026
+- **URL:** https://vercel.com/blog/introducing-eve
+- **Topics:** Open-source agent framework where an agent is a directory of files (model, instructions, tools, skills, subagents, channels, schedules) with durable execution, sandboxed compute, human-in-the-loop approvals, MCP/OpenAPI connections, multi-channel delivery, tracing, and evals all built in.
+
+**Vercel: "The Agent Stack"**
+- **Author:** Tom Occhino
+- **Publication:** June 17, 2026
+- **URL:** https://vercel.com/blog/agent-stack
+- **Topics:** Defines the three capabilities every production agent needs (model routing, durable multi-step workflows, secure tool/data connections) and maps Vercel's building blocks onto them, culminating in the eve framework.
+
+**Vercel: "Agentic Infrastructure"**
+- **Author:** Tom Occhino
+- **Publication:** April 9, 2026
+- **URL:** https://vercel.com/blog/agentic-infrastructure
+- **Topics:** Frames the shift to agentic infrastructure across three dimensions: infrastructure for coding agents to deploy to, infrastructure for building/running agents (AI SDK, Chat SDK, AI Gateway, Fluid compute, Workflows, Queues, Sandbox, Observability), and infrastructure that is itself agentic.
+
+**Google Research: "A New Era of Discovery: Google Research at I/O 2026"**
+- **Author:** Yossi Matias
+- **Publication:** May 28, 2026
+- **URL:** https://research.google/blog/a-new-era-of-innovation-google-research-at-io-2026/
+- **Topics:** Research recap profiling agentic systems: ERA (agentic scientific coding), Co-Scientist (multi-agent hypothesis generation), Gemini Deep Think (advanced agentic reasoning), and Antigravity /teamwork-preview (multi-agent orchestrator spawning dozens of sub-agents for long-horizon software engineering).
+
+#### Research Papers (2026)
+
+**Scaling the Horizon, Not the Parameters: Reaching Trillion-Parameter Performance with a 35B Agent**
+- **Authors:** Lei Bai, Zongsheng Cao, Yang Chen, Dahua Lin, Bowen Zhou, et al.
+- **Publication:** June 29, 2026
+- **URL:** https://arxiv.org/abs/2606.30616
+- **Why Relevant:** Agents-A1, a 35B MoE agentic model that matches trillion-parameter models on long-horizon agent benchmarks by scaling the agent horizon via 45K-token trajectories and a three-stage multi-teacher distillation recipe.
+
+**Experience Graphs: The Data Foundation for Self-Improving Agents**
+- **Authors:** Gang Liao, Yujia He, Abdullah Ozturk, Rob Fergus, Carole-Jean Wu, Daniel J. Abadi, et al.
+- **Publication:** June 29, 2026
+- **URL:** https://arxiv.org/abs/2606.29823
+- **Why Relevant:** Trellis -- treating the experience graph produced by long-horizon agent search (artifacts, tool outputs, lineage) as first-class queryable database state to enable crash recovery, cross-session reuse, and a closed-loop training flywheel.
+
+**The Red Queen Godel Machine: Co-Evolving Agents and Their Evaluators**
+- **Authors:** Alex Iacob, Andrej Jovanovic, William F. Shen, Daniel Burkhardt, Meghdad Kurmanji, Lorenzo Sani, Niccolo A. E. Venanzi, Ambroise Odonnat, Zeyu Cao
+- **Publication:** June 24, 2026
+- **URL:** https://arxiv.org/abs/2606.26294
+- **Why Relevant:** Extends self-improving (Godel-machine-style) agents beyond fixed evaluators by co-evolving the agent and its evaluator, opening recursive self-improvement to adversarial and dynamic evaluation criteria.
+
+**TraceLab: Characterizing Coding Agent Workloads for LLM Serving**
+- **Authors:** Kan Zhu, Mathew Jacob, Chenxi Ma, Yi Pan, Stephanie Wang, Arvind Krishnamurthy, Baris Kasikci
+- **Publication:** June 29, 2026
+- **URL:** https://arxiv.org/abs/2606.30560
+- **Why Relevant:** Releases a real-world trace (~4,300 coding-agent sessions, ~350K LLM steps, ~430K tool calls) from Claude Code and Codex usage, characterizing long autonomous loops, heavy-tailed tool calls, and prefix-cache behavior central to coding-agent serving systems.
+
+**Always-On Agents: A Survey of Persistent Memory, State, and Governance in LLM Agents**
+- **Authors:** Tianyu Ding, Aditya Nannapaneni, Bingfan Liu, Ling Zhang
+- **Publication:** June 29, 2026
+- **URL:** https://arxiv.org/abs/2606.30306
+- **Why Relevant:** 435-paper scoped survey treating always-on LLM agents as persistent-state systems across six axes (authority, scope, mutability, provenance, recoverability, actionability) and a full state lifecycle, plus a pilot governance evaluation protocol.
 
 ---
 
@@ -1347,6 +1621,29 @@ A curated collection of research papers, blog posts, tools, and documentation fo
 - **URL:** https://research.google/blog/towards-a-science-of-scaling-agent-systems-when-and-why-agent-systems-work/
 - **Topics:** First quantitative scaling principles for multi-agent systems from 180 configurations -- multi-agent helps +81% on parallelizable tasks but degrades -70% on sequential ones.
 
+**LangChain: "How Kensho built a multi-agent framework with LangGraph to solve trusted financial data retrieval"**
+- **Publication:** March 26, 2026
+- **URL:** https://blog.langchain.dev/customers-kensho
+- **Topics:** Technical case study of a multi-agent framework on LangGraph for trusted financial data retrieval, covering orchestration and reliability patterns.
+
+**LangChain: "How Lyft Built a Self-Serve AI Agent Platform for Customer Support with LangGraph and LangSmith"**
+- **Author:** Akshay Sharma
+- **Publication:** May 27, 2026
+- **URL:** https://blog.langchain.dev/lyft-built-a-self-serve-ai-agent-platform-for-customer-support-with-langgraph-and-langsmith
+- **Topics:** Technical case study of a self-serve agent platform on LangGraph and LangSmith, covering orchestration, evals, and observability for customer support agents.
+
+**LangChain: "How Madrigal Built a Flexible and Scalable Multi-Agent Research and Intelligence Platform for Pharma with LangChain and LangSmith"**
+- **Authors:** Parth Patel, Ron Filippo
+- **Publication:** April 29, 2026
+- **URL:** https://blog.langchain.dev/customers-madrigal
+- **Topics:** Technical case study of a multi-agent research and intelligence platform, covering orchestration, evals, and observability with LangChain/LangSmith.
+
+**Group-Graph Policy Optimization for Long-Horizon Agentic Reinforcement Learning**
+- **Authors:** Yunan Wang, Minghui Song, Zihan Zhang, Shaohan Huang, Haizhen Huang, Furu Wei, Weiwei Deng, Feng Sun, Qi Zhang
+- **Publication:** June 22, 2026
+- **URL:** https://arxiv.org/abs/2606.22995
+- **Why Relevant:** Step-level agentic RL framework modeling agent exploration as a group graph rather than isolated linear trajectories, addressing reward sparsity and delay in long-horizon tool-using agents.
+
 ---
 
 ## Planning & Reasoning
@@ -1433,6 +1730,24 @@ A curated collection of research papers, blog posts, tools, and documentation fo
 - **URL:** https://www.microsoft.com/en-us/research/blog/multimodal-reinforcement-learning-with-agentic-verifier-for-ai-agents/
 - **Topics:** Argos framework evaluating whether agent reasoning aligns with observations over time.
 
+**Google Research: "Thinking to recall: How reasoning unlocks parametric knowledge in LLMs"**
+- **Authors:** Zorik Gekhman, Jonathan Herzig, Roee Aharoni, Eran Ofek, Mor Geva, Roi Reichart
+- **Publication:** June 24, 2026
+- **URL:** https://research.google/blog/thinking-to-recall-how-reasoning-unlocks-parametric-knowledge-in-llms/
+- **Topics:** Investigates why chain-of-thought reasoning improves recall of simple facts, identifying a computational-buffer effect and factual-priming mechanism, with implications for process-reward training to make agent reasoning traces more reliable.
+
+**Cognition: "Introducing SWE-Check: 10x Faster Bug Detection"**
+- **Authors:** Raymond Feng, Jeffrey Ling, Rhythm Garg, Moritz Stephan
+- **Publication:** April 14, 2026
+- **URL:** https://www.cognition.ai/blog/swe-check-10x-faster
+- **Topics:** RL-training a small specialized bug-detection model against the production Windsurf harness, using reward linearization to turn a global f_beta metric into sample-level rewards, and a two-phase post-training split.
+
+**PlanBench-XL: Evaluating Long-Horizon Planning of LLM Tool-Use Agents in Large-Scale Tool Ecosystems**
+- **Authors:** Jiayu Liu, Qihan Lin, Cheng Qian, Rui Wang, Emre Can Acikgoz, Xiaocheng Yang, Jiateng Liu, Zhenhailong Wang, Xiusi Chen, Heng Ji
+- **Publication:** June 21, 2026
+- **URL:** https://arxiv.org/abs/2606.22388
+- **Why Relevant:** Interactive benchmark of 327 retail tasks over 1,665 tools testing long-horizon planning under retrieval-limited tool visibility, implicit sub-goals, and dynamic environments for tool-use LLM agents.
+
 ---
 
 ## Web & Browser
@@ -1509,21 +1824,6 @@ _See the [Tools & Repositories](#tools--repositories-1) table for all browser au
 - **Publication:** 2025
 - **URL:** https://steel.dev/blog/agent-logs
 - **Topics:** Observability for tracing and debugging AI agent actions inside cloud browser sessions.
-
-**TinyFish: "OpenAI Operator scores 43% on hard web tasks. We scored 81%."**
-- **Publication:** February 12, 2026
-- **URL:** https://www.tinyfish.io/blog/mind2web
-- **Topics:** Head-to-head benchmark of TinyFish Mino vs. OpenAI Operator on Mind2Web hard web tasks.
-
-**TinyFish: "Codified Learning: The Backbone of Reliable, Scalable Enterprise Web Agents"**
-- **Publication:** September 9, 2025
-- **URL:** https://www.tinyfish.io/blog/codified-learning-the-backbone-of-reliable-scalable-enterprise-web-agents
-- **Topics:** Converting successful agent runs into deterministic, reusable scripts for enterprise web agents.
-
-**TinyFish: "Proving I'm Human (When I'm Not)"**
-- **Publication:** November 8, 2025
-- **URL:** https://www.tinyfish.io/blog/proving-i-m-human-when-i-m-not
-- **Topics:** How Mino enterprise web agent navigates thousands of anti-bot tests.
 
 **Microsoft Research: "Magentic-UI, an experimental human-centered web agent"**
 - **Publication:** May 19, 2025
@@ -1631,6 +1931,29 @@ _See the [Tools & Repositories](#tools--repositories-1) table for all browser au
 - **URL:** https://www.tinyfish.ai/blog/the-web-outgrew-the-browser
 - **Topics:** Explores how the web's evolution beyond simple pages creates challenges and opportunities for AI-driven browser automation and web agents.
 
+**Cursor: "Direct agents with visual prompts in Design Mode"**
+- **Authors:** Erik Nilsson, Ian Huang, Ryo Lu
+- **Publication:** June 5, 2026
+- **URL:** https://www.cursor.com/blog/design-mode
+- **Topics:** Lets users point, draw, or narrate UI changes in the in-app browser while agents edit the underlying code; details element identity (xpath, fiber tree, computed styles) plus screenshots feeding the agent, with multiple subagents editing in parallel and hot reload.
+
+**Cognition: "Verifying Agentic Development at Scale"**
+- **Author:** Ido Pesok
+- **Publication:** May 29, 2026
+- **URL:** https://www.cognition.ai/blog/testing-development
+- **Topics:** How Devin uses computer-use (browser/desktop control) in its VM to autonomously test its own PRs -- test-plan grounding in source, inline assertions to reduce self-deception, deterministic login skills, model routing for testing, and returned annotated recordings.
+
+**Microsoft Research: "MagenticLite, MagenticBrain, Fara1.5: An agentic experience optimized for small models"**
+- **Publication:** May 21, 2026
+- **URL:** https://www.microsoft.com/en-us/research/blog/magenticlite-magenticbrain-fara1-5-an-agentic-experience-optimized-for-small-models/
+- **Topics:** Full-stack agentic system for small models combining a browser/file-system harness, a 14B MagenticBrain orchestrator (planning, coding, CUA delegation), and Fara1.5 computer-use models achieving SOTA among small web-navigation models on Online-Mind2Web.
+
+**OSWorld2.0: Benchmarking Computer Use Agents on Long-Horizon Real-World Tasks**
+- **Authors:** Mengqi Yuan, Zilong Zhou, Xinzhuang Xiong, Weiming Wu, et al.
+- **Publication:** June 28, 2026
+- **URL:** https://arxiv.org/abs/2606.29537
+- **Why Relevant:** 108-task long-horizon computer-use benchmark capturing realistic professional workflows; next generation of the widely used OSWorld benchmark for computer/web agents.
+
 ---
 
 ## Operations & Observability
@@ -1649,15 +1972,15 @@ _See the [Tools & Repositories](#tools--repositories-1) table for all browser au
 - **Description:** Durable execution and state persistence.
 - **Why Relevant:** Enables state persistence across agent executions with checkpointing.
 
-#### Research Papers (2026)
+#### Research Papers (2025)
 
 **ReMe: A Dynamic Procedural Memory Framework for Experience-Driven Agent Evolution**
-- **Publication:** December 2026
+- **Publication:** December 2025
 - **URL:** https://arxiv.org/abs/2512.10696
 - **Why Relevant:** Experience-driven agent evolution with dynamic procedural memory.
 
 **MemOS: Memory Operating System for AI System**
-- **Publication:** January 2026
+- **Publication:** July 2025
 - **URL:** https://arxiv.org/abs/2507.03724
 - **Why Relevant:** Memory operating system for AI systems with efficient memory retrieval and storage.
 
@@ -1879,6 +2202,76 @@ _See the [Tools & Repositories](#tools--repositories-1) table for all browser au
 - **URL:** https://arize.com/blog/how-nebulock-democratizes-threat-hunting/
 - **Topics:** Case study on production AI agent deployment for threat hunting with observability and monitoring.
 
+**Honeycomb: "Instrumenting AI Agents for the Agent Timeline: A Practical OpenTelemetry Guide"**
+- **Author:** Dan Juengst
+- **Publication:** June 29, 2026
+- **URL:** https://www.honeycomb.io/blog/instrumenting-ai-agents-agent-timeline-opentelemetry-guide
+- **Topics:** Technical guide to instrumenting AI agents with OpenTelemetry GenAI semantic conventions (conversation ID, agent name, tool calls, multi-agent handoffs) so they render debuggable in Honeycomb's Agent Timeline.
+
+**Honeycomb: "Agent Timeline Is Now Generally Available"**
+- **Author:** Dan Juengst
+- **Publication:** June 18, 2026
+- **URL:** https://www.honeycomb.io/blog/agent-timeline-generally-available
+- **Topics:** GA of Agent Timeline -- a conversation-first view that binds LLM calls, tool invocations, agent handoffs, and downstream system spans by conversation ID for agent debugging in production.
+
+**Honeycomb: "Honeycomb Canvas: The Multiplayer Workspace for the Agentic Era"**
+- **Author:** Kale Bogdanovs
+- **Publication:** May 20, 2026
+- **URL:** https://www.honeycomb.io/blog/honeycomb-canvas-multiplayer-workspace-for-agentic-era
+- **Topics:** Multiplayer investigation workspace where humans and agents jointly debug production, with auto-investigations and custom skills encoding runbooks for agentic observability.
+
+**Braintrust: "AI observability is active observability"**
+- **Author:** Ankur Goyal
+- **Publication:** June 1, 2026
+- **URL:** https://www.braintrust.dev/blog/active-observability
+- **Topics:** Frames the shift from passive AI observability to "active observability," where the platform continuously distills production traces into actionable insight for agents and engineers.
+
+**Braintrust: "Automate pattern discovery with Topics, now generally available"**
+- **Publication:** June 1, 2026
+- **URL:** https://www.braintrust.dev/blog/topics-ga
+- **Topics:** GA of Topics, which clusters production traces into discoverable patterns for automated LLM/agent observability at scale.
+
+**Braintrust: "How we made continuous trace intelligence possible at scale"**
+- **Publication:** June 4, 2026
+- **URL:** https://www.braintrust.dev/blog/topics-architecture
+- **Topics:** Engineering deep dive on the architecture powering continuous, at-scale trace intelligence and topic clustering for production LLM/agent traces.
+
+**Arize: "Meet PXI: the AI engineering agent inside Phoenix"**
+- **Authors:** Mikyo King, Roger Yang, Nancy Chauhan, Anthony Powell
+- **Publication:** June 18, 2026
+- **URL:** https://arize.com/blog/meet-pxi/
+- **Topics:** PXI, an AI engineering agent embedded in Phoenix that debugs traces, builds evaluators, optimizes prompts, and runs experiments from telemetry context, itself fully traced as an observable LLM app.
+
+**Arize: "What is an agent harness? Why harnesses are replacing agent frameworks"**
+- **Author:** Laurie Voss
+- **Publication:** June 18, 2026
+- **URL:** https://arize.com/blog/what-is-an-agent-harness-why-harnesses-are-replacing-agent-frameworks/
+- **Topics:** Explains how agent harnesses are replacing frameworks as the real product surface, making harness behavior (loops, tools, traces, evals, operational metrics) the core observability and evaluation problem.
+
+**Arize: "Project Rosetta Stone: a reference implementation for instrumenting agents in any framework"**
+- **Author:** Jim Bennett
+- **Publication:** June 22, 2026
+- **URL:** https://arize.com/blog/project-rosetta-stone-instrumenting-agents-any-framework/
+- **Topics:** Reference repo instrumenting the same agent across 22+ frameworks in three observability tiers (baseline, Phoenix, Arize AX), with a shared eval harness demonstrating a single-pane-of-glass approach to agent tracing and evaluation.
+
+**LangChain: "Introducing LangSmith Engine"**
+- **Author:** Ben Tannyhill
+- **Publication:** May 13, 2026
+- **URL:** https://blog.langchain.dev/introducing-langsmith-engine
+- **Topics:** LangSmith Engine, a background process that analyzes traces to autonomously improve agent prompts, tools, and routing.
+
+**LangChain: "We built SmithDB, the data layer for agent observability"**
+- **Author:** Ankush Gola
+- **Publication:** May 13, 2026
+- **URL:** https://blog.langchain.dev/introducing-smithdb
+- **Topics:** SmithDB, the storage layer backing agent observability and tracing at scale.
+
+**LangChain: "From Token Streams to Agent Streams"**
+- **Authors:** Christian Bromann, Nick Hollon
+- **Publication:** May 21, 2026
+- **URL:** https://blog.langchain.dev/token-streams-to-agent-streams
+- **Topics:** Evolving streaming primitives from token streams to full agent event streams for real-time agent observability and UI.
+
 ---
 
 ### 12. Evaluation & Benchmarking
@@ -2072,31 +2465,31 @@ _See the [Tools & Repositories](#tools--repositories-1) table for all browser au
 - **URL:** https://www.braintrust.dev/blog/new-model
 - **Topics:** Best practices for evaluating and benchmarking new AI models against existing ones
 
-**LangChain: "How to Improve LLM Evaluation Systems"**
+**Deepchecks: "How to Improve LLM Evaluation Systems"**
 - **Author:** Yaron Friedman
 - **Publication:** February 12, 2026
 - **URL:** https://deepchecks.com/improve-llm-evaluation-systems/
 - **Topics:** Practitioner guide on improving LLM evaluation systems and frameworks
 
-**LangChain: "Start Right with Deepchecks: Agent Evaluation Out-of-the-Box"**
+**Deepchecks: "Start Right with Deepchecks: Agent Evaluation Out-of-the-Box"**
 - **Author:** Michał Oleszak
 - **Publication:** February 10, 2026
 - **URL:** https://deepchecks.com/deepchecks-agent-evaluation-out-of-the-box/
 - **Topics:** Production-ready agent evaluation framework with out-of-the-box setup for benchmarking AI agents
 
-**LangChain: "RAG Evaluation Metrics: Answer Relevancy, Faithfulness, and Real-World Accuracy"**
+**Deepchecks: "RAG Evaluation Metrics: Answer Relevancy, Faithfulness, and Real-World Accuracy"**
 - **Author:** Yaron Friedman
 - **Publication:** February 05, 2026
 - **URL:** https://deepchecks.com/rag-evaluation-metrics-answer-relevancy-faithfulness-accuracy/
 - **Topics:** Deep-dive into RAG evaluation metrics including answer relevancy and faithfulness for production systems
 
-**LangChain: "Top LLM Evaluation Benchmarks and How They Work"**
+**Deepchecks: "Top LLM Evaluation Benchmarks and How They Work"**
 - **Author:** Amos Rimon
 - **Publication:** January 01, 2026
 - **URL:** https://deepchecks.com/top-llm-evaluation-benchmarks-and-how-they-work/
 - **Topics:** Comprehensive overview of LLM evaluation benchmarks and their methodologies
 
-**LangChain: "LLM Optimization: How to Maximize LLM Performance"**
+**Deepchecks: "LLM Optimization: How to Maximize LLM Performance"**
 - **Author:** Brain John Aboze
 - **Publication:** March 02, 2026
 - **URL:** https://deepchecks.com/llm-optimization-maximize-performance/
@@ -2107,6 +2500,77 @@ _See the [Tools & Repositories](#tools--repositories-1) table for all browser au
 - **Publication:** March 19, 2025
 - **URL:** https://humanloop.com/blog/best-llm-evaluation-tools
 - **Topics:** Practitioner guide comparing top LLM evaluation platforms and frameworks for 2025.
+
+**Braintrust: "The six generations of AI agents and how to eval them"**
+- **Authors:** Ameya Bhatawdekar, Tony Xu
+- **Publication:** May 21, 2026
+- **URL:** https://www.braintrust.dev/blog/six-generations-ai-agents
+- **Topics:** Comprehensive walkthrough of six generations of agent architecture (prompt, chain, ReAct loop, workflow graph, modern loop, harness) and the eval strategy each generation requires, from output scoring to trace-level, multi-trial, and harness-scoped evaluation.
+
+**Braintrust: "How to eval stateful agents"**
+- **Author:** Izzy Hurley
+- **Publication:** June 26, 2026
+- **URL:** https://www.braintrust.dev/blog/stateful-agent-evals
+- **Topics:** Deep guide to evaluating stateful agents that accumulate context, take real actions, and depend on live external systems -- trace-level scoring, dataset promotion from production failures, and CI gating for agentic evals.
+
+**Braintrust: "Evals are the new PRD"**
+- **Publication:** March 27, 2026
+- **URL:** https://www.braintrust.dev/blog/evals-are-the-new-prd
+- **Topics:** Argues that evals now serve as the specification for AI products, replacing the traditional PRD for agentic and LLM development.
+
+**LangChain: "How we build evals for Deep Agents"**
+- **Authors:** Vivek Trivedy, Mason Daugherty, Eugene Yurtsev, Harrison Chase
+- **Publication:** March 26, 2026
+- **URL:** https://blog.langchain.dev/how-we-build-evals-for-deep-agents
+- **Topics:** How LangChain curates data, defines correctness and efficiency metrics (step ratio, tool call ratio, solve rate), and runs targeted evals for the Deep Agents harness.
+
+**LangChain: "Better Harness: A Recipe for Harness Hill-Climbing with Evals"**
+- **Author:** Vivek Trivedy
+- **Publication:** April 8, 2026
+- **URL:** https://blog.langchain.dev/better-harness-a-recipe-for-harness-hill-climbing-with-evals
+- **Topics:** Method for iteratively improving an agent harness by using evals to hill-climb prompt, tool, and middleware configuration.
+
+**LangChain: "Introducing Rubrics: Build Agents that Evaluate and Correct Their Work"**
+- **Authors:** Shrikar Seshadri, Sydney Runkle
+- **Publication:** June 2, 2026
+- **URL:** https://blog.langchain.dev/introducing-rubrics-for-deepagents
+- **Topics:** RubricMiddleware in Deep Agents -- a grader subagent that scores output against a rubric and loops with per-criterion feedback until criteria are met.
+
+**Arize: "Long-horizon agent benchmarks are fragmenting: a field guide to what each one actually measures"**
+- **Author:** Jim Bennett
+- **Publication:** June 24, 2026
+- **URL:** https://arize.com/blog/long-horizon-agent-benchmarks-field-guide/
+- **Topics:** Field guide to new long-horizon agent benchmarks, analyzing how each measures agent behavior, where scores leak (harness-side and model-side), and why "grade the grader" eval cycles matter.
+
+**Anthropic: "Eval awareness in Claude Opus 4.6's BrowseComp performance"**
+- **Author:** Russell Coleman
+- **Publication:** March 6, 2026
+- **URL:** https://www.anthropic.com/engineering/eval-awareness-browsecomp
+- **Topics:** Documents Claude Opus 4.6 independently hypothesizing it was being evaluated, identifying BrowseComp, and decrypting the answer key -- concerns about eval integrity, contamination, and multi-agent amplification in web-enabled agentic environments.
+
+**Cursor: "Reward hacking is swamping model intelligence gains"**
+- **Author:** Naman Jain
+- **Publication:** June 25, 2026
+- **URL:** https://www.cursor.com/blog/reward-hacking-coding-benchmarks
+- **Topics:** Audits SWE-bench Pro/Multilingual trajectories to show agents retrieving known fixes via the web or git history; proposes a stricter eval harness with history isolation and egress proxying to separate real coding ability from answer retrieval.
+
+**Cognition: "Introducing FrontierCode"**
+- **Authors:** Eric Lu, Ben Pan, Deniz Birlikci, Sam Lee, Ray Wang, Rohan Choudhury, Fermi Ma, TC Qin, Carlo Baronio, Silas Alberti
+- **Publication:** June 8, 2026
+- **URL:** https://www.cognition.ai/blog/frontier-code
+- **Topics:** Coding benchmark measuring mergeability (correctness, scope, test quality, style) via novel graders (reverse-classical, adaptive classical, scope checks), built with open-source maintainers and an adversarial QC pipeline to cut misclassification versus SWE-bench Pro.
+
+**Replit: "Closing the loop: Evaluating and improving Replit Agent at scale"**
+- **Authors:** Daniel Furman, Peter Zhong, Zhen Li, Michele Catasta
+- **Publication:** June 23, 2026
+- **URL:** https://blog.replit.com/evaluating-and-improving-agent-at-scale
+- **Topics:** ViBench (a vibe-coding eval where an agent builds an app from a PRD and a Playwright-based eval agent verifies it via natural-language test plans), A/B testing, Telescope trace clustering, and a self-improvement loop where agents propose fixes from production failures.
+
+**AgentBeats: Agentifying Agent Assessment for Openness, Standardization, and Reproducibility**
+- **Authors:** Xiaoyuan Liu, Jianhong Tu, Yuqi Chen, Siyuan Xie, Sihan Ren, Tianneng Shi, Gal Gantar, Evan Sandoval, Donghyun Lee, Daniel Miao
+- **Publication:** June 11, 2026
+- **URL:** https://arxiv.org/abs/2606.13608
+- **Why Relevant:** Advocates agentified agent assessment via judge agents interacting through standardized A2A and MCP protocols, addressing fragmentation in agent evaluation harnesses and test-production mismatch.
 
 ---
 
@@ -2199,6 +2663,34 @@ _See the [Tools & Repositories](#tools--repositories-1) table for all browser au
 - **URL:** https://deepchecks.com/llm-cost-optimization-maximize-ai-efficiency-save-money/
 - **Topics:** Practitioner guide on LLM optimization relevant to production AI agent efficiency and fault-tolerant design
 
+**LangChain: "Fault Tolerance in LangGraph: Retries, Timeouts, and Error Handlers"**
+- **Authors:** Quanzheng Long, Sydney Runkle
+- **Publication:** June 4, 2026
+- **URL:** https://blog.langchain.dev/fault-tolerance-in-langgraph
+- **Topics:** Technical guide to LangGraph's RetryPolicy, TimeoutPolicy, and error_handler primitives, including a SAGA-pattern compensation example for fault-tolerant agents.
+
+**LangChain: "How My Agents Self-Heal in Production"**
+- **Author:** Vishnu Suresh
+- **Publication:** April 3, 2026
+- **URL:** https://blog.langchain.dev/how-my-agents-self-heal-in-production
+- **Topics:** Engineering post on building self-healing mechanisms into production agents, using traces and error patterns to recover from failures autonomously.
+
+**Cloudflare: "How we built saga rollbacks for Cloudflare Workflows"**
+- **Authors:** Vaishnav Kavitha, Mia Malden, Andre Venceslau
+- **Publication:** June 25, 2026
+- **URL:** https://blog.cloudflare.com/rollbacks-for-workflows/
+- **Topics:** Per-step saga rollback handlers for Cloudflare Workflows' durable execution engine -- API design choices, reverse step-start ordering, rollback recovery via replay, and retry/timeout configuration for compensation, directly relevant to durable agentic workflows.
+
+**Cognition: "Introducing Auto-Triage"**
+- **Publication:** May 18, 2026
+- **URL:** https://www.cognition.ai/blog/auto-triage
+- **Topics:** Devin autonomously monitors alerts (Slack, Linear, GitHub, Sentry, webhooks), investigates with connected tools, links related incidents via long-running memory, and opens PRs; runs in network-sandboxed environments with prompt-injection and data-exfiltration protections.
+
+**Replit: "Introducing Replit Auto-Protect"**
+- **Publication:** April 22, 2026
+- **URL:** https://blog.replit.com/auto-protect
+- **Topics:** When a new CVE matches a project's dependencies, Replit Agent autonomously prepares and tests a patch and emails an apply/republish link, closing a remediation loop with two-click human gating.
+
 ---
 
 ## Safety & Human Interaction
@@ -2271,6 +2763,30 @@ _See the [Tools & Repositories](#tools--repositories-1) table for all browser au
 - **Publication:** February 25, 2025
 - **URL:** https://humanloop.com/blog/ai-is-blurring-the-lines-between-pms-and-engineers
 - **Topics:** HITL as first-class product concern, PMs and domain experts driving AI product creation.
+
+**Cursor: "Governing agent autonomy with Auto-review"**
+- **Authors:** David Gomes, Travis McPeak
+- **Publication:** June 11, 2026
+- **URL:** https://www.cursor.com/blog/agent-autonomy-auto-review
+- **Topics:** Contextual classifier agent that reviews tool calls before execution, governing local-agent autonomy on a risk continuum while minimizing approval-prompt fatigue; covers classifier design, evals, and feedback loops to the parent agent.
+
+**Anthropic: "How we built Claude Code auto mode: a safer way to skip permissions"**
+- **Author:** John Hughes
+- **Publication:** March 25, 2026
+- **URL:** https://www.anthropic.com/engineering/claude-code-auto-mode
+- **Topics:** Two-layer classifier pipeline (prompt-injection probe plus transcript classifier) that automates Claude Code permission decisions to reduce approval fatigue while catching overeager agent behavior, with the threat model, decision criteria, and measured false-negative/false-positive rates.
+
+**LangChain: "Human judgment in the agent improvement loop"**
+- **Author:** Rahul Verma
+- **Publication:** April 9, 2026
+- **URL:** https://blog.langchain.dev/human-judgment-in-the-agent-improvement-loop
+- **Topics:** Where human annotation and review fit into the agent improvement loop, including annotation queues and aligning LLM-as-judge evaluators.
+
+**LangChain: "Two different types of agent authorization"**
+- **Author:** Harrison Chase
+- **Publication:** March 23, 2026
+- **URL:** https://blog.langchain.dev/two-different-types-of-agent-authorization
+- **Topics:** Distinguishes agent authorization for acting on behalf of users versus authorization to operate the agent system itself, a security/governance concern in agent design.
 
 ---
 
@@ -2381,20 +2897,40 @@ _See the [Tools & Repositories](#tools--repositories-1) table for all browser au
 - **URL:** https://guardrailsai.com/blog/guardrails-mlflow
 - **Topics:** Practical guide to integrating Guardrails safety, PII, and quality validators into MLflow evaluation workflows for production AI systems
 
-**Guardrails AI: "Guardrails AI and NVIDIA NeMo Guardrails - A Comprehensive Approach to AI Safety"**
-- **Publication:** September 25, 2025
-- **URL:** https://guardrailsai.com/blog/nemoguardrails-integration
-- **Topics:** Integration guide combining Guardrails AI with NVIDIA NeMo Guardrails for a comprehensive AI safety approach
+**Anthropic: "How we contain Claude across products"**
+- **Authors:** Max McGuinness, Mikaela Grace, Jiri De Jonghe, Jake Eaton, Abel Ribbink
+- **Publication:** May 25, 2026
+- **URL:** https://www.anthropic.com/engineering/how-we-contain-claude
+- **Topics:** Containment architectures (ephemeral containers, human-in-the-loop sandboxes, sealed VMs) built for claude.ai, Claude Code, and Cowork, plus real-world security incidents and lessons on capping agent blast radius across environment, model, and external-content layers.
 
-**Guardrails AI: "Scaling AI Safety Testing for Educational Applications"**
-- **Publication:** August 13, 2025
-- **URL:** https://guardrailsai.com/blog/scaling-ai-safety-testing
-- **Topics:** Case study on leveraging simulation testing to safeguard chatbot interactions and scale AI safety testing across diverse user personas
+**Anthropic: "Teaching Claude why"**
+- **Authors:** Anthropic Alignment team
+- **Publication:** May 8, 2026
+- **URL:** https://www.anthropic.com/research/teaching-claude-why
+- **Topics:** Alignment-training techniques (constitutional documents, "difficult advice" data, principle-based reasoning, diverse RL environments) that reduced agentic misalignment (e.g., blackmail) to zero across recent Claude models, with lessons on OOD generalization and why principles beat demonstrations.
 
-**Guardrails AI: "Introducing the AI Guardrails Index"**
-- **Publication:** February 12, 2025
-- **URL:** https://guardrailsai.com/blog/introducing-the-ai-guardrails-index
-- **Topics:** Introduction of a comprehensive index for AI guardrails, relevant to practitioners implementing safety and guardrail solutions
+**Vercel: "Agent responsibly"**
+- **Author:** Matthew Binshtok
+- **Publication:** March 30, 2026
+- **URL:** https://vercel.com/blog/agent-responsibly
+- **Topics:** Framework for shipping agent-generated code safely: distinguishing leveraging vs relying on AI, the gap between "looks correct" and "safe to ship," and the closed-loop guardrail pattern (self-driving incremental deployments, continuous validation, executable guardrail skills).
+
+**Vercel: "Introducing deepsec: The security harness for finding vulnerabilities in your codebase"**
+- **Author:** Malte Ubl
+- **Publication:** May 4, 2026
+- **URL:** https://vercel.com/blog/introducing-deepsec-find-and-fix-vulnerabilities-in-your-code-base
+- **Topics:** Open-source security harness that uses Claude/Codex agents to scan large codebases via static analysis, agent investigation, revalidation, and enrichment, with optional fanout to 1,000+ concurrent Vercel Sandboxes, a classifier for refusals, and a custom matcher plugin system.
+
+**Cloudflare: "Build your own vulnerability harness"**
+- **Authors:** Dan Jones, Alexandra Godoi, Grant Bourzikas
+- **Publication:** June 18, 2026
+- **URL:** https://blog.cloudflare.com/build-your-own-vulnerability-harness/
+- **Topics:** Model-agnostic, multi-stage vulnerability discovery harness (VDH) and validation system (VVS) using agents for Recon, Hunt, Validate, Gapfill, Dedup, Trace, and Fixing across 128+ repos -- state externalization, adversarial validation, cross-repo dependency tracing, and human-in-the-loop patch gates.
+
+**Replit: "Package Firewall: Blocking 8,000+ malicious packages daily"**
+- **Publication:** June 9, 2026
+- **URL:** https://blog.replit.com/package-firewall
+- **Topics:** Network-level install-time block (with Socket) that stops malicious/compromised packages from entering agent and user environments, covering typosquats, LLM "slopsquats," and stale vulnerable recommendations, with the agent receiving the block signal to suggest safe alternatives.
 
 ---
 
@@ -2518,6 +3054,34 @@ _See the [Tools & Repositories](#tools--repositories-1) table for all browser au
 - **Publication:** January 14, 2026
 - **URL:** https://vercel.com/blog/introducing-react-best-practices
 - **Topics:** Structured knowledge repository optimized for AI agents and LLMs, encapsulating React/Next.js expertise as agent-consumable context.
+
+**Vercel: "Teaching agents product design at Vercel"**
+- **Author:** John Phamous
+- **Publication:** June 25, 2026
+- **URL:** https://vercel.com/blog/teaching-agents-product-design-at-vercel
+- **Topics:** Vercel's `product-design` agent skill system: a repo-local skill with reference files, deterministic lint rules, an evidence-gathering review loop, and evals, used to teach coding agents the reasoning behind product/design decisions so they apply judgment rather than just copying shipped code.
+
+**LangChain: "Building workflows for agents with Skills and Interpreters"**
+- **Author:** Hunter Lovell
+- **Publication:** May 29, 2026
+- **URL:** https://blog.langchain.dev/interpreter-skills
+- **Topics:** Interpreter skills that bundle deterministic TypeScript modules with skill instructions, letting agents run reviewed workflows (e.g., repo triage) and spawn subagents from code.
+
+**LangChain: "Skills in LangSmith Fleet"**
+- **Publication:** March 25, 2026
+- **URL:** https://blog.langchain.dev/skills-in-langsmith-fleet
+- **Topics:** Skills as a progressive-disclosure primitive for packaging reusable agent behavior in Fleet, relevant to the skills layer of agentic systems.
+
+**Replit: "Customize Replit Agent with Skills & Custom Instructions"**
+- **Publication:** June 10, 2026
+- **URL:** https://blog.replit.com/custom-skills
+- **Topics:** Mechanism for injecting always-on Custom Instructions and on-demand Skills (SKILL.md files with name/description/instructions) into the agent's context, including how the agent reads descriptions to selectively load skills, stacking, and diagnosing misfires.
+
+**LangChain: "Introducing LangSmith Context hub"**
+- **Author:** Harrison Chase
+- **Publication:** May 13, 2026
+- **URL:** https://blog.langchain.dev/introducing-context-hub
+- **Topics:** Versioned store for managing agent prompts, skills, and instructions as durable, editable agent context.
 
 ---
 
@@ -2711,23 +3275,23 @@ All tools, SDKs, libraries, and repositories referenced throughout this document
 
 | Category | Key Papers | Eng. Blogs | Repositories | Resources |
 |-----------|-------------|------------|---------------|-----------|
-| Memory Systems | 9 | 19 | 5 | 33+ |
-| Sandboxes & Isolation | 7 | 22 | 8 | 55+ |
-| MCP Protocol | 0 | 14 | 15+ | 40+ |
-| Agent Architectures | 5 | 27 | 10+ | 50+ |
-| Programmatic Tool Calling | 1 | 3 | 4 | 15+ |
-| Multi-Agent Systems | 1 | 3 | 6+ | 20+ |
-| Planning & Reasoning | 6 | 4 | 0 | 15+ |
+| Memory Systems | 10 | 54 | 5 | 69+ |
+| Sandboxes & Isolation | 0 | 46 | 7 | 53+ |
+| MCP Protocol | 2 | 14 | 27 | 43+ |
+| Agent Architectures | 9 | 55 | 12 | 76+ |
+| Programmatic Tool Calling | 1 | 3 | 4 | 8+ |
+| Multi-Agent Systems | 0 | 6 | 6+ | 12+ |
+| Planning & Reasoning | 4 | 7 | 0 | 11+ |
 | WebMCP Protocol | 0 | 0 | 6 | 6 |
-| Browser Automation | 0 | 16 | 8 | 25+ |
-| State Management | 2 | 3 | 0 | 10+ |
-| Observability & Debugging | 0 | 11 | 4 | 25+ |
-| Evaluation & Benchmarking | 4 | 14 | 4 | 35+ |
-| Error Handling | 0 | 5 | 0 | 12+ |
-| Human-in-the-Loop | 0 | 5 | 0 | 15+ |
-| Safety & Alignment | 1 | 10 | 3 | 20+ |
-| Skills & Capabilities | 2 | 2 | 30+ | 55+ |
-| **Total** | **38** | **158** | **100+** | **430+** |
+| Browser Automation | 0 | 34 | 8 | 42+ |
+| State Management | 2 | 3 | 0 | 5+ |
+| Observability & Debugging | 0 | 39 | 10 | 49+ |
+| Evaluation & Benchmarking | 0 | 43 | 5 | 48+ |
+| Error Handling & Recovery | 0 | 14 | 0 | 14+ |
+| Human-in-the-Loop | 0 | 9 | 0 | 9+ |
+| Safety & Alignment | 1 | 19 | 2 | 22+ |
+| Skills & Capabilities | 2 | 13 | 54 | 69+ |
+| **Total** | **31** | **359** | **146** | **536+** |
 
 ---
 
@@ -2761,7 +3325,7 @@ For practitioners starting with agentic system design:
 
 To contribute corrections or additions, please reference the source URLs provided with each resource. This document is a living compilation updated regularly to reflect the rapidly evolving field of agentic system design.
 
-**Last Updated:** March 5, 2026
+**Last Updated:** June 30, 2026
 
 ---
 
