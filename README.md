@@ -1,6 +1,6 @@
 # Agentic System Design
 
-A curated collection of research papers, blog posts, tools, and documentation for building agentic systems - AI agents that can reason, plan, use tools, and collaborate autonomously.
+A curated collection of research papers, blog posts, tools, and documentation for building agentic systems - AI agents that can reason, plan, use tools, and collaborate autonomously - plus the DL framework, GPU, and inference foundations they run on.
 
 ## Table of Contents
 
@@ -33,6 +33,11 @@ A curated collection of research papers, blog posts, tools, and documentation fo
 
 ### [Capabilities](#capabilities)
 16. [Skills & Capabilities](#16-skills--capabilities)
+
+### [Foundations](#foundations)
+17. [DL Framework Internals](#17-dl-framework-internals)
+18. [GPU Architecture & Kernels](#18-gpu-architecture--kernels)
+19. [Inference & Serving](#19-inference--serving)
 
 ### [Appendix](#appendix)
 - [Tools & Repositories](#tools--repositories-1)
@@ -3085,6 +3090,497 @@ _See the [Tools & Repositories](#tools--repositories-1) table for all browser au
 
 ---
 
+## Foundations
+
+### 17. DL Framework Internals
+
+#### PyTorch Internals
+
+**PyTorch: "Autograd mechanics"**
+- **URL:** https://docs.pytorch.org/docs/2.12/notes/autograd.html
+- **Description:** Canonical reference for the autograd engine internals -- backward graph as Function objects, saved tensor packing/unpacking, multithreaded autograd engine, grad modes, in-place correctness checks, and complex number differentiation via Wirtinger calculus.
+
+**PyTorch: "Extending PyTorch"**
+- **URL:** https://docs.pytorch.org/docs/2.12/notes/extending.html
+- **Description:** Official guide to custom op registration (torch.library/TORCH_LIBRARY), autograd.Function subclasses with forward/setup_context/backward (and jvp for forward-mode AD), nn.Module extension, and the __torch_function__ dispatch protocol.
+
+**PyTorch: "torch.library (Custom Operators)"**
+- **URL:** https://docs.pytorch.org/docs/2.12/library.html
+- **Description:** API reference for the custom op registration stack -- custom_op, triton_op, wrap_triton, register_kernel, register_fake (FakeTensor/meta kernels), register_autograd, register_vmap, and the low-level Library/define/impl/fallback dispatcher bindings.
+
+**PyTorch: "torch.fx"**
+- **URL:** https://docs.pytorch.org/docs/2.12/fx.html
+- **Description:** Definitive documentation of the FX IR and symbolic tracing toolkit -- the Graph/Node IR (placeholder/get_attr/call_function/call_module/call_method/output), Python codegen, the Interpreter/Transformer pattern, and limitations of symbolic tracing. FX is the substrate AOTAutograd builds on.
+
+**PyTorch: "torch.export"**
+- **URL:** https://docs.pytorch.org/docs/2.12/export.html
+- **Description:** Reference for torch.export, the graph-capture mechanism producing Export IR (a sound, serializable graph IR that is the front door for ahead-of-time compilation and backends), covering the export API, dynamic shapes, and decomposition.
+
+**PyTorch: "torch.compiler (torch.compile / Inductor / TorchDynamo)"**
+- **URL:** https://docs.pytorch.org/docs/2.12/torch.compiler.html
+- **Description:** Landing page for the PT2 compiler stack -- torch.compile, the TorchDynamo frame-evaluation tracing frontend, AOTAutograd, and the Inductor backend. Documents the end-to-end pipeline from eager Python to generated Triton/C++ kernels and modes (default, reduce-overhead, max-autotune).
+
+**Edward Z. Yang: "Let's talk about the PyTorch dispatcher"**
+- **Author:** Edward Z. Yang
+- **Publication:** September 10, 2020
+- **URL:** http://blog.ezyang.com/2020/09/lets-talk-about-the-pytorch-dispatcher/
+- **Why Relevant:** The canonical engineering blog post on the PyTorch dispatcher -- dispatch key sets, per-operator dispatch tables vs C++ vtables, multiple dispatch + TLS, autograd/tracing as dispatch keys, the operator registration grid, and boxing/unboxing via IValue.
+
+**PyTorch: "PyTorch 2.0: Our next generation release that is faster, more Pythonic and Dynamic as ever"**
+- **Publication:** March 15, 2023
+- **URL:** https://pytorch.org/blog/pytorch-2-0-release/
+- **Why Relevant:** The canonical PT2 launch announcement covering the torch.compile one-line accelerator, the TorchDynamo + AOTAutograd + Inductor stack, and the design goal of preserving dynamic Python while compiling.
+
+**PyTorch: "Accelerating Generative AI with PyTorch II: GPT, Fast"**
+- **Author:** Horace He
+- **Publication:** November 30, 2023
+- **URL:** https://pytorch.org/blog/accelerating-generative-ai-2/
+- **Why Relevant:** Most-cited practitioner deep dive on torch.compile in production -- static kv-cache, reduce-overhead mode and cudagraphs integration, Inductor-generated matrix-vector kernels outperforming cuBLAS/FlashAttention for BS=1, int8/int4 weight-only quantization, speculative decoding, and tensor parallelism in <1000 LOC.
+
+**PyTorch: "Accelerating Generative AI with PyTorch: Segment Anything, Fast"**
+- **Publication:** November 16, 2023
+- **URL:** https://pytorch.org/blog/accelerating-generative-ai/
+- **Why Relevant:** First part of the GPT-Fast series -- 8x speedup on Segment Anything using only native PyTorch (torch.compile, GPU quantization via torchao). Useful companion for understanding how Inductor GPU codegen and reduce-overhead translate to real workload gains.
+
+**PyTorch: "Why Is PyTorch Compile So Fast: Kernel Fusion"**
+- **Author:** Morrison Turnansky
+- **Publication:** May 27, 2026
+- **URL:** https://pytorch.org/blog/why-is-pytorch-compile-so-fast-kernel-fusion/
+- **Why Relevant:** Explains the central mechanism behind Inductor's perf wins -- kernel fusion -- and how torch.compile reduces CPU overhead and generates fused kernels. Good entry point for understanding the codegen + fusion design of the Inductor backend.
+
+**Kaichao You: "torch.compile, explained"**
+- **Author:** Kaichao You
+- **Publication:** October 26, 2023
+- **URL:** https://medium.com/pytorch/torch-compile-explained-ae0def293084
+- **Why Relevant:** Community-published, PyTorch-endorsed walkthrough of the full torch.compile pipeline (Dynamo -> AOTAutograd -> Inductor -> Triton), including graph breaks, dynamic shapes, and backend selection. Frequently recommended as the clearest end-to-end mental model of the PT2 stack.
+
+**PyTorch/XLA: "PyTorch/XLA SPMD: Scale Up Model Training and Serving with Automatic Parallelization"**
+- **Authors:** Yeounoh Chung, Jon Bolin, Milad Mohammadi, Jiewen Tan, Jack Cao, et al.
+- **Publication:** August 31, 2023
+- **URL:** https://pytorch.org/blog/pytorch-xla-spmd/
+- **Why Relevant:** The PyTorch/XLA team's writeup on integrating GSPMD into PyTorch -- annotation-based sharding, automatic partitioning across TPU/GPU devices, and the bridge between PyTorch eager semantics and the XLA SPMD compiler.
+
+#### JAX/XLA Internals
+
+**JAX: "JAX internals: The jaxpr language"**
+- **URL:** https://docs.jax.dev/en/latest/jaxpr.html
+- **Description:** The authoritative description of jaxpr, JAX's explicitly-typed, functional, ANF intermediate representation -- ClosedJaxpr/Jaxpr, equations, constvars, and higher-order primitives (cond, while, scan, (p)jit) with sub-jaxprs. The IR that all JAX transformations specialize and the bridge to XLA.
+
+**JAX: "JAX Internals: primitives"**
+- **URL:** https://docs.jax.dev/en/latest/jax-primitives.html
+- **Description:** Companion to the jaxpr docs -- the Primitive abstraction, bind, and find_top_trace, i.e. the dispatch mechanism by which JAX overloads eager execution to apply transformations as it traces. The JAX analog of the PyTorch dispatcher.
+
+**JAX: "JAX 101 (JIT, vmap, grad, tracing, distributed arrays, control flow)"**
+- **URL:** https://docs.jax.dev/en/latest/jax-101.html
+- **Description:** Official sequential tutorial series covering jit (XLA compilation + caching + static_argnums), vmap, grad, pytrees, PRNG, distributed arrays/automatic parallelization, JIT control flow, and tracing. The structured on-ramp to how JAX transformations compose and feed XLA.
+
+**JAX: "Just-in-time compilation"**
+- **URL:** https://docs.jax.dev/en/latest/jit-compilation.html
+- **Description:** Focused treatment of jax.jit -- how tracing produces a jaxpr, which XLA then compiles per-device; pure-function requirements, why side effects vanish from the jaxpr, the Tracer mechanism, static vs runtime values, and JIT compilation caching behavior.
+
+**JAX: "Distributed arrays and automatic parallelization"**
+- **URL:** https://docs.jax.dev/en/latest/parallel.html
+- **Description:** The modern reference for JAX sharding -- three parallelism modes (Auto compiler-based, Explicit sharding-in-types, Manual per-device), Mesh/AbstractMesh/AxisType, NamedSharding + PartitionSpec, sharding propagation rules, with_sharding_constraint, and how the compiler inserts collectives. The user-facing surface of GSPMD.
+
+**JAX: "Manual parallelism with shard_map"**
+- **URL:** https://docs.jax.dev/en/latest/notebooks/shard_map.html
+- **Description:** Definitive guide to shard_map (shmap), JAX's SPMD manual-parallelism API that complements jit's automatic GSPMD partitioning -- rank-preserving mapping, in_specs/out_specs, explicit collectives (psum, all_gather, psum_scatter, ppermute, all_to_all), the VMA type system, and composition with jit/grad. Includes FSDP, tensor, and pipeline parallelism examples.
+
+**JAX: "The Autodiff Cookbook"**
+- **URL:** https://docs.jax.dev/en/latest/notebooks/autodiff_cookbook.html
+- **Description:** Canonical JAX autodiff reference -- grad, value_and_grad, jacfwd/jacrev, and the foundational jvp (forward-mode) and vjp (reverse-mode) primitives with full math and code. Covers Hessian-vector products and complex-number differentiation; where JAX's tracing-based autodiff is made concrete.
+
+**JAX: "Resources and Advanced Guides (Autodidax, Advanced Autodiff, XLA flags, JEPs)"**
+- **URL:** https://docs.jax.dev/en/latest/advanced_guides.html
+- **Description:** Index page for the deepest JAX internals material -- Autodidax (JAX core built from scratch in a notebook), Advanced Automatic Differentiation, XLA compiler flags, generalized convolutions, and the JEP (JAX Enhancement Proposals) series including 14273 (shard_map) and 17111 (shmap transpose).
+
+**GSPMD: General and Scalable Parallelization for ML Computation Graphs**
+- **Authors:** Yuanzhong Xu, HyoukJoong Lee, Dehao Chen, Blake Hechtman, Yanping Huang, Rahul Joshi, et al.
+- **Publication:** May 10, 2021
+- **URL:** https://arxiv.org/abs/2105.04663
+- **Why Relevant:** The foundational paper for automatic, compiler-based sharding in XLA/JAX -- annotation-driven tensor partitioning, per-op sharding propagation, and 50-62% compute utilization on up to 2048 TPUv3 cores for trillion-parameter models. The algorithm behind JAX's auto-sharding and PyTorch/XLA SPMD.
+
+**Pathways: Asynchronous Distributed Dataflow for ML**
+- **Authors:** Paul Barham, Aakanksha Chowdhury, Jeff Dean, Sanjay Ghemawat, Steven Hand, Dan Hurt, Michael Isard, Hyeontaek Lim, Ruoming Pang, et al.
+- **Publication:** March 23, 2022
+- **URL:** https://arxiv.org/abs/2203.12533
+- **Why Relevant:** MLSys 2022 paper describing Google's async distributed dataflow runtime underpinning large-scale JAX/XLA execution -- sharded dataflow graph of async futures, gang-scheduling of heterogeneous parallel computations, single-controller model. The systems substrate that GSPMD-partitioned XLA programs run on.
+
+#### Distributed Training
+
+**PyTorch: "FSDP (FullyShardedDataParallel) Documentation"**
+- **URL:** https://docs.pytorch.org/docs/stable/fsdp.html
+- **Description:** Official API reference for PyTorch's Fully Sharded Data Parallel -- sharding strategies, CPU offload, auto-wrap policies, mixed precision, backward prefetch, and the use_orig_params mode. The canonical source for FSDP internals and configuration.
+
+**PyTorch FSDP: Experiences on Scaling Fully Sharded Data Parallel**
+- **Authors:** Yanli Zhao, Andrew Gu, Rohan Varma, Liang Luo, Chien-Chin Huang, Min Xu, Less Wright, Hamid Shojanazeri, Myle Ott, Sam Shleifer, Alban Desmaison, Can Balioglu, Pritam Damania, Bernard Nguyen, Geeta Chauhan, Yuchen Hao, Ajit Mathews, Shen Li
+- **Publication:** April 2023
+- **URL:** https://arxiv.org/abs/2304.11277
+- **Why Relevant:** The accompanying paper for FSDP detailing its co-design with PyTorch core components (tensor implementation, dispatcher, CUDA memory caching allocator) and demonstrating near-linear TFLOPS scalability. Key resource for understanding FSDP's architecture vs DDP.
+
+**DeepSpeed: "Zero Redundancy Optimizer (ZeRO Tutorial)"**
+- **URL:** https://www.deepspeed.ai/tutorials/zero/
+- **Description:** Official DeepSpeed tutorial covering ZeRO stages 1, 2, and 3 -- configuration knobs (reduce_bucket_size, overlap_comm, contiguous_gradients), ZeRO-Infinity offloading to CPU/NVMe, memory-centric tiling, and weight extraction.
+
+**ZeRO: Memory Optimizations Toward Training Trillion Parameter Models**
+- **Authors:** Samyam Rajbhandari, Jeff Rasley, Olatunji Ruwase, Yuxiong He
+- **Publication:** October 2019
+- **URL:** https://arxiv.org/abs/1910.02054
+- **Why Relevant:** The foundational ZeRO paper introducing partitioning of optimizer states (Stage 1), gradients (Stage 2), and parameters (Stage 3) across data-parallel workers, demonstrating 8x model size and 10x performance gains. The defining work on eliminating memory redundancy in data-parallel training.
+
+**ZeRO-Infinity: Breaking the GPU Memory Wall for Extreme Scale Deep Learning**
+- **Authors:** Samyam Rajbhandari, Olatunji Ruwase, Jeff Rasley, Shaden Smith, Yuxiong He
+- **Publication:** April 2021
+- **URL:** https://arxiv.org/abs/2104.07857
+- **Why Relevant:** Extends ZeRO to heterogeneous GPU/CPU/NVMe memory, sustaining 25 petaflops on 512 V100 GPUs and enabling fine-tuning of trillion-parameter models on a single DGX-2 node. Essential for understanding offload engines and bandwidth-efficient training beyond GPU memory limits.
+
+**Megatron-LM: Training Multi-Billion Parameter Language Models Using Model Parallelism**
+- **Authors:** Mohammad Shoeybi, Mostofa Patwary, Raul Puri, Patrick LeGresley, Jared Casper, Bryan Catanzaro
+- **Publication:** September 2019
+- **URL:** https://arxiv.org/abs/1909.08053
+- **Why Relevant:** The original Megatron-LM paper introducing simple, efficient intra-layer tensor parallelism implemented with a few communication operations in native PyTorch, training up to 8.3B parameter transformers at 15.1 PetaFLOPs. The foundational work for transformer tensor parallelism.
+
+**Efficient Large-Scale Language Model Training on GPU Clusters Using Megatron-LM**
+- **Authors:** Deepak Narayanan, Mohammad Shoeybi, Jared Casper, Patrick LeGresley, Mostofa Patwary, Vijay Anand Korthikanti, Dmitri Vainbrand, Prethvi Kashinkunti, Julie Bernauer, Bryan Catanzaro, Amar Phanishayee, Matei Zaharia
+- **Publication:** April 2021
+- **URL:** https://arxiv.org/abs/2104.04473
+- **Why Relevant:** Composes tensor, pipeline, and data parallelism to scale to thousands of GPUs, proposing the novel interleaved pipeline-parallelism schedule and demonstrating 1 trillion parameter training at 502 petaFLOP/s on 3072 GPUs. The key resource for 3D parallelism configuration trade-offs.
+
+**Reducing Activation Recomputation in Large Transformer Models**
+- **Authors:** Vijay Korthikanti, Jared Casper, Sangkug Lym, Lawrence McAfee, Michael Andersch, Mohammad Shoeybi, Bryan Catanzaro
+- **Publication:** May 2022
+- **URL:** https://arxiv.org/abs/2205.05198
+- **Why Relevant:** Introduces sequence parallelism and selective activation recomputation for Megatron-LM, reducing activation memory by 5x and recomputation overhead by over 90%, achieving 54.2% MFU on a 530B GPT-3 model. The canonical reference for sequence parallelism.
+
+**NVIDIA: "Megatron-LM and Megatron Core (GitHub Repository)"**
+- **URL:** https://github.com/NVIDIA/Megatron-LM
+- **Description:** Official Megatron-LM and Megatron Core repository -- GPU-optimized transformer building blocks with TP, PP, DP, EP, and CP parallelism strategies plus mixed precision support. The reference implementation for production-scale transformer training.
+
+**PyTorch: "torch.distributed: Distributed Communication Package"**
+- **URL:** https://docs.pytorch.org/docs/stable/distributed.html
+- **Description:** Official documentation for torch.distributed covering backends (gloo, nccl, mpi, xccl), process group initialization, collective operations, DeviceMesh, and new_group creation. The foundational reference for process groups, collectives, and backend selection.
+
+**NVIDIA: "Collective Communications Library (NCCL) Documentation"**
+- **URL:** https://docs.nvidia.com/deeplearning/nccl/
+- **Description:** Official NCCL user guide covering topology-aware multi-GPU collective communication primitives, communication semantics, the API, and usage across single-process, multi-thread, and multi-process contexts. The library underlying PyTorch's GPU distributed collectives.
+
+**PyTorch: "Distributed RPC Framework Documentation"**
+- **URL:** https://docs.pytorch.org/docs/stable/rpc.html
+- **Description:** Official documentation for the distributed RPC framework -- rpc_sync, rpc_async, remote, RRef (remote references), distributed autograd, and distributed optimizer APIs. The canonical resource for parameter-server training and model-parallel training across machine boundaries.
+
+**PyTorch: "torchtitan: A PyTorch Native Platform for Training Generative AI Models"**
+- **URL:** https://github.com/pytorch/torchtitan
+- **Description:** PyTorch-native training platform showcasing FSDP2, async tensor parallelism, zero-bubble pipeline parallelism, context parallelism, Float8/MXFP8, and distributed checkpointing for Llama 3.1 pretraining. The reference clean-room implementation of PyTorch's latest distributed training features.
+
+**TorchTitan: One-stop PyTorch Native Solution for Production Ready LLM Pre-training**
+- **Authors:** Wanchao Liang, Tianyu Liu, Less Wright, Will Constable, Andrew Gu, Chien-Chin Huang, Iris Zhang, Wei Feng, Howard Huang, Junjie Wang, Sanket Purandare, Gokul Nadathur, Stratos Idreos
+- **Publication:** October 2024
+- **URL:** https://arxiv.org/abs/2410.06511
+- **Why Relevant:** The torchtitan paper detailing modular 3D parallelism with elastic scaling, hardware-software co-designed Float8 training and SymmetricMemory, and optimized recipes for Llama 3.1 (8B-405B). Demonstrates 65% acceleration with 1D, 12.6% additional with 2D, and 30% additional with 3D parallelism.
+
+**GShard: Scaling Giant Models with Conditional Computation and Automatic Sharding**
+- **Authors:** Dmitry Lepikhin, HyoukJoong Lee, Yuanzhong Xu, Dehao Chen, Orhan Firat, Yanping Huang, Maxim Krikun, Noam Shazeer, Zhifeng Chen
+- **Publication:** June 2020
+- **URL:** https://arxiv.org/abs/2006.16668
+- **Why Relevant:** Introduces lightweight annotation APIs and XLA compiler extensions for automatic sharding, scaling sparsely-gated Mixture-of-Experts beyond 600 billion parameters on 2048 TPU v3 accelerators. The key reference for expert parallelism (MoE) and compiler-driven sharding at giant scale.
+
+#### Alt Runtimes & Serving
+
+**Apple: "MLX: An Array Framework for Apple Silicon"**
+- **Authors:** Awni Hannun, Jagrit Digani, Angelos Katharopoulos, Ronan Collobert
+- **URL:** https://github.com/mlc-ai/mlx
+- **Description:** Apple's array framework for ML on Apple silicon featuring a unified memory model, lazy computation, dynamic graph construction, composable function transformations (autodiff, vmap), and Python/C++/C/Swift APIs. The canonical reference for on-device training and inference on Apple hardware.
+
+**tinygrad: "For Something Between PyTorch and micrograd"**
+- **Authors:** tiny corp
+- **URL:** https://github.com/tinygrad/tinygrad
+- **Description:** End-to-end deep learning stack with a tensor library, IR and compiler that fuses and lowers kernels, JIT graph execution, and nn/optim/datasets, inspired by PyTorch, JAX, and TVM. Supports OpenCL, CUDA, Metal, AMD, and more with intentionally tiny, hackable code.
+
+**ggml-org: "llama.cpp: LLM Inference in C/C++"**
+- **URL:** https://github.com/ggml-org/llama.cpp
+- **Description:** Dependency-free C/C++ LLM inference optimized for Apple silicon (ARM NEON, Metal), x86 (AVX/AMX), CUDA, Vulkan, and more, with 1.5-8bit quantization, GGUF format, and an OpenAI-compatible server. The playground for the ggml library and the canonical reference for edge/local LLM inference.
+
+**Microsoft: "ONNX Runtime Documentation"**
+- **URL:** https://onnxruntime.ai/docs/
+- **Description:** Cross-platform ML model accelerator with a flexible Execution Provider interface for hardware-specific libraries (CUDA, TensorRT, OpenVINO, CoreML, ROCm, DirectML, WebGPU). Covers graph optimizations, quantization, training, and the Generate API for LLM inference.
+
+**NVIDIA: "TensorRT LLM"**
+- **URL:** https://github.com/NVIDIA/TensorRT-LLM
+- **Description:** NVIDIA's open-sourced library for optimizing LLM and visual generation inference with custom kernels (attention, GEMMs, MoE), runtime optimizations (prefill-decode disaggregation, wide expert parallelism, speculative decoding), and a PyTorch-native Python API.
+
+**Hugging Face: "Text Generation Inference (TGI)"**
+- **URL:** https://github.com/huggingface/text-generation-inference
+- **Description:** Hugging Face's Rust/Python/gRPC server for LLM text generation, now in maintenance mode, featuring tensor parallelism, continuous batching, Flash/Paged Attention, quantization (bitsandbytes, GPTQ, AWQ, Marlin, fp8), speculation, and OpenTelemetry tracing. HF now recommends vLLM and SGLang downstream.
+
+**Hugging Face: "candle: Minimalist ML Framework for Rust"**
+- **URL:** https://github.com/huggingface/candle
+- **Description:** Minimalist ML framework in Rust with a focus on serverless inference and performance -- CPU (MKL/Accelerate), CUDA (NCCL multi-GPU), Metal, and WASM backends, plus PyTorch-like syntax and quantized LLM support.
+
+**tracel-ai: "Burn: A Next Generation Tensor Library and Deep Learning Framework"**
+- **URL:** https://github.com/tracel-ai/burn
+- **Description:** Rust tensor library and DL framework unifying training and inference in a single codebase via a Backend trait with swappable backends (CUDA, ROCm, Metal, Vulkan, WebGPU, CPU, no_std), Autodiff and Fusion decorators, and CubeCL GPU compute.
+
+**MLC team: "MLC LLM: Universal LLM Deployment Engine with ML Compilation"**
+- **URL:** https://github.com/mlc-ai/mlc-llm
+- **Description:** ML compiler and high-performance deployment engine for LLMs built on TVM, TensorIR, and MetaSchedule, enabling native deployment across AMD/NVIDIA/Apple/Intel GPUs, web (WebGPU/WASM), iOS, and Android via the unified MLCEngine.
+
+**InternLM: "LMDeploy: A Toolkit for Compressing, Deploying, and Serving LLMs"**
+- **URL:** https://github.com/InternLM/lmdeploy
+- **Description:** Toolkit with two inference engines -- TurboMind (C++ for ultimate performance with Paged Attention, flash decoding, W4A16) and PyTorch (Python for flexibility) -- delivering up to 1.8x higher throughput than vLLM with continuous batching, blocked KV cache, and tensor parallelism.
+
+**Modular: "Mojo Documentation"**
+- **URL:** https://docs.modular.com/mojo/
+- **Description:** Official documentation for Mojo, a compiled, statically-typed language designed for high-performance CPU and GPU programming with Python interop, compile-time metaprogramming, and memory safety. Modular's AI-native language that writes like Python and runs like C++.
+
+---
+
+### 18. GPU Architecture & Kernels
+
+#### GPU Architecture & CUDA
+
+**NVIDIA: "CUDA C++ Programming Guide"**
+- **URL:** https://docs.nvidia.com/cuda/cuda-c-programming-guide/
+- **Description:** The canonical NVIDIA reference for the CUDA programming model -- threads/blocks/grids, memory hierarchy (HBM, L1/L2, shared memory, registers), warp-level primitives, cooperative groups, CUDA streams/events, CUDA graphs, async memory copies, and TMA. The single most authoritative source for the CUDA programming model and its hardware mapping.
+
+**NVIDIA: "NVIDIA Hopper Architecture In-Depth"**
+- **Authors:** Michael Andersch, Greg Palmer, Ronny Krashinsky, Nick Stam, Vishal Mehta, Gonzalo Brito, Sridhar Ramaswamy
+- **Publication:** March 22, 2022
+- **URL:** https://developer.nvidia.com/blog/nvidia-hopper-architecture-in-depth/
+- **Why Relevant:** The definitive Hopper architecture blog covering the new SM, fourth-generation Tensor Cores, FP8, thread block clusters, distributed shared memory, the Tensor Memory Accelerator (TMA), asynchronous transaction barriers, HBM3, the transformer engine, and fourth-gen NVLink/NVSwitch (900 GB/sec, 64-port NVSwitch).
+
+**NVIDIA: "NVIDIA Blackwell Architecture Sweeps MLPerf Training v5.1 Benchmarks"**
+- **Authors:** Ashraf Eassa, Sukru Burc Eryilmaz
+- **Publication:** November 12, 2025
+- **URL:** https://developer.nvidia.com/blog/nvidia-blackwell-architecture-sweeps-mlperf-training-v5-1-benchmarks/
+- **Why Relevant:** NVIDIA technical blog detailing Blackwell and Blackwell Ultra GPU architecture features including NVFP4 hardware acceleration, 2x softmax SFU, larger HBM3e capacity, and the FP4 training recipes that powered record MLPerf results.
+
+**NVIDIA: "PTX ISA Documentation (Parallel Thread Execution)"**
+- **URL:** https://docs.nvidia.com/cuda/parallel-thread-execution/
+- **Description:** The low-level PTX ISA reference, documenting wgmma.mma_async (WGMMA), cp.async.bulk.tensor (TMA), mbarrier, tcgen05 (Blackwell 5th-gen tensor cores), and all warp/warpgroup MMA instructions. Essential for anyone writing Hopper/Blackwell kernels below the CUTLASS/CuTe abstraction.
+
+**NVIDIA: "CUDA C++ Programming Guide - Asynchronous Data Copies using TMA"**
+- **URL:** https://docs.nvidia.com/cuda/cuda-c-programming-guide/#asynchronous-data-copies-using-the-tensor-memory-accelerator-tma
+- **Description:** The CUDA Programming Guide section specifically covering TMA -- 1D and multi-dimensional tensor transfers, copy descriptors, TMA swizzle modes (with the matrix-transpose example), and device-side tensor-map encoding/modification. The official programming-model description of the TMA unit.
+
+**NVIDIA: "CUDA C++ Programming Guide - Cooperative Groups"**
+- **URL:** https://docs.nvidia.com/cuda/cuda-c-programming-guide/#cooperative-groups
+- **Description:** The CUDA Programming Guide chapter on Cooperative Groups -- implicit groups (thread block, cluster, grid), explicit groups (thread-block tiles, coalesced groups), partitioning, collectives (sync, memcpy_async, reduce, scan), and grid synchronization.
+
+**Horace He: "Making Deep Learning Go Brrrr From First Principles"**
+- **Author:** Horace He
+- **Publication:** 2021
+- **URL:** https://horace.io/brrr_intro.html
+- **Why Relevant:** The foundational blog post on reasoning about GPU performance from first principles -- compute-bound vs memory-bandwidth-bound vs overhead regimes, operator fusion, tensor cores, and why non-matmul ops are the real bottleneck. Widely cited (including by FlashAttention-3) as the canonical "GPUs go brrr" reference.
+
+**Hazy Research: "GPUs Go Brrr"**
+- **Authors:** Benjamin Spector, Aaryan Singhal, Simran Arora, Chris Re
+- **Publication:** May 12, 2024
+- **URL:** https://hazyresearch.stanford.edu/blog/2024-05-12-tk
+- **Why Relevant:** Hazy Research's blog post dissecting what the H100 hardware "wants" -- WGMMA instructions, shared memory latency and bank conflicts, address generation costs, TMA, and occupancy. Released alongside ThunderKittens, it is a practitioner's guide to keeping Hopper tensor cores fed and the case for tile-based abstractions.
+
+**Lei Mao: "CUDA - Lei Mao's Log Book (Tag Index)"**
+- **Author:** Lei Mao
+- **URL:** https://leimao.github.io/tags/CUDA/
+- **Description:** Lei Mao's deep-dive CUDA blog series covering tensor core MMA instruction layouts (TN layout), benchmarking peak MMA performance with CUTLASS/CuTe, CUDA shared memory bank-conflict-free vectorized access, CUDA rendezvous streams, CUDA graph capture, and CuTe arithmetic tuple tensors. Exceptionally detailed engineering write-ups grounded in the PTX ISA.
+
+#### GPU Kernel Libraries
+
+**triton-lang: "Triton (Development Repository)"**
+- **Authors:** Philippe Tillet et al.
+- **URL:** https://github.com/triton-lang/triton
+- **Description:** Official Triton language and compiler repository. Triton is an open-source DSL for writing GPU kernels at higher productivity than CUDA with MLIR-based codegen for NVIDIA (CC 8.0+) and AMD GPUs. Includes links to tutorials, the MAPL2019 foundational paper, and the Triton Developer Conference materials.
+
+**Triton: "Triton Tutorials"**
+- **URL:** https://triton-lang.org/main/getting-started/tutorials/index.html
+- **Description:** Official Triton tutorial gallery covering vector add, fused softmax, matrix multiplication, low-memory dropout, layer norm, fused attention (FlashAttention in Triton), grouped GEMM, persistent matmul, and block-scaled matmul. The best hands-on entry point for learning tile-based GPU programming.
+
+**NVIDIA: "CUTLASS (CUDA Templates and Python DSLs for High-Performance Linear Algebra)"**
+- **URL:** https://github.com/NVIDIA/cutlass
+- **Description:** NVIDIA's official header-only C++ template library and CuTe DSL for high-performance GEMM and related linear algebra across Volta through Blackwell. Supports FP8, NVFP4, MXFP4/6/8, WGMMA, TMA, grouped GEMM, and EVT epilogue fusion. The reference implementation for production-grade tensor-core kernels.
+
+**NVIDIA: "CUTLASS Documentation (media/docs)"**
+- **URL:** https://github.com/NVIDIA/cutlass/tree/main/media/docs
+- **Description:** The CUTLASS markdown documentation directory, containing the quickstart, efficient GEMM in CUDA, CUTLASS 3.x design, GEMM API, CuTe layout/tensor docs, grouped kernel schedulers, and Blackwell-specific functionality. The authoritative written guide to the CUTLASS/CuTe architecture.
+
+**NVIDIA: "Getting Started With CuTe"**
+- **URL:** https://docs.nvidia.com/cutlass/latest/media/docs/cpp/cute/00_quickstart.html
+- **Description:** The official CuTe (CUTLASS 3.0+ core library) quickstart and tutorial index -- Layout, layout algebra, Tensor, algorithms, MMA atoms, the GEMM-from-scratch tutorial, predication, and TMA tensors. The canonical entry point for the Layout/Tensor abstractions that underpin modern Hopper/Blackwell kernels.
+
+**NVIDIA: "CuTe DSL (CUTLASS Python DSL)"**
+- **URL:** https://docs.nvidia.com/cutlass/latest/media/docs/pythonDSL/overview.html
+- **Description:** The CuTe DSL documentation -- a Python-native interface for writing high-performance CUDA kernels based on CuTe Layout/Tensor/atom abstractions, with AoT cross-compilation, JIT caching, autotuning, and framework integration. Exposes TMA, WGMMA, and tcgen05 (Blackwell).
+
+**NVIDIA: "CUTLASS Efficient GEMM in CUDA"**
+- **URL:** https://docs.nvidia.com/cutlass/latest/media/docs/cpp/efficient_gemm.html
+- **Description:** The CUTLASS markdown explaining how to implement efficient GEMM in CUDA -- hierarchical tiling decomposition, warp specialization (producer/consumer TMA + WGMMA), pipelining, and the Hopper-specific kernel structure. Referenced by the FA3 blog as the canonical explanation of warp-specialized GEMM.
+
+**NVIDIA: "cuDNN Documentation"**
+- **URL:** https://docs.nvidia.com/deeplearning/cudnn/
+- **Description:** Official NVIDIA cuDNN documentation covering the graph API, scaled dot-product attention, grouped GEMM fusions (SwiGLU, GLU, quant), block scaling, MoE grouped matmul, RoPE, and Blackwell SM100 GEMM/attention fusions. NVIDIA's production library for fused DNN primitives.
+
+**NVIDIA: "cuBLAS Documentation (v13.3)"**
+- **URL:** https://docs.nvidia.com/cuda/cublas/
+- **Description:** Official NVIDIA cuBLAS API reference covering GEMM, GEMMEx, grouped/strided batched GEMM, cuBLASLt (the lightweight matmul library with heuristics), tensor core usage, FP8 block scaling, and FP4 data types.
+
+**FlashAttention: Fast and Memory-Efficient Exact Attention with IO-Awareness**
+- **Authors:** Tri Dao, Daniel Y. Fu, Stefano Ermon, Atri Rudra, Christopher Re
+- **Publication:** May 27, 2022
+- **URL:** https://arxiv.org/abs/2205.14135
+- **Why Relevant:** The original FlashAttention paper introducing IO-aware tiling that reduces HBM reads/writes between GPU HBM and on-chip SRAM, yielding 2-4x wallclock speedup and linear memory in sequence length, plus block-sparse attention. The foundational reference for all modern exact-attention kernel design.
+
+**Dao-AILab: "FlashAttention (Official Repository, FA1/2/3/4)"**
+- **Authors:** Tri Dao et al.
+- **URL:** https://github.com/Dao-AILab/flash-attention
+- **Description:** The official FlashAttention repository implementing FA1, FA2 (Ampere/Ada/Hopper), FA3 (Hopper-only, WGMMA/TMA/FP8), and FA4 (CuTeDSL for Hopper+Blackwell). Contains the reference CUDA/CuTe kernels, benchmark harnesses, and links to the FA2 and FA3 papers.
+
+**FlashAttention-2: Faster Attention with Better Parallelism and Work Partitioning**
+- **Author:** Tri Dao
+- **Publication:** 2023
+- **URL:** https://tridao.me/publications/flash2/flash2.pdf
+- **Why Relevant:** The FlashAttention-2 paper improving work partitioning around the matmul softmax reduction and parallelism across sequence length and head dimension to reach ~70% of A100 theoretical max FLOPS. The reference for the FA2 algorithmic refinements over FA1.
+
+**Tri Dao: "FlashAttention-3: Fast and Accurate Attention with Asynchrony and Low-precision (Blog)"**
+- **Author:** Tri Dao
+- **Publication:** July 11, 2024
+- **URL:** https://tridao.me/blog/2024/flash3/
+- **Why Relevant:** Tri Dao's blogpost explaining FlashAttention-3 on Hopper -- WGMMA, TMA, FP8, warp-specialization producer/consumer patterns, inter-warpgroup pingpong scheduling, intra-warpgroup GEMM/softmax overlapping, and incoherent processing (Hadamard) for FP8. Reaches 740 TFLOPS FP16 and ~1.2 PFLOPS FP8.
+
+**FlashAttention-3: Fast and Accurate Attention with Asynchrony and Low-precision (Paper)**
+- **Authors:** Tri Dao, Daniel Y. Fu
+- **Publication:** July 11, 2024
+- **URL:** https://tridao.me/publications/flash3/flash3.pdf
+- **Why Relevant:** The FlashAttention-3 paper formalizing the Hopper optimizations (WGMMA, TMA, FP8, warp-specialization, pingpong and 2-stage pipelining, incoherent processing via Hadamard). Includes the numerical-error analysis showing 2.6x smaller FP8 quantization error versus baseline FP8 attention.
+
+**Hazy Research: "ThunderKittens (Tile primitives for speedy kernels)"**
+- **Authors:** Benjamin Spector, Aaryan Singhal, Simran Arora, Chris Re
+- **URL:** https://github.com/HazyResearch/ThunderKittens
+- **Description:** Hazy Research's embedded CUDA DSL built around register/shared tiles (16x16 minimum), exposing WGMMA, TMA, distributed shared memory, and NVLink/NVSwitch primitives. Includes FA3, GEMM, linear-attention, and multi-GPU kernels; TK 2.0 adds Blackwell (SM100/SM120) support with MXFP8 and NVFP4.
+
+**NVIDIA: "Transformer Engine"**
+- **URL:** https://github.com/NVIDIA/TransformerEngine
+- **Description:** NVIDIA's library for accelerating Transformer models with FP8 (Hopper/Ada/Blackwell), MXFP8 and NVFP4 (Blackwell), fused layers, grouped linear (MoE), attention with FlashAttention-2/3, and distributed training support. The library used in NVIDIA's MLPerf submissions.
+
+**NVIDIA: "Transformer Engine User Guide - Getting Started"**
+- **URL:** https://docs.nvidia.com/deeplearning/transformer-engine/user-guide/getting_started/index.html
+- **Description:** Official Transformer Engine documentation covering installation, FP8 current/delayed/blockwise scaling, MXFP8, NVFP4 (with stochastic rounding and Random Hadamard Transform), CPU offloading, CUDA graphs, the operation fuser API, and tutorials for Llama, Gemma, and Mixtral MoE.
+
+---
+
+### 19. Inference & Serving
+
+#### Inference / Serving Optimizations
+
+**vLLM: "Easy, Fast, and Cheap LLM Serving with PagedAttention"**
+- **Authors:** Woosuk Kwon, Zhuohan Li, Siyuan Zhuang, Ying Sheng, Lianmin Zheng, Cody Yu, Joey Gonzalez, Hao Zhang, Ion Stoica
+- **Publication:** June 20, 2023
+- **URL:** https://blog.vllm.ai/2023/06/20/vllm.html
+- **Why Relevant:** Original vLLM launch blog introducing PagedAttention, which applies OS-style virtual memory paging to KV cache management and eliminates memory fragmentation waste, enabling up to 24x throughput over HF Transformers.
+
+**Efficient Memory Management for Large Language Model Serving with PagedAttention**
+- **Authors:** Woosuk Kwon, Zhuohan Li, Siyuan Zhuang, Ying Sheng, Lianmin Zheng, Cody Hao Yu, Joseph E. Gonzalez, Hao Zhang, Ion Stoica
+- **Publication:** September 2023
+- **URL:** https://arxiv.org/abs/2309.06180
+- **Why Relevant:** The SOSP 2023 paper formalizing PagedAttention and vLLM, the canonical reference for KV cache paging and near-zero memory waste serving that underpins modern LLM inference engines.
+
+**SGLang: "High-Performance Serving Framework for LLMs and Multimodal Models"**
+- **Authors:** SGLang / LMSYS Team
+- **URL:** https://github.com/sgl-project/sglang
+- **Description:** SGLang repository for the high-performance serving framework featuring RadixAttention prefix caching, zero-overhead CPU scheduler, prefill-decode disaggregation, speculative decoding, and TP/PP/EP/DP parallelism. Now the de facto industry standard deployed on over 400,000 GPUs.
+
+**SGLang: Efficient Execution of Structured Language Model Programs**
+- **Authors:** Lianmin Zheng, Liangsheng Yin, Zhiqiang Xie, Chuyue Sun, Jeff Huang, Cody Hao Yu, Shiyi Cao, Christos Kozyrakis, Ion Stoica, Joseph E. Gonzalez, Clark Barrett, Ying Sheng
+- **Publication:** December 2023
+- **URL:** https://arxiv.org/abs/2312.07104
+- **Why Relevant:** The SGLang paper introducing RadixAttention for KV cache reuse and compressed finite state machines for faster structured output decoding, achieving up to 6.4x higher throughput. The foundational reference for SGLang's RadixAttention design.
+
+**Medusa: Simple LLM Inference Acceleration Framework with Multiple Decoding Heads**
+- **Authors:** Tianle Cai, Yuhong Li, Zhengyang Geng, Hongwu Peng, Jason D. Lee, Deming Chen, Tri Dao
+- **Publication:** January 2024
+- **URL:** https://arxiv.org/abs/2401.10774
+- **Why Relevant:** Speculative decoding approach that adds parallel prediction heads to predict multiple future tokens and verify them with tree attention, achieving 2.2-3.6x speedup without a separate draft model.
+
+**EAGLE: Speculative Sampling Requires Rethinking Feature Uncertainty**
+- **Authors:** Yuhui Li, Fangyun Wei, Chao Zhang, Hongyang Zhang
+- **Publication:** January 2024
+- **URL:** https://arxiv.org/abs/2401.15077
+- **Why Relevant:** Speculative sampling framework that predicts at the second-to-top-layer feature level with a one-step-advanced token sequence, reaching 2.7-3.5x latency speedup on LLaMA2-Chat 70B while preserving output distribution.
+
+**GQA: Training Generalized Multi-Query Transformer Models from Multi-Head Checkpoints**
+- **Authors:** Joshua Ainslie, James Lee-Thorp, Michiel de Jong, Yury Zemlyanskiy, Federico Lebron, Sumit Sanghai
+- **Publication:** May 2023
+- **URL:** https://arxiv.org/abs/2305.13245
+- **Why Relevant:** Introduces grouped-query attention, the KV-head-count optimization that reduces KV cache size and decoding memory bandwidth while preserving quality; now standard in Llama and most modern LLMs.
+
+**GPTQ: Accurate Post-Training Quantization for Generative Pre-trained Transformers**
+- **Authors:** Elias Frantar, Saleh Ashkboos, Torsten Hoefler, Dan Alistarh
+- **Publication:** October 2022
+- **URL:** https://arxiv.org/abs/2210.17323
+- **Why Relevant:** One-shot weight-only post-training quantization using approximate second-order information, quantizing 175B-parameter models to 3-4 bits in ~4 GPU hours; the ICLR 2023 reference for GPTQ-style INT4 weight quantization.
+
+**AWQ: Activation-aware Weight Quantization for LLM Compression and Acceleration**
+- **Authors:** Ji Lin, Jiaming Tang, Haotian Tang, Shang Yang, Wei-Ming Chen, Wei-Chen Wang, Guangxuan Xiao, Xingyu Dang, Chuang Gan, Song Han
+- **Publication:** June 2023
+- **URL:** https://arxiv.org/abs/2306.00978
+- **Why Relevant:** Activation-aware weight-only 4-bit quantization that protects the 1% salient weight channels identified from activation statistics; MLSys 2024 best paper and the canonical AWQ reference.
+
+**SmoothQuant: Accurate and Efficient Post-Training Quantization for Large Language Models**
+- **Authors:** Guangxuan Xiao, Ji Lin, Mickael Seznec, Hao Wu, Julien Demouth, Song Han
+- **Publication:** November 2022
+- **URL:** https://arxiv.org/abs/2211.10438
+- **Why Relevant:** Training-free W8A8 PTQ that smooths activation outliers by migrating quantization difficulty to weights via an equivalent scaling transformation; ICML 2023 reference enabling INT8 matmuls across all linear layers.
+
+**Mooncake: A KVCache-centric Disaggregated Architecture for LLM Serving**
+- **Authors:** Ruoyu Qin, Zheming Li, Weiran He, Mingxing Zhang, Yongwei Wu, Weimin Zheng, Xinran Xu
+- **Publication:** June 2024
+- **URL:** https://arxiv.org/abs/2407.00079
+- **Why Relevant:** Production serving platform for Moonshot AI's Kimi that disaggregates prefill and decode clusters and builds a disaggregated KV cache store on CPU/DRAM/SSD, achieving up to 525% throughput gains in long-context scenarios.
+
+**DistServe: Disaggregating Prefill and Decoding for Goodput-optimized Large Language Model Serving**
+- **Authors:** Yinmin Zhong, Shengyu Liu, Junda Chen, Jianbo Hu, Yibo Zhu, Xuanzhe Liu, Xin Jin, Hao Zhang
+- **Publication:** January 2024
+- **URL:** https://arxiv.org/abs/2401.09670
+- **Why Relevant:** OSDI 2024 paper that assigns prefill and decoding to different GPUs, co-optimizing per-phase parallelism and resource allocation to eliminate prefill-decode interference and serve 7.4x more requests within TTFT/TPOT SLOs.
+
+**SARATHI: Efficient LLM Inference by Piggybacking Decodes with Chunked Prefills**
+- **Authors:** Amey Agrawal, Ashish Panwar, Jayashree Mohan, Nipun Kwatra, Bhargav S. Gulavani, Ramachandran Ramjee
+- **Publication:** August 2023
+- **URL:** https://arxiv.org/abs/2308.16369
+- **Why Relevant:** Introduces chunked-prefills and decode-maximal batching so decode tokens piggyback on a compute-saturating prefill chunk, improving decode throughput up to 10x and reducing pipeline-parallelism bubbles. The canonical chunked-prefill reference.
+
+**Efficient Streaming Language Models with Attention Sinks**
+- **Authors:** Guangxuan Xiao, Yuandong Tian, Beidi Chen, Song Han, Mike Lewis
+- **Publication:** September 2023
+- **URL:** https://arxiv.org/abs/2309.17453
+- **Why Relevant:** ICLR 2024 paper identifying attention sinks (initial tokens absorbing excess attention) and proposing StreamingLLM, which keeps only sink tokens plus a sliding window to enable stable inference over 4M+ tokens with up to 22.2x speedup.
+
+**Break the Sequential Dependency of LLM Inference Using Lookahead Decoding**
+- **Authors:** Yichao Fu, Peter Bailis, Ion Stoica, Hao Zhang
+- **Publication:** February 2024
+- **URL:** https://arxiv.org/abs/2402.02057
+- **Why Relevant:** Parallel decoding algorithm that eliminates the need for a draft model by trading extra per-step FLOPs for fewer decoding steps, achieving up to 1.8x speedup on MT-bench and 4x on multi-GPU code completion.
+
+#### Profiling & Tooling
+
+**NVIDIA: "Nsight Systems Documentation"**
+- **URL:** https://docs.nvidia.com/nsight-systems/
+- **Description:** Official documentation for NVIDIA Nsight Systems, the system-wide profiler for CPU/GPU timeline analysis, CUDA kernel timing, NVTX, and NCCL tracing; the standard tool for end-to-end GPU application profiling.
+
+**NVIDIA: "Nsight Compute Documentation"**
+- **URL:** https://docs.nvidia.com/nsight-compute/
+- **Description:** Official documentation for NVIDIA Nsight Compute, the kernel-level profiler providing per-kernel metrics, roofline analysis, occupancy calculations, and source-annotated timing for single CUDA kernel optimization.
+
+**PyTorch: "PyTorch Profiler Recipe"**
+- **Authors:** Shivam Raikundalia / PyTorch Contributors
+- **Publication:** January 29, 2021
+- **URL:** https://docs.pytorch.org/tutorials/recipes/recipes/profiler_recipe.html
+- **Description:** Official PyTorch tutorial covering torch.profiler usage for CPU/CUDA/XPU operator timing, memory profiling, Chrome trace export, stack traces, and scheduled long-running-job tracing; the canonical entry point for torch.profiler.
+
+**PyTorch: "torch.profiler API Reference"**
+- **URL:** https://docs.pytorch.org/docs/stable/profiler.html
+- **Description:** Official API reference for torch.profiler.profile, ProfilerActivity, record_function, schedule, and export_chrome_trace, the underlying primitives for CUDA event timing and Kineto-based trace collection in PyTorch.
+
+---
+
 ## Appendix
 
 ### Tools & Repositories
@@ -3291,7 +3787,10 @@ All tools, SDKs, libraries, and repositories referenced throughout this document
 | Human-in-the-Loop | 0 | 9 | 0 | 9+ |
 | Safety & Alignment | 1 | 19 | 2 | 22+ |
 | Skills & Capabilities | 2 | 13 | 54 | 69+ |
-| **Total** | **31** | **359** | **146** | **536+** |
+| DL Framework Internals | 17 | 22 | 10+ | 49+ |
+| GPU Architecture & Kernels | 8 | 18 | 11 | 26+ |
+| Inference & Serving | 14 | 5 | 4 | 19+ |
+| **Total** | **70** | **404** | **179+** | **629+** |
 
 ---
 
@@ -3319,13 +3818,18 @@ For practitioners starting with agentic system design:
 11. **Browser Automation:** Experiment with PinchTab and Playwright
 12. **Sandboxing:** Deploy E2B or Firecracker for secure execution
 
+#### Phase 5: Foundations (ongoing, as needed)
+13. **DL Framework Internals:** Read the PyTorch dispatcher post, GPT Fast, and the JAX jaxpr/shard_map docs
+14. **GPU Architecture & Kernels:** Study the Hopper architecture blog, FlashAttention papers, and Triton tutorials
+15. **Inference & Serving:** Read PagedAttention (vLLM), SGLang's RadixAttention, and the disaggregated inference papers (Mooncake, DistServe)
+
 ---
 
 ## Contributing
 
 To contribute corrections or additions, please reference the source URLs provided with each resource. This document is a living compilation updated regularly to reflect the rapidly evolving field of agentic system design.
 
-**Last Updated:** June 30, 2026
+**Last Updated:** June 30, 2026 (foundations sections added)
 
 ---
 
